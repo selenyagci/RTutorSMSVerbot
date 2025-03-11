@@ -60,8 +60,8 @@ Diese zentralen Fragestellungen werden in diesem interaktiven R-Tutor-Problemset
 
 Das vorliegende Problemset wurde auf den folgenden Webseiten veröffentlicht:
 
-+ **GitHub**: 
-+ **ShinyApps**: 
++ **GitHub**: <https://github.com/selenyagci/RTutorSMSVerbot>
++ **ShinyApps**: <https://zcjpyd-selenyagci.shinyapps.io/RTutorSMSVerbot/>
 
 Im Rahmen des Problemsets werden die wesentlichen Ergebnisse der Autoren mithilfe der statistischen Programmiersprache R repliziert. Dabei werde ich auf den Artikel als „Abouk & Adams (2013)“, „die Autoren“ oder „Hauptartikel“ verweisen. Das Problemset wurde in deutscher Sprache verfasst, während dieser Artikel auf Englisch veröffentlicht wurde. Die Variablen der Datensätze sind daher ebenfalls auf Englisch, weshalb die originalen Variablennamen unverändert übernommen wurden. Die Begriffe *(Staggered) Difference-in-Differences* und *Lead-* und *Lag-Effekte* werden in diesem Problemset bewusst in ihrer englischen Form beibehalten, da diese in der wissenschaftlichen Literatur weit verbreitet sind und eine höhere Verständlichkeit bieten. Der Begriff *Fixed Effects* wird hingegen als **Fixeffekte** übersetzt, da diese Bezeichnung näher am englischen Original liegt. 
 
@@ -2858,8 +2858,7 @@ model2b_2 = lm_robust(laccidentsvso2 ~ lead5sb + lead4sb + lead3sb + lead2sb + l
            lead5wb + lead4wb + lead3wb + lead2wb + lead1wb + 
             lag1wb + lag2wb + lag3wb + lag4wb + lag5pwb + 
             lpop + lunemp + permale2 + lrgastax + laccidentmv2 +  stb1 + stb2 + stb3 + 
-            stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 + 
-            stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + 
+            stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 +     stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + 
             stb25 + stb26 + stb27 + stb28 + stb29 + stb30 + stb31 + stb32 + stb33 + stb34 + 
             stb35 + stb36 + stb37 + stb38 + stb39 + stb40 + stb41 + stb42 + stb43 + stb44 + 
             stb45 + stb46 + stb47 + stb48 + stb49 + stb50 + stb51 + time + stt1 + stt2 + stt3 + 
