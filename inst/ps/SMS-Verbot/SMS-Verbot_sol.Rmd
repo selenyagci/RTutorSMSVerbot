@@ -54,7 +54,7 @@ failure: Das war leider nicht richtig. Versuchen Sie es noch einmal!
 Die Karikatur vermittelt eine klare Botschaft: Das Schreiben und Lesen von SMS während des Fahrens kann schwerwiegende Folgen haben. Sie stellt einen Autofahrer dar, der durch sein Smartphone abgelenkt ist, während der Sensenmann, der den Tod symbolisiert, direkt hinter ihm im Auto sitzt und mit ihm schreibt. Diese bildliche Darstellung zeigt, wie gefährlich das Schreiben und Lesen von SMS während der Fahrt ist und wie schnell eine solche Ablenkung in einer Tragödie enden kann. Des Weiteren regt sie zum Nachdenken an und wirft die Frage auf, welche Maßnahmen ergriffen werden können, um diese Gefahr zu reduzieren.
 Eine häufig eingesetzte Maßnahme ist die Einführung gesetzlicher Verbote für das Schreiben und Lesen von SMS am Steuer.
 
-Allerdings bleibt unklar, **ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Falls ja, stellt sich die Frage, ob die Fahrer\*innen nur kurzfristig auf die Ankündigung dieser Verbote reagieren und nach einiger Zeit zu ihrem ursprünglichen Verhalten zurückkehren, oder ob sie ihr Verhalten langfristig ändern und das Schreiben sowie Lesen von Nachrichten während der Fahrt dauerhaft vermeiden.**
+Allerdings bleibt unklar, **ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Falls ja, stellt sich die Frage, ob Fahrer\*innen ihr Verhalten langfristig ändern oder lediglich kurzfristig auf die Ankündigung dieser Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren.** 
 
 Diese zentralen Fragestellungen werden in diesem interaktiven R-Tutor-Problemset untersucht, das Teil meiner Bachelorarbeit an der Universität Ulm ist. Es basiert auf dem Artikel von Rahi Abouk und Scott Adams (2013) mit dem Titel ["Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans?"](https://www.aeaweb.org/articles?id=10.1257/app.5.2.179). Ziel dieses Problemsets ist es, den Effekt von SMS-Verboten auf tödliche Verkehrsunfälle mithilfe der  **Difference-in-Differences-Methode** zu analysieren. Wir konzentrieren uns dabei auf Unfälle, bei denen nur ein Fahrzeug und der Fahrer als einziger Insasse beteiligt sind, da diese Unfälle am wahrscheinlichsten durch abgelenkte Fahrer verursacht werden, die während der Fahrt Nachrichten versenden.
 
@@ -65,7 +65,7 @@ Das vorliegende Problemset wurde auf den folgenden Webseiten veröffentlicht:
 
 Im Rahmen des Problemsets werden die wesentlichen Ergebnisse der Autoren mithilfe der statistischen Programmiersprache R repliziert. Dabei werde ich auf den Artikel als „Abouk & Adams (2013)“, „die Autoren“ oder „Hauptartikel“ verweisen. Das Problemset wurde in deutscher Sprache verfasst, während dieser Artikel auf Englisch veröffentlicht wurde. Die Variablen der Datensätze sind daher ebenfalls auf Englisch, weshalb die originalen Variablennamen unverändert übernommen wurden. Die Begriffe *(Staggered) Difference-in-Differences* und *Lead-* und *Lag-Effekte* werden in diesem Problemset bewusst in ihrer englischen Form beibehalten, da diese in der wissenschaftlichen Literatur weit verbreitet sind und eine höhere Verständlichkeit bieten. Der Begriff *Fixed Effects* wird hingegen als **Fixeffekte** übersetzt, da diese Bezeichnung näher am englischen Original liegt. 
 
-Das Problemset setzt sich aus 8 Kapiteln zusammen:
+Das Problemset setzt sich aus 9 Kapiteln zusammen:
 
 ## Exercise Inhalt  
 
@@ -558,7 +558,7 @@ Zur Visualisierung der Ergebnisse nutzen wir erneut das Paket `ggplot2`, um ein 
 
 <b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter `____` durch den Namen der Variablen, die sowohl auf der x-Achse angezeigt als auch in der Funktion `group_by()` verwendet werden soll.
 
-```{r "2_e"}
+```{r "2_e", fig.height=6, fig.width=8}
 
 #< fill_in
 library("ggplot2")
@@ -970,7 +970,7 @@ Nun können wir das Diagramm erstellen. Zur Visualisierung verwenden wir das Pak
 
 <b style="color:navy">Aufgabe:</b> Führen Sie den folgenden Chunk aus, in dem Sie auf `check` drücken. 
 
-```{r "3_g"}
+```{r "3_g", fig.height=6, fig.width=8}
 #< task_notest
 library("ggplot2")
 
@@ -985,9 +985,9 @@ pt_plot = ggplot(data_pt, aes(x = date, y = accsvso, color = group, group = grou
   scale_x_date(date_breaks = "4 months", date_labels = "%b %Y") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1), 
-         legend.position = "none", plot.caption = element_text(hjust = 0.5)) +
+         legend.position = "bottom", plot.caption = element_text(hjust = 0.5)) +
   labs(title = "Abbildung 3.1: Annahme paralleler Trends", x = "Monat", 
-       y = " Anzahl der Verkehrsunfälle mit einem Fahrzeug & Fahrer ", color = NULL, caption = "Quelle: Eigene Darstellung") 
+       y = " Anzahl der Verkehrsunfälle mit einem Fahrzeug & Fahrer ", fill = "", color = NULL, caption = "Quelle: Eigene Darstellung") 
 pt_plot
 
 #>
@@ -2241,15 +2241,15 @@ Die Studie des Highway Loss Data Institute (HLDI, 2010) untersucht ebenfalls sta
 
 In diesem Kapitel prüften wir die Robustheit der Ergebnisse für starke SMS-Verbote anhand mehrerer Regressionen. Die Resultate sind in einer Tabelle zusammengefasst, die mit `knitr` und `kableExtra` erstellt wurde. Die Analyse zeigt, dass diese Verbote die Gesamtzahl der Unfälle verringern, jedoch nur einen geringen Einfluss auf Unfälle mit mehreren Fahrzeugen oder Insassen, gefahrene Fahrzeugmeilen sowie Unfälle pro Million gefahrene Fahrzeugmeilen haben. Weiterhin zeigen die Ergebnisse, dass starke SMS-Verbote zu einer Reduktion von Unfällen mit einem einzelnen Fahrzeug führen. Zusätzliche Analysen, die Daten bis 2009, den DDD-Ansatz sowie Modelle mit Fixeffekten für die Jahre 2007 bis 2010 und einzelne Monate einbeziehen, bestätigten eine signifikante Reduktion dieser Unfälle. In Bundesstaaten mit zusätzlichem Handyverbot ist der Rückgang dieser Unfälle stärker ausgeprägt als in Bundesstaaten ohne ein solches Verbot. Negative binomiale Regressionen zeigen schwächere, nicht signifikante Effekte
 
-Die erste Forschungsfrage war, ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Die Ergebnisse dieser Hauptanalyse in den Kapiteln 5 und 6 zeigen, dass diese zentrale Frage bejaht werden kann. Nun gilt es zu klären, ob die Fahrer*innen nur kurzfristig auf die Ankündigung dieser Verbote reagieren und nach einiger Zeit zu ihrem ursprünglichen Verhalten zurückkehren, oder ob sie ihr Verhalten langfristig ändern und das Schreiben sowie Lesen von Nachrichten während der Fahrt dauerhaft vermeiden. Diese Frage wird im nächsten Kapitel untersucht.
+Die erste Forschungsfrage war, ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Die Ergebnisse dieser Hauptanalyse in den Kapiteln 5 und 6 zeigen, dass diese zentrale Frage bejaht werden kann. Nun gilt es zu klären, ob Fahrer\*innen ihr Verhalten langfristig ändern oder lediglich kurzfristig auf die Ankündigung dieser Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren. Diese Frage wird im nächsten Kapitel untersucht.
 
 <br/>
 
 ## Exercise 7 -- Ankündigungseffekt
 
-Die vorherigen Kapitel 5 und 6 zeigten, dass SMS-Verbote, die universell angewendet und primär durchgesetzt werden, zu einer Reduktion von Verkehrsunfällen führen, die ein einzelnes Fahrzeug mit nur einem Insassen betreffen. Daraus lässt sich jedoch nicht ableiten, ob sich die Unfallzahlen bereits vor der Einführung des Verbots verändert haben oder ob der beobachtete Effekt langfristig bestehen bleibt. Um dies zu untersuchen, führen wir eine Eventstudie durch und visualisieren die Ergebnisse in entsprechenden Diagrammen. Dabei soll auch der zweite Teil der Forschungsfrage geklärt werden, ob Fahrer\*innen nur kurzfristig auf die Ankündigung dieser Verbote reagieren und nach einiger Zeit in ihr ursprüngliches Verhalten zurückkehren oder ob sie ihr Verhalten langfristig ändern, sodass das Schreiben und Lesen von Nachrichten während der Fahrt dauerhaft vermieden wird.
+Die vorherigen Kapitel 5 und 6 zeigten, dass SMS-Verbote, die universell angewendet und primär durchgesetzt werden, zu einer Reduktion von Verkehrsunfällen führen, die ein einzelnes Fahrzeug mit nur einem Insassen betreffen. Daraus lässt sich jedoch nicht ableiten, ob sich die Unfallzahlen bereits vor der Einführung des Verbots verändert haben oder ob der beobachtete Effekt langfristig bestehen bleibt. Um dies zu untersuchen, führen wir eine Eventstudie durch und visualisieren die Ergebnisse in entsprechenden Diagrammen. Dabei soll auch der zweite Teil der Forschungsfrage geklärt werden, ob Fahrer\*innen ihr Verhalten langfristig ändern oder lediglich kurzfristig auf die Ankündigung dieser Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren.
 
-In diesem Kapitel wenden wir uns der Hauptanalyse der Autoren weiterhin zu und möchten die Auswirkungen der SMS-Verbote auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen  über die Zeit analysieren. 
+In diesem Kapitel wenden wir uns weiterhin der Hauptanalyse der Autoren zu und möchten die Auswirkungen der SMS-Verbote auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen über die Zeit analysieren.
 
 Zur Auffrischung unseres Wissens über die Definition starker und schwacher SMS-Verbote möchten wir mit einem kurzen Quiz beginnen.
 
@@ -2264,31 +2264,31 @@ success: Gut gemacht! Ihre Antwort ist richtig!
 failure: Versuchen Sie es noch einmal.
 #>
 
-Demgegenüber wird ein Verbot als schwach klassifiziert, wenn es nur für bestimmte Bevölkerungsgruppen, wie etwa junge Fahrer\*innen, gilt oder lediglich sekundär durchgesetzt wird. 
+Demgegenüber wird ein Verbot als schwach klassifiziert, wenn es nur für bestimmte Bevölkerungsgruppen, wie etwa junge Fahrer*innen, gilt oder lediglich sekundär durchgesetzt wird. 
 
 Bevor wir mit der Analyse beginnen, ist es jedoch wichtig, den Begriff der Eventstudie zu definieren. Eine Eventstudie ist eine statistische Methode, die untersucht, wie sich ein bestimmtes Ereignis auf eine abhängige Variable auswirkt (vgl. Kumar et al. (2012)).  Eventstudien werden häufig genutzt, um die Trends vor der Behandlung (Lead-Effekte) und die Entwicklung der Effekte nach der Behandlung (Lag-Effekte) in den Ergebnissen zwischen der Behandlungs- und der Kontrollgruppe zu untersuchen (vgl. Baker et al. (2022)). In diesem Problemset erfassen die Lead-Variablen  mögliche vorgezogene Effekte vor der Einführung des Verbots, während die Lag-Variablen die verzögerten Effekte nach der Einführung abbilden.
 
-Die Analyse der Lead-Effekte verfolgt das Ziel, sicherzustellen, dass die beobachteten Ergebnisse nicht auf zufällige Schwankungen der Unfallzahlen unmittelbar vor deren Einführung zurückzuführen sind. Andernfalls könnten die Ergebnisse verzerrt sein. Da viele der in Tabelle 2.1, Kapitel 2 aufgeführten SMS-Verbote in Jahreszeiten mit erhöhtem Unfallrisiko wie Sommer oder Winter eingeführt wurden, ist es erforderlich zu überprüfen, ob sich die Unfallzahlen kurz vor der Einführung der Verbote bereits verändert haben (vgl. Abouk & Adams (2013)).
+Die Analyse der Lead-Effekte verfolgt das Ziel, sicherzustellen, dass die beobachteten Ergebnisse nicht auf zufällige Schwankungen der Unfallzahlen unmittelbar vor deren Einführung zurückzuführen sind. Andernfalls könnten die Ergebnisse verzerrt sein. Da viele der in Tabelle 2.1 im Kapitel 2 aufgeführten SMS-Verbote in Jahreszeiten mit erhöhtem Unfallrisiko wie Sommer oder Winter eingeführt wurden, ist es erforderlich, zu überprüfen, ob sich die Unfallzahlen kurz vor der Einführung der Verbote bereits verändert haben (vgl. Abouk & Adams (2013)).
 
 Zur Schätzung der Effekte verwenden wir den Staggered DiD-Ansatz, bei dem wir Dummy-Variablen für verschiedene Zeiträume vor und nach der Einführung des Verbots einfügen. Anschließend extrahieren wir die geschätzten Koeffizienten der Lead- und Lag-Variablen und visualisieren diese in Diagrammen.
 
 
-Das Regressionsgleichung der Autoren ist wie folgt spezifiziert:
+Die Regressionsgleichung der Autoren ist wie folgt spezifiziert:
 
 $$ln(acc_{i,m}) = \beta_0 + \beta_1 \mathbf{B}_{i,m} \times \lambda_{i} + \sum_{\tau=-5}^{+5} \beta_{2,\tau} SB_{\tau,i,m} + \sum_{\tau=-5}^{+5} \beta_{3,\tau} WB_{\tau,i,m} + \lambda_{i} + \delta_{m} + \mathbf{X}_{i,m} \gamma + \varepsilon_{i,m} 
 \quad \text{(7.1)}$$
 
 
-* $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Unfälle mit einem einzigen Fahrzeug und einem einzelnen Insassen (`laccidentsvso2`) $+ 1$ für US-Bundesstaat i im Monat m. 
+* $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit einem einzigen Fahrzeug und einem einzelnen Insassen (`laccidentsvso2`) $+ 1$ für den US-Bundesstaat $i$ im Monat $m$ 
 * $\beta_{0}$: Intercept (konstanter Term) der Regression.
-* $B_{i,m}$: Dummy-Variable, die anzeigt, ob in einem bestimmten Monat m für den Bundesstaat i ein SMS-Verbot besteht (Variable: txsmban).
-* $\mathbf{B}_{im} \times \lambda_{i}$: Interaktionsterm zwischen der Variable txsmban und den Bundesstaaten-Fixeffekten  und wird eingeführt, um differenzierte Behandlungseffekte für jeden Bundesstaat zu berücksichtigen (Variablen: `stb1, stb2, … ,stb51`)
-* $\sum_{\tau=-5}^{+5} \beta_{2,\tau} SB_{\tau,i,m}$: Lead- und Lag-Effekte für starke SMS Verbote mit geschätzten Koeffizienten $\beta_{2,\tau}$. 
-  + $SB_{\tau,i,m}$: Dummy-Variable, die den Wert 1 annimmt, wenn der Bundesstaat ein starkes SMS-Verbot $\tau$ Monate vor oder nach der Einführung hat, und 0 sonst.
-* $\sum_{\tau=-5}^{+5} \beta_{3,\tau} WB_{\tau,i,m}$: Lead- und Lag-Effekte für schwache SMS Verbote mit geschätzten Koeffizienten $\beta_{3,\tau}$. 
-  +$ WB_{\tau,i,m}$: Dummy-Variable, die den Wert 1 annimmt, wenn der Bundesstaat ein schwaches SMS-Verbot $\tau$ Monate vor oder nach der Einführung hat, und 0 sonst.
-+ $\beta_{2,-5}$ bis $\beta_{2,-1}$ und $\beta_{3,-5}$ bis $\beta_{3,-1}$: Die geschätzte Koeffizienten der Lead-Effekte des starkes/schwaches SMS-Verbots und helfen dabei, eventuelle auffällige Veränderungen in den Bundesstaaten vor dem Inkrafttreten des Verbots zu erkennen.
-+ $\beta_{2,1}$ bis $\beta_{2,5}$ und $\beta_{3,1}$ bis $\beta_{3,5}$: Die geschätzten Koeffizienten der Lag-Effekte des starken bzw. schwachen SMS-Verbots liefern Antworten auf die zweite Forschungsfrage.
+* $B_{i,m}$: Dummy-Variable, die anzeigt, ob in einem bestimmten Monat m für den Bundesstaat i ein SMS-Verbot besteht (Variable: `txsmban`)
+* $\mathbf{B}_{im} \times \lambda_{i}$: Interaktionsterm zwischen der Variable `txsmban` und den Bundesstaaten-Fixeffekten. Er wird eingeführt, um differenzierte Behandlungseffekte für jeden Bundesstaat zu berücksichtigen (Variablen: `stb1`, `stb2`, … , `stb51`)
+* $\sum_{\tau=-5}^{+5} \beta_{2,\tau} SB_{\tau,i,m}$: Lead- und Lag-Effekte für starke SMS-Verbote mit geschätzten Koeffizienten $\beta_{2,\tau}$. 
+  + $SB_{\tau,i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn der Bundesstaat ein starkes SMS-Verbot $\tau$ Monate vor oder nach der Einführung hat, und $0$ sonst.
+* $\sum_{\tau=-5}^{+5} \beta_{3,\tau} WB_{\tau,i,m}$: Lead- und Lag-Effekte für schwache SMS-Verbote mit geschätzten Koeffizienten $\beta_{3,\tau}$. 
+  +$ WB_{\tau,i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn der Bundesstaat ein schwaches SMS-Verbot $\tau$ Monate vor oder nach der Einführung hat, und $0$ sonst
++ $\beta_{2,-5}$ bis $\beta_{2,-1}$ und $\beta_{3,-5}$ bis $\beta_{3,-1}$: Geschätzte Koeffizienten der Lead-Effekte des starken bzw. schwachen SMS-Verbots. Sie helfen dabei, auffällige Veränderungen in den Bundesstaaten vor dem Inkrafttreten des Verbots zu erkennen
++ $\beta_{2,1}$ bis $\beta_{2,5}$ und $\beta_{3,1}$ bis $\beta_{3,5}$: Geschätzte Koeffizienten der Lag-Effekte des starken bzw. schwachen SMS-Verbots. Sie liefern Antworten auf die zweite Forschungsfrage.
 * $\lambda_i$: Fixeffekte für 49 Bundesstaaten 
 * $\delta_m$: Fixeffekte für 48 Monate 
 * $\mathbf{X}_{i,m}$: Matrix der Kontrollvariablen
@@ -2303,14 +2303,11 @@ Kontrollvariablen $X_{i,m}$:
 * *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent.
 * *laccidentmv2* : Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit Beteiligung mehrerer Fahrzeuge oder Insassen $+ 1$ 
 
-Die Hauptanalyse verwendet eine Reihe von Dummy-Variablen, welche die Summation der **Lead- und Lag-Effekte** der SMS-Verbote darstellen. Dabei werden die Zeiträume vor der Behandlung, hier der Einführung des SMS-Verbots („Leads“) und die Zeiträume nach der Behandlung ("Lags") durch die Summationen in der obigen Regressionsgleichung erfasst (vgl. Baker et al. (2022)). Die Dummyvariablen nehmen SB−5 und WB−5 den Wert eins an, wenn ein Bundesstaat in fünf Monaten ein starkes (SB) bzw. schwaches (WB) SMS-Verbot einführt, und andernfalls den Wert null. Dieser Ansatz wird für alle Monate vor der Einführung des Verbots fortgesetzt ($SB_{-4}$ bis $SB_{-1}$ und $WB_{-4}$ bis $WB_{-1}$).
+Die Hauptanalyse verwendet eine Reihe von Dummy-Variablen, welche die Summation der **Lead- und Lag-Effekte** der SMS-Verbote darstellen. Dabei werden die Zeiträume vor der Behandlung, hier der Einführung des SMS-Verbots ("Leads“) und die Zeiträume nach der Behandlung ("Lags") durch die Summationen in der obigen Regressionsgleichung erfasst (vgl. Baker et al. (2022)). Die Dummy-Variablen $SB_{-5}$ und $WB_{-5}$ nehmen den Wert eins an, wenn ein Bundesstaat in fünf Monaten ein starkes (**SB**) bzw. schwaches (**WB**) SMS-Verbot einführt, und andernfalls den Wert null. Dieser Ansatz wird für alle Monate vor der Einführung des Verbots fortgesetzt ($SB_{-4}$ bis $SB_{-1}$ und $WB_{-4}$ bis $WB_{-1}$).
 
-Da einige Bundesstaaten nur für eine begrenzte Zeit nach Einführung des Verbots beobachtet werden können, ermöglicht diese Modellierung eine Schätzung der Lag-Effekte, ohne dass eine Verzerrung der Ergebnisse durch unterschiedliche Beobachtungszeiträume entsteht. Die Schätzungen Lag Effekte zeigen, ob die Auswirkungen des Verbots langfristig bestehen bleiben oder ob sie nur den sogenannten **Ankündigungseffekt** widerspiegeln. Der Ankündigungseffekt beschreibt eine kurzfristige Verhaltensänderung, die allein durch die Bekanntgabe eines Gesetzes oder einer Vorschrift entsteht, aber nicht langfristig anhält.
-Wenn die Effekte nur in den ersten Monaten nach der Einführung sichtbar sind, aber später verschwinden, deutet dies darauf hin, dass der Rückgang der Unfälle auf den Ankündigungseffekt zurückzuführen ist. Falls die Effekte über mehrere Monate hinweg bestehen bleiben, spricht das für eine nachhaltige Wirkung des Verbots (vgl. Abouk & Adams (2013)).
+Da einige Bundesstaaten nur für eine begrenzte Zeit nach Einführung des Verbots beobachtet werden können, ermöglicht diese Modellierung eine Schätzung der Lag-Effekte, ohne dass eine Verzerrung der Ergebnisse durch unterschiedliche Beobachtungszeiträume entsteht. Die Schätzungen der Lag-Effekte zeigen, ob die Auswirkungen des Verbots langfristig bestehen bleiben oder ob sie nur den sogenannten **Ankündigungseffekt** widerspiegeln. Der Ankündigungseffekt beschreibt eine kurzfristige Verhaltensänderung, die allein durch die Bekanntgabe eines Gesetzes oder einer Vorschrift entsteht, aber nicht langfristig anhält. Wenn die Effekte nur in den ersten Monaten nach der Einführung sichtbar sind, aber später verschwinden, deutet dies darauf hin, dass der Rückgang der Unfälle auf den Ankündigungseffekt zurückzuführen ist. Falls die Effekte über mehrere Monate hinweg bestehen bleiben, spricht das für eine nachhaltige Wirkung des Verbots (vgl. Abouk & Adams (2013)).
 
-Wir erstellen nun die Dummy-Variablen für die Lead- und Lag-Effekten der starken und schwachen SMS-Verboten mithilfe der `mutate()`-Funktion aus dem dplyr-Paket, da sie in unserem Datensatz `data`  fehlen. 
-Zunächst möchten wir Lead- und Lag-Variablen unter der Bedingung eines starken SMS-Verbots erstellen. Die Bedingung innerhalb der ifelse()-Funktion (second != 1 & agelimit != 1) stellt sicher, dass nur Beobachtungen berücksichtigt werden, die den Kriterien eines starken Verbots entsprechen. Ist diese Bedingung erfüllt, werden die neuen Variablen (leadXsb und lagXsb) mit den ursprünglichen Lead- und Lag-Werten (leadX, lagX) befüllt. Andernfalls wird ihr Wert auf 0 gesetzt. Anschließend erstellen wir die Variablen für Lead- und Lag-Effekte unter der Bedingung eines schwaches Verbot. Ein schwaches Verbot liegt vor, wenn entweder agelimit oder second ungleich Null ist (agelimit ≠ 0 | second ≠ 0). Ist diese Bedingung erfüllt, übernehmen die neuen Variablen (leadXwb und lagXwb) die Werte der ursprünglichen Lead- und Lag-Variablen (leadX, lagX). Andernfalls werden die Werte auf 0 gesetzt.
-
+Wir erstellen nun die Dummy-Variablen für die Lead- und Lag-Effekte der starken und schwachen SMS-Verbote mithilfe der `mutate()`-Funktion aus dem `dplyr`-Paket, da sie in unserem Datensatz `data`  fehlen. Zunächst möchten wir Lead- und Lag-Variablen unter der Bedingung eines **starken** SMS-Verbots erstellen. Die Bedingung innerhalb der `ifelse()`-Funktion (`second != 1 & agelimit != 1`) stellt sicher, dass nur Beobachtungen berücksichtigt werden, die den Kriterien eines starken Verbots entsprechen. Ist diese Bedingung erfüllt, werden die neuen Variablen (`leadXsb` und `lagXsb`) mit den ursprünglichen Lead- und Lag-Werten (`leadX` und `lagX`) befüllt. Andernfalls wird ihr Wert auf $0$ gesetzt. Anschließend erstellen wir die Variablen für Lead- und Lag-Effekte unter der Bedingung eines schwachen Verbots. Ein schwaches Verbot liegt vor, wenn entweder `agelimit` oder `second` ungleich Null ist (`agelimit  != 0 | second != 0`). Ist diese Bedingung erfüllt, übernehmen die neuen Variablen (`leadXwb` und `lagXwb`) die Werte der ursprünglichen Lead- und Lag-Variablen (`leadX`, `lagX`). Andernfalls werden die Werte auf $0$ gesetzt.
 
 <b style="color:navy">Aufgabe:</b> Um den Datensatz `estdata.rds` zu laden, drücken Sie auf `check`.
 ```{r "7_a"}
@@ -2319,7 +2316,8 @@ data = readRDS("estdata.rds")
 #>
 ```
 
-<b style="color:navy">Aufgabe:</b>  Ersetzen Sie den Platzhalter ____ durch die richtige Funktion aus dem dplyr-Paket, um die Dummy-Variablen für die Lead- und Lag-Effekten des starken SMS-Verbots zu erstellen.
+<b style="color:navy">Aufgabe:</b>  Ersetzen Sie den Platzhalter `____` durch die richtige Funktion aus dem `dplyr`-Paket, um die Dummy-Variablen für die Lead- und Lag-Effekten des starken SMS-Verbots zu erstellen.
+
 ```{r "7_b"}
 #< fill_in
 library("dplyr")
@@ -2383,7 +2381,7 @@ data = data %>%
 
 ```
 
-<b style="color:navy">Aufgabe:</b> In gleicher Weise erstellen wir die Dummy-Variablen für die Lead- und Lag-Effekten des schwachen SMS-Verbots. Drücken Sie auf check. 
+<b style="color:navy">Aufgabe:</b> In gleicher Weise erstellen wir die Dummy-Variablen für die Lead- und Lag-Effekten des schwachen SMS-Verbots. Drücken Sie auf `check`. 
 
 ```{r "7_c"}
 #< task_notest
@@ -2418,63 +2416,50 @@ data = data %>%
 #>
 ```
 
-Wir möchten 4 Abbildungen erstellen, die  jeweils die geschätzten Lead- und Lag-Koeffizienten von der Regressionsgleichung 7.1 sowie die zugehörigen 95-Prozent-Konfidenzintervalle zeigen. Jede Abbildung enthält zwei Eventstudie-Diagramme, die relative Veränderung der Unfallzahlen in den Monaten vor und nach der Einführung des Verbots darstellen. Die ersten zwei Abbildungen werden je zwei Diagramme haben. Die oberen Diagrammen werden die geschätzten Lead- und Lag-Koeffizienten der starken SMS-Verboten zeigen und die untere Diagramme die  geschätzten Lead- und Lag-Koeffizienten der scwhachen SMS-Verboten. Die erste Abbildung wird staatsspezifische Zeittrends nicht berücksichtigen und die zweite Abbildung wird die staatsspezifische Zeittrends berücksichtigen. Die Abbildung der letzten zwei Abbildungen zeigen Einführung der paralleles Handyverbot und die letzte Abbildung zeigt kein Handyverbot. Die oberen Diagramme zeigen die Ergebnisse der geschätzten Lead- und Lag-Koeffizienten ohne Berücksichtigung staatsspezifischer Trends, während die unteren Diagramme staatsspezifische Trends einbeziehen. 
+Wir möchten vier Abbildungen erstellen, die jeweils die geschätzten Lead- und Lag-Koeffizienten aus der Regressionsgleichung (7.1) sowie die zugehörigen 95 %-Konfidenzintervalle zeigen. Jede Abbildung enthält zwei Eventstudie-Diagramme, die die relative Veränderung der Unfallzahlen in den Monaten vor und nach der Einführung des Verbots darstellen.
 
-Die ersten beiden Abbildungen 7.1 und 7.2 werden jeweils aus zwei Diagrammen bestehen:
+Die ersten beiden Abbildungen, 7.1 und 7.2, werden jeweils aus zwei Diagrammen bestehen:
 
 + Die oberen Diagramme werden die geschätzten Lead- und Lag-Koeffizienten für starke SMS-Verbote zeigen.
 + Die unteren Diagramme werden die geschätzten Lead- und Lag-Koeffizienten für schwache SMS-Verbote zeigen.
 
-Während die erste Abbildung keine staatsspezifischen Zeittrends berücksichtigen wird, wird die zweite Abbildung diese intergrieren.
+Während die erste Abbildung keine staatsspezifischen Zeittrends berücksichtigen wird, wird die zweite Abbildung diese integrieren.
 
-Die dritte und vierte Abbildung  werden sich ebenfalls jeweils aus zwei Diagrammen zusammensetzen:
+Die dritte und vierte Abbildung, 7.3 und 7.4, werden sich ebenfalls jeweils aus zwei Diagrammen zusammensetzen:
 
 + Abbildung 7.3 wird die Effekte der Einführung paralleler Handyverbote zeigen.
 
 + Abbildung 7.4 wird kein Handyverbot berücksichtigen. 
 
-Die oberen Diagramme werden die geschätzten Lead- und Lag-Koeffizienten ohne staatsspezifische Zeittrends zeigen. Die unteren Diagramme werden staatsspezifische Zeittrends berücksichtigen. 
+Die oberen Diagramme werden die geschätzten Lead- und Lag-Koeffizienten ohne staatsspezifische Zeittrends zeigen. Die unteren Diagramme werden staatsspezifische Zeittrends berücksichtigen.
 
-**Anmerkung:**  Die Schritte zur Erstellung der Abbildungen sind identisch. Daher werden sie ausführlich bei Abbildung 7.1 beschrieben, während die weiteren Abbildungen ohne erneute Erklärung dargestellt werden. Bei Bedarf können die Schritte jederzeit in Abbildung 7.1 nachgelesen werden, sodass eine wiederholte Erklärung für jede Abbildung nicht erforderlich ist.
+**Anmerkung:**  Die Schritte zur Erstellung der Abbildungen sind identisch. Daher werden sie ausführlich in Abbildung 7.1 beschrieben, während die weiteren Abbildungen ohne erneute Erklärung dargestellt werden. Bei Bedarf können die Schritte jederzeit in der Beschreibung zu Abbildung 7.1 nachgelesen werden, sodass eine wiederholte Erklärung für jede Abbildung nicht erforderlich ist.
 
-Lassen Sie uns damit beginnen, Abbildung 7.1 zu erstellen.
+Lassen Sie uns mit der Erstellung von Abbildung 7.1 beginnen.
 
-<b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter ____ durch den Namen der abhängigen Variablen aus der Regressionsgleichung 7.1.
+<b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter `____` durch den Namen der abhängigen Variablen aus der Regressionsgleichung (7.1).
  
 
 ```{r "7_d"}
 #< fill_in
 library("estimatr")
 
-model1a = lm_robust(_________ ~ lead5sb + lead4sb + lead3sb + lead2sb + lead1sb + 
-            lag1sb + lag2sb + lag3sb + lag4sb + lag5psb + 
-            lead5wb + lead4wb + lead3wb + lead2wb + lead1wb + 
-            lag1wb + lag2wb + lag3wb + lag4wb + lag5pwb + 
-            lpop + lunemp + permale2 + lrgastax + laccidentmv2 +  stb1 + stb2 + stb3 + 
-            stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 + stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + 
-            stb25 + stb26 + stb27 + stb28 + stb29 + stb30 + stb31 + stb32 + stb33 + stb34 +  stb35 + stb36 + stb37 + stb38 + stb39 + stb40 + stb41 + stb42 + stb43 + stb44 + stb45 + stb46 + stb47 + stb48 + stb49 + stb50 + stb51,data = data, weights = pop, fixed_effects = ~ state + time, clusters = state, se_type = "stata")
+model1a = lm_robust(_________ ~ lead5sb + lead4sb + lead3sb + lead2sb + lead1sb + lag1sb + lag2sb + lag3sb + lag4sb + lag5psb + lead5wb + lead4wb + lead3wb + lead2wb + lead1wb + lag1wb + lag2wb + lag3wb + lag4wb + lag5pwb + lpop + lunemp + permale2 + lrgastax + laccidentmv2 +  stb1 + stb2 + stb3 + stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 + stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + stb25 + stb26 + stb27 + stb28 + stb29 + stb30 + stb31 + stb32 + stb33 + stb34 +  stb35 + stb36 + stb37 + stb38 + stb39 + stb40 + stb41 + stb42 + stb43 + stb44 + stb45 + stb46 + stb47 + stb48 + stb49 + stb50 + stb51, data = data, weights = pop, fixed_effects = ~ state + time, clusters = state, se_type = "stata")
 
 #>
 
 # sample solution
 library("estimatr")
-model1a = lm_robust(laccidentsvso2 ~ lead5sb + lead4sb + lead3sb + lead2sb + lead1sb + 
-            lag1sb + lag2sb + lag3sb + lag4sb + lag5psb + 
-            lead5wb + lead4wb + lead3wb + lead2wb + lead1wb + 
-            lag1wb + lag2wb + lag3wb + lag4wb + lag5pwb + 
-            lpop + lunemp + permale2 + lrgastax + laccidentmv2 +  stb1 + stb2 + stb3 + 
-            stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 + stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + 
-            stb25 + stb26 + stb27 + stb28 + stb29 + stb30 + stb31 + stb32 + stb33 + stb34 + 
-            stb35 + stb36 + stb37 + stb38 + stb39 + stb40 + stb41 + stb42 + stb43 + stb44 + 
-            stb45 + stb46 + stb47 + stb48 + stb49 + stb50 + stb51,data = data, weights = pop, fixed_effects = ~ state + time, clusters = state, se_type = "stata")
+
+model1a = lm_robust(laccidentsvso2 ~ lead5sb +lead4sb + lead3sb + lead2sb + lead1sb + lag1sb + lag2sb + lag3sb + lag4sb + lag5psb + lead5wb + lead4wb + lead3wb + lead2wb + lead1wb + lag1wb + lag2wb + lag3wb + lag4wb + lag5pwb + lpop + lunemp + permale2 + lrgastax + laccidentmv2 +  stb1 + stb2 + stb3 + stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 + stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + stb25 + stb26 + stb27 + stb28 + stb29 + stb30 + stb31 + stb32 + stb33 + stb34 + stb35 + stb36 + stb37 + stb38 + stb39 + stb40 + stb41 + stb42 + stb43 + stb44 + stb45 + stb46 + stb47 + stb48 + stb49 + stb50 + stb51, data = data, weights = pop, fixed_effects = ~ state + time, clusters = state, se_type = "stata")
 
 ```
 
-Im nächsten Schritt möchten wir die geschätzten Koeffizienten und deren Standardfehler aus dem Modell model1a extrahieren und bereitet die Daten für eine grafische Darstellung der Lead- und Lag-Effekte vor.
+Im nächsten Schritt möchten wir die geschätzten Koeffizienten und deren Standardfehler aus dem Modell `model1a` extrahieren und die Daten für eine grafische Darstellung der Lead- und Lag-Effekte aufbereiten.
 
-Dazu werden zunächst zwei Vektoren (var_SB und var_WB) definiert, die die relevanten Variablen für die Lead- und Lag-Effekte eines starken (SB) und eines schwachen (WB) SMS-Verbots enthalten. Anschließend werden aus der Modellzusammenfassung (summary(model1)$coefficients) die geschätzten Koeffizienten (estimates_SB, estimates_WB) sowie deren Standardfehler (se_SB, se_WB) extrahiert.
+Dazu werden zunächst zwei Vektoren (`var_SB` und `var_WB`) definiert, die die relevanten Variablen für die Lead- und Lag-Effekte eines starken (`SB`) und eines schwachen (`WB`) SMS-Verbots enthalten. Anschließend werden aus der  Modellzusammenfassung (`summary(model1)$coefficients`) die geschätzten Koeffizienten (`estimates_SB` und `estimates_WB`) sowie deren Standardfehler (`se_SB` und `se_WB`) extrahiert.
 
-Basierend auf diesen Werten wird ein Dataframe (data_mod1a) erstellt, der die geschätzten Koeffizienten (Estimate_SB, Estimate_WB) sowie die entsprechenden Zeitpunkte (Monat) umfasst. Die Zeitpunkte reichen von -5 bis -1 für die Monate vor der Einführung des Verbots (Lead-Effekte) und von 1 bis 5 für die Monate danach (Lag-Effekte). Zudem enthält der Dataframe die unteren und oberen Grenzen des 95 %-Konfidenzintervalls. Obwohl die Funktion lm_robust() bereits diese Grenzen berechnet, führen wir diese Berechnung manuell durch. Die Berechnung des 95 %-Konfidenzintervalls erfolgt gemäß der Formel nach Frings ((2010), S. 282):
+Basierend auf diesen Werten wird ein Dataframe (`data_mod1a`) erstellt, der die geschätzten Koeffizienten (`Estimate_SB` und `Estimate_WB`) sowie die entsprechenden Zeitpunkte (`Monat`) umfasst. Die Zeitpunkte reichen von $-5$ bis $-1$ für die Monate vor der Einführung des Verbots (**Lead-Effekte**) und von $1$ bis $5$ für die Monate danach (**Lag-Effekte**). Zudem enthält der Dataframe die unteren und oberen Grenzen des 95 %-Konfidenzintervalls. Obwohl die Funktion  `lm_robust()` diese Grenzen bereits berechnet, führen wir die Berechnung manuell durch. Die Berechnung des 95 %-Konfidenzintervalls erfolgt gemäß der Formel nach Frings ((2010), S. 282):
 
 $$\left[\hat{\beta}_k - 1,96 \cdot \text{se}(\hat{\beta}_k), \hat{\beta}_k + 1,96 \cdot \text{se}(\hat{\beta}_k)\right]$$
 
@@ -2512,13 +2497,13 @@ data_mod1a = data.frame(
 #>
 ```
 
-Mit `ggplot2` werden schließlich zwei Liniendiagramme erstellt, die die geschätzten Lead- und Lag-Koeffizienten für starke und schwache SMS-Verbote zeigen. Das 95-%-Konfidenzintervall visualisieren wir mit einer schattierten Fläche (geom_ribbon()) und gestrichelten Linien (geom_line(linetype = "dashed")). Die Funktion geom_ribbon() erzeugt dabei den schattierten Bereich zwischen den definierten unteren (ymin) und oberen (ymax) Grenzen. Zusätzlich fügen wir mit geom_hline() eine horizontale Linie ein und legen den Wertebereich der y-Achse mit ylim(min, max) fest.
+Mit dem Paket `ggplot2` werden schließlich zwei Liniendiagramme erstellt, die die geschätzten Lead- und Lag-Koeffizienten für starke und schwache SMS-Verbote zeigen. Das 95 %-Konfidenzintervall visualisieren wir mit einer schattierten Fläche (`geom_ribbon()`) und gestrichelten Linien (`geom_line(linetype = "dashed")`). Die Funktion `geom_ribbon()` erzeugt den schattierten Bereich zwischen den definierten unteren (`ymin`) und oberen (`ymax`) Grenzen. Zusätzlich fügen wir mit `geom_hline()` eine horizontale Linie ein und legen den Wertebereich der y-Achse mit `ylim(min, max)` fest.
 
-Zur besseren Vergleichbarkeit teilen wir die beiden Diagramme mit facet_wrap(~Zeit, scales = "free_x") nach Zeitperioden auf. Mithilfe der Funktion mutate() aus dem Paket dplyr erstellen wir eine neue Spalte „Zeit“, die angibt, ob ein Monat vor oder nach der Einführung des Verbots liegt. Die ifelse()-Funktion klassifiziert Werte kleiner als 0 als „Vor Einführung des Verbots“ und Werte größer als 0 als „Nach Einführung des Verbots“. Mit factor() sorgen wir dafür, dass die Zeitperioden in der gewünschten Reihenfolge angezeigt werden.
+Zur besseren Vergleichbarkeit teilen wir die beiden Diagramme mit `facet_wrap(~Zeit, scales = "free_x")` nach Zeitperioden auf. Mithilfe der Funktion `mutate()` aus dem Paket `dplyr` erstellen wir eine neue Spalte `Zeit`, die angibt, ob ein Monat vor oder nach der Einführung des Verbots liegt. Die `ifelse()`-Funktion klassifiziert Werte kleiner als null als „Vor Einführung des Verbots“ und Werte größer als null als „Nach Einführung des Verbots“. Mit `factor()` sorgen wir dafür, dass die Zeitperioden in der gewünschten Reihenfolge angezeigt werden.
 
-Das Design der Grafiken passen wir mit der Funktion theme() an, indem wir unter anderem die Schriftgröße, die Abstände zwischen den Panels und die Hintergrundfarbe der Facetten verändern.
+Das Design der Grafiken passen wir mit der Funktion `theme()` an, indem wir unter anderem die Schriftgröße, die Abstände zwischen den Panels und die Hintergrundfarbe der Facetten verändern.
 
-Abschließend ordnen wir die beiden Diagramme mit dem patchwork-Paket untereinander an. Die Kombination erfolgt mit /, und den Titel und die Quelle fügen wir mit plot_annotation() hinzu.
+Abschließend ordnen wir die beiden Diagramme mit dem `patchwork`-Paket untereinander an. Die Kombination erfolgt mit `/`. Den Titel und die Quelle fügen wir mit `plot_annotation()` hinzu.
 
 
 <b style="color:navy">Aufgabe:</b> Drücken Sie auf `check` , um die Diagramme zu erstellen.
@@ -2566,15 +2551,15 @@ plot1a
 #>
 ```
 
-Abbildung 7.1 zeigt zwei Diagrammen, die die geschätzten Effekte über die Zeit hinweg darstellen. Die Diagramme berücksichtigen staatsspezifischen Zeittrends nicht. Die vertikale Linie markiert den Zeitpunkt der Einführung des Verbots. Die x-Achse der Diagramme zeigt die Monate vor und nach der Einführung des Verbots, während die y-Achse die geschätzte relative Veränderung der Unfallzahlen abbildet. Die geschätzten Koeffizienten für ein schwaches SMS-Verbot werden als blaue Linie dargestellt, während jene für ein starkes SMS-Verbot in Lila erscheinen. Das 95-%-Konfidenzintervall wird durch eine schattierte Fläche  und gestrichelte Linien visualisiert. Die Linien können wie folgt interpretiert werden: Verläuft die Linie auf der Y-Achse im negativen Bereich, deutet dies auf einen Rückgang der Unfallzahlen hin. Liegt die Linie oberhalb der Null, zeigt sie eine Zunahme der Unfälle an. Befindet sich die Linie bei 0, weist dies darauf hin, dass kein Effekt vorliegt und keine Veränderung der Unfallzahlen zu beobachten ist.
+Abbildung 7.1 zeigt zwei Diagramme, die die geschätzten Effekte über die Zeit hinweg darstellen. Die Diagramme berücksichtigen staatsspezifische Zeittrends nicht. Die vertikale Linie markiert den Zeitpunkt der Einführung des Verbots. Die x-Achse der Diagramme zeigt die Monate vor und nach der Einführung des Verbots, während die y-Achse die geschätzte relative Veränderung der Unfallzahlen abbildet. Die geschätzten Koeffizienten für ein schwaches SMS-Verbot werden als blaue Linie dargestellt, während jene für ein starkes SMS-Verbot in Lila erscheinen. Das 95 %-Konfidenzintervall wird durch eine schattierte Fläche und gestrichelte Linien visualisiert. Die Linien können wie folgt interpretiert werden: Verläuft die Linie auf der y-Achse im negativen Bereich, deutet dies auf einen Rückgang der Unfallzahlen hin. Liegt die Linie oberhalb der null, zeigt sie eine Zunahme der Unfälle an. Befindet sich die Linie bei null, weist dies darauf hin, dass kein Effekt vorliegt und keine Veränderung der Unfallzahlen zu beobachten ist.
 
-Vor der Einführung des Verbots in den Diagrammen zeigen die Unfallzahlen keine auffälligen Veränderungen in den Unfalltrends zwischen der Behandlungs- und Kontrollgruppe. Zwar ist eine leichte Zunahme der Unfallzahlen im Monat unmittelbar vor der Einführung der Verbote im ersten Diagramm erkennbar, doch die Lead-Effekte sind nicht statistisch signifikant.  Dies legt nahe, dass sich die Behandlungs- und die Kontrollgruppe in Hinblick auf Unfälle mit nur einem Fahrzeug und nur einem Fahrer nicht wesentlich unterscheiden. Zudem deutet dies darauf hin, dass die Einführung starker SMS-Verbote unabhängig von anderen Einflussfaktoren auf die Unfallzahlen erfolgte und daher als exogen betrachtet werden kann. Nach Einführung des Verbots zeigt das erste Diagramm einen kurzfristigen Rückgang der Unfallzahlen, wobei dieser Effekt nach wenigen Monaten verschwindet. Im unteren Diagramm ist hingegen keine eindeutige Abnahme der Unfälle erkennbar (vgl. Abouk & Adams (2013)). 
+Vor der Einführung des Verbots zeigen die Diagramme keine auffälligen Veränderungen in den Unfalltrends zwischen der Behandlungs- und der Kontrollgruppe. Zwar ist im ersten Diagramm eine leichte Zunahme der Unfallzahlen im Monat unmittelbar vor der Einführung der Verbote erkennbar, doch die Lead-Effekte sind nicht statistisch signifikant. Dies legt nahe, dass sich die Behandlungs- und die Kontrollgruppe in Hinblick auf Unfälle mit nur einem Fahrzeug und nur einem Fahrer nicht wesentlich unterscheiden. Zudem deutet dies darauf hin, dass die Einführung starker SMS-Verbote unabhängig von anderen Einflussfaktoren auf die Unfallzahlen erfolgte und daher als exogen betrachtet werden kann. Nach der Einführung des Verbots zeigt das erste Diagramm einen kurzfristigen Rückgang der Unfallzahlen, wobei dieser Effekt nach wenigen Monaten verschwindet. Im unteren Diagramm ist hingegen keine eindeutige Abnahme der Unfälle erkennbar (vgl. Abouk & Adams, 2013).
 
-Eine umfassendere Interpretation folgt, sobald die nächste Abbildung erstellt wird, die dasselbe darstellt, jedoch staatsspezifische Zeittrends berücksichtigt. 
+Eine umfassendere Interpretation folgt, sobald die nächste Abbildung erstellt wurde, die dasselbe darstellt, jedoch staatsspezifische Zeittrends berücksichtigt.
 
-Wir werden die nächste Abbildung auf die gleiche Weise erstellen wie die vorherige. Dabei erweitern wir das Regressionsmodell um staatsspezifische Zeittrends sowie die Variable „time“. Die einzelnen Schritte zur Erstellung der Abbildung entsprechen exakt denen der vorherigen. 
+Wir werden die nächste Abbildung auf die gleiche Weise wie die vorherige erstellen. Dabei erweitern wir das Regressionsmodell um staatsspezifische Zeittrends sowie die Variable `time`. Die einzelnen Schritte zur Erstellung der Abbildung entsprechen exakt denen der vorherigen.
 
-<b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter ____ durch den Namen der Funktion aus dem Paket estimatr, die bereits zur Erstellung von Modell 1a verwendet wurde.
+<b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter `____` durch den Namen der Funktion aus dem Paket `estimatr`, die bereits zur Erstellung von **Modell 1a** verwendet wurde.
 
 ```{r "7_g"}
 #< fill_in
@@ -2615,7 +2600,7 @@ model1b = lm_robust(laccidentsvso2 ~ lead5sb + lead4sb + lead3sb + lead2sb + lea
 
 ```
 
-<b style="color:navy">Aufgabe:</b>  Der folgende Code-Chunk entspricht dem für Abbildung 7.1, jedoch wird hier Model 1b anstelle von Model 1a verwendet. Bitte klicken Sie auf check.   
+<b style="color:navy">Aufgabe:</b> Der folgende Code-Chunk entspricht dem für Abbildung 7.1, jedoch wird hier Modell 1b anstelle von Modell 1a verwendet. Bitte klicken Sie auf `check`.
 
 ```{r "7_h"}
 #< task_notest
@@ -2694,22 +2679,22 @@ plot1b
 #>
 ```
 
-Abbildung 7.2 wiederholt die Analyse aus Abbildung 7.1, wobei zusätzlich staatsspezifische lineare Zeittrends berücksichtigt werden. Auf der x-Achse sind ebenfalls die Monate vor und nach der Einführung des Verbots abgetragen, während die y-Achse die geschätzte relative Veränderung der Unfallzahlen darstellt. Die geschätzten Koeffizienten für ein starkes SMS-Verbot sind als hellblaue Linie dargestellt, während die geschätzten Koeffizienten für ein schwaches SMS-Verbot in Hellgrün erscheinen. Das 95-%-Konfidenzintervall wird durch schattierte Flächen und gestrichelte Linien verdeutlicht. 
+Abbildung 7.2 wiederholt die Analyse aus Abbildung 7.1, berücksichtigt jedoch zusätzlich staatsspezifische Zeittrends. Auf der x-Achse sind die Monate vor und nach der Einführung des Verbots abgetragen, während die y-Achse die geschätzte relative Veränderung der Unfallzahlen darstellt. Die geschätzten Koeffizienten für ein starkes SMS-Verbot sind als hellblaue Linie dargestellt, während die geschätzten Koeffizienten für ein schwaches SMS-Verbot in hellgrüner Farbe erscheinen. Das 95 %-Konfidenzintervall wird durch schattierte Flächen und gestrichelte Linien verdeutlicht.
 
-Laut den Autoren sind auch in dieser erweiterten Analyse keine signifikanten Lead-Effekte der starken Verbote festzustellen. Im Gegensatz dazu sind die Lead-Effekte der schwachen Verbote in den Abbildungen 7.1 und 7.2 positiv und signifikant, wodurch die Zuverlässigkeit dieser Schätzungen beeinträchtigt wird. Die Unfallzahlen im Diagramm der schwachen SMS-Verbote schwanken, sodass kein klarer Trend erkennbar ist. 
+Laut den Autoren sind auch in dieser erweiterten Analyse keine signifikanten Lead-Effekte starker Verbote festzustellen. Im Gegensatz dazu sind die Lead-Effekte schwacher Verbote in den Abbildungen 7.1 und 7.2 positiv und signifikant, wodurch die Zuverlässigkeit dieser Schätzungen beeinträchtigt wird. Die Unfallzahlen im Diagramm zu schwachen SMS-Verboten schwanken, sodass kein klarer Trend erkennbar ist.
 
-Bei der Betrachtung der Lag-Effekte in den Abbildungen 7.1 und 7.2 zeigt sich im ersten Monat nach der Einführung eines starken Verbots eine relative Reduktion der Unfälle um 17-18 Prozent. Dieser Rückgang ist für starke SMS-Verbote statistisch signifikant. Nach der Einführung eines schwachen Verbots sinken die Unfallzahlen mit einem relativen Rückgang um etwa 14 %. In den darauffolgenden Monaten nimmt die Wirkung der Verbote jedoch sowohl bei starken als auch bei schwachen SMS-Verboten rasch ab.
-Die geschätzten Lag-Effekte spiegeln den Ankündigungseffekt wider, da die Wirkung der starken SMS-Verboten bereits im zweiten Monat deutlich nachlässt und bis zum vierten Monat vollständig verschwindet. Dies deutet darauf hin, dass der Effekt nicht dauerhaft ist. 
-Insgesamt lässt sich feststellen, dass starke SMS-Verbote die Unfallzahlen kurzfristig senken, der Effekt aber nach einigen Monaten verschwindet.
+Bei der Betrachtung der Lag-Effekte in den Abbildungen 7.1 und 7.2 zeigt sich im ersten Monat nach der Einführung eines starken Verbots eine relative Reduktion der Unfallzahlen um $17$ - $18$ Prozent. Dieser Rückgang ist für starke SMS-Verbote statistisch signifikant. Nach der Einführung eines schwachen Verbots sinken die Unfallzahlen mit einem relativen Rückgang um etwa $14$ %. In den darauffolgenden Monaten nimmt die Wirkung der Verbote jedoch sowohl bei starken als auch bei schwachen SMS-Verboten rasch ab.
+Die geschätzten Lag-Effekte spiegeln den Ankündigungseffekt wider, da die Wirkung starker SMS-Verbote bereits im zweiten Monat deutlich nachlässt und bis zum vierten Monat vollständig verschwindet. Dies deutet darauf hin, dass der Effekt nicht dauerhaft ist. Insgesamt lässt sich feststellen, dass starke SMS-Verbote die Unfallzahlen kurzfristig senken, der Effekt jedoch nach einigen Monaten verschwindet.
 
-Im Gegensatz dazu zeigen schwache SMS-Verbote kein kontinuierlicher Rückgang der Unfallzahlen. Stattdessen ist gegen Ende sogar ein leichter Anstieg der Unfallzahlen zu beobachten. Die schwarze Linie, die die geschätzten Effekte dieser Verbote darstellt, weist dabei Schwankungen auf. Daher lässt sich kein eindeutiger abnehmender Trend erkennen, der auf eine langfristige Reduktion der Unfälle hindeutet. Dies deutet darauf hin, dass schwache Verbote keine signifikante und konsistente Wirkung auf die Unfallzahlen haben. 
+Im Gegensatz dazu zeigen schwache SMS-Verbote keinen kontinuierlichen Rückgang der Unfallzahlen. Stattdessen ist gegen Ende sogar ein leichter Anstieg der Unfallzahlen zu beobachten. Die schwarze Linie, die die geschätzten Effekte dieser Verbote darstellt, weist Schwankungen auf. Daher lässt sich kein eindeutiger abnehmender Trend erkennen, der auf eine langfristige Reduktion der Unfälle hindeutet. Dies deutet darauf hin, dass schwache Verbote keine signifikante und konsistente Wirkung auf die Unfallzahlen haben.
 
-Für den sogenannten Ankündigungseffekt gibt es **zwei** mögliche Erklärungen. Die **erste** Erklärung ist, dass viele Fahrer nach der Ankündigung des SMS-Verbots zunächst ihr Verhalten ändern und auf das Schreiben von Nachrichten verzichten, aber mit der Zeit Methoden finden, um einer Kontrolle zu entgehen. Zum Beispiel, indem sie ihr Handy verstecken oder außerhalb des Sichtfelds der Polizei Nachrichten verfassen. HLDI (2010) führte diese Erklärung an, um den überraschend positiven Einfluss der Verbote auf die Unfallzahlen zu erklären/um den überraschenden Anstieg der Unfälle trotz der Verbote zu erklären. Die **zweite**, aus Sicht der Autoren wahrscheinlichere Erklärung ist, dass dass die Durchsetzung der Verbote nicht konsequent genug erfolgt. Abbildungen 7.1 und 7.2 veranschaulichen dies anhand der Lag-Effekte von Verboten, die entweder nur für bestimmte Bevölkerungsgruppen gelten, wie beispielsweise junge Fahrer*innen oder lediglich als sekundär durchgesetzt wird. Im Monat nach Einführung der Verbote ist zwar ein leichter Rückgang der Unfälle zu beobachten, doch kehren die Fahrer offenbar schnell zu ihrem früheren Verhalten zurück und schreiben während der Fahrt wieder ebenso häufig SMS wie zuvor. In Bundesstaaten mit primärer Durchsetzung hält die Wirkung länger an, während in Regionen mit schwacher Durchsetzung die Rückkehr zum alten Verhalten deutlich schneller erfolgt (vgl. Abouk & Adams (2013)). 
+
+Für den sogenannten Ankündigungseffekt gibt es **zwei** mögliche Erklärungen. Die **erste** Erklärung ist, dass viele Fahrer\*innen nach der Ankündigung des SMS-Verbots zunächst ihr Verhalten ändern und auf das Schreiben von Nachrichten verzichten, aber mit der Zeit Methoden finden, um einer Kontrolle zu entgehen. Zum Beispiel, indem sie ihr Handy verstecken oder außerhalb des Sichtfelds der Polizei Nachrichten verfassen. HLDI (2010) führte diese Erklärung an, um den überraschenden Anstieg der Unfälle trotz der Verbote zu erklären. Die **zweite**, aus Sicht der Autoren wahrscheinlichere Erklärung ist, dass die Durchsetzung der Verbote nicht konsequent genug erfolgt. Abbildungen 7.1 und 7.2 veranschaulichen dies anhand der Lag-Effekte von Verboten, die entweder nur für bestimmte Bevölkerungsgruppen gelten, wie beispielsweise junge Fahrer\*innen, oder lediglich sekundär durchgesetzt werden. Im Monat nach der Einführung des Verbots ist zwar ein leichter Rückgang der Unfallzahlen zu beobachten, aber die Fahrer kehren offenbar schnell zu ihrem früheren Verhalten zurück und schreiben wieder genauso häufig SMS während der Fahrt wie vorher. In Bundesstaaten mit primärer Durchsetzung hält die Wirkung länger an, während in Regionen mit schwacher Durchsetzung die Rückkehr zum alten Verhalten deutlich schneller erfolgt (vgl. Abouk & Adams (2013)). 
 
 Um die zweite Erklärung weiter zu untermauern, führen wir eine zusätzliche Analyse durch. 
 Strafverfolgungsbehörden berichten von Herausforderungen bei der Umsetzung der Gesetze und kritisieren insbesondere, dass es schwierig sei, eindeutig zwischen Fahrern zu unterscheiden, die tatsächlich eine SMS schreiben, und solchen, die ihr Handy lediglich in der Hand halten (vgl. Abouk & Adams (2013)). Daher nehmen die Autoren an, dass sich ein stärkerer Ankündigungseffekt in den Bundesstaaten zeigen könnte, in denen kein generelles Handyverbot galt, als die SMS-Verbote eingeführt wurden. Für diese Analyse möchten wir zwei Abbildungen erstellen, die zwischen Bundesstaaten mit bestehendem Handyverbot und solchen ohne Handyverbot unterscheiden. Zudem konzentrieren wir uns ausschließlich auf die geschätzten Effekte der starken SMS-Verbote. 
 
-Zunächst erstellen wir die Abbildung für ein paralleles Handyverbot. Dabei gehen wir genauso vor wie bei den vorherigen Abbildungen und verwenden die gleiche Regressionsgleichung (7.1), jedoch mit einem neuen Datensatz. Zunächst filtern wir den ursprünglichen Datensatz data, sodass nur Beobachtungen enthalten sind, bei denen entweder HHBAN den Wert 1 annimmt (d. h. in diesen Bundesstaaten st5, st31, st33 und st7 gilt ein Handyverbot) oder treated den Wert 0 hat (d. h. die Kontrollgruppe). Wir verwenden dabei die filter()-Funktion aus dem dplyr-Paket. Im oberen Diagramm werden die geschätzten Lead- und Lag-Koeffizienten ohne die Berücksichtigung staatsspezifischer Zeittrends dargestellt, während das untere Diagramm diese Zeittrends einbezieht. Die Erstellung der Abbildung erfolgt analog zu den vorherigen, sodass wir die einzelnen Schritte an dieser Stelle nicht erneut im Detail erläutern.
+Zunächst erstellen wir die Abbildung für ein paralleles Handyverbot. Dabei gehen wir genauso vor wie bei den vorherigen Abbildungen und verwenden die gleiche Regressionsgleichung (7.1), jedoch mit einem neuen Datensatz. Zuerst filtern wir den ursprünglichen Datensatz `data`, sodass nur Beobachtungen enthalten sind, bei denen entweder `HHBAN` den Wert $1$ annimmt (d. h. in diesen Bundesstaaten `st5`, `st31`, `st33` und `st7` gilt ein Handyverbot) oder `treated` den Wert $0$ hat (d. h. die Kontrollgruppe). Wir verwenden dabei die `filter()`-Funktion aus dem `dplyr`-Paket. Im oberen Diagramm werden die geschätzten Lead- und Lag-Koeffizienten ohne die Berücksichtigung staatsspezifischer Zeittrends dargestellt, während das untere Diagramm diese Zeittrends einbezieht. Die Erstellung der Abbildung erfolgt analog zu den vorherigen, sodass wir die einzelnen Schritte an dieser Stelle nicht erneut im Detail erläutern.
 
 <b style="color:navy">Aufgabe:</b>  Klicken Sie auf `check`, um den gefilterten Datensatz und die zwei Regressionsmodelle für die zwei Diagramme zu erstellen.
 
@@ -2750,7 +2735,7 @@ model2a_2 = lm_robust(laccidentsvso2 ~ lead5sb + lead4sb + lead3sb + lead2sb + l
 #>
 ```
 
-<b style="color:navy">Aufgabe:</b> Um die Koeffizienten und Standardfehler aus zwei Regressionsmodellen zu den Effekten starker SMS-Verbote zu extrahieren und ein Dataframe zu erstellen, klicken sie auf check.
+<b style="color:navy">Aufgabe:</b> Um die Koeffizienten und Standardfehler aus zwei Regressionsmodellen zu den Effekten starker SMS-Verbote zu extrahieren und ein Dataframe zu erstellen, klicken Sie auf `check`.
 
 ```{r "7_k"}
 #< task_notest
@@ -2824,15 +2809,15 @@ plot2a
 #>
 ```
 
-Abbildung 7.3 zeigt die geschätzten Lead- und Lag-Koeffizienten für starke SMS-Verbote in Bundesstaaten, die gleichzeitig ein Handyverbot eingeführt haben. Die obere Grafik berücksichtigt keine staatsspezifischen Zeittrends, während die untere Grafik diese Trends einbezieht. Auf der x-Achse sind die Monate vor und nach der Einführung des Verbots dargestellt. Negative Werte stehen für die Monate vor der Einführung (Leadeffekte), während positive Werte die Monate danach repräsentieren (Lag-Effekte). Die y-Achse zeigt die relative Veränderung der Unfallzahlen. Die geschätzten Koeffizienten für ein starkes SMS-Verbot sind in der oberen Grafik als pinke Linie und in der unteren als rote Linie dargestellt. Das 95-%-Konfidenzintervall wird durch schattierte Flächen und gestrichelte Linien veranschaulicht. 
+Abbildung 7.3 zeigt die geschätzten Lead- und Lag-Koeffizienten für starke SMS-Verbote in Bundesstaaten, die gleichzeitig ein Handyverbot eingeführt haben. Die obere Grafik berücksichtigt keine staatsspezifischen Zeittrends, während die untere Grafik diese Trends einbezieht. Auf der x-Achse sind die Monate vor und nach der Einführung des Verbots dargestellt. Negative Werte stehen für die Monate vor der Einführung (**Lead-Effekte**), während positive Werte die Monate danach repräsentieren (**Lag-Effekte**). Die y-Achse zeigt die relative Veränderung der Unfallzahlen. Die geschätzten Koeffizienten für ein starkes SMS-Verbot sind in der oberen Grafik als pinke Linie und in der unteren als rote Linie dargestellt. Das 95 %-Konfidenzintervall wird durch schattierte Flächen und gestrichelte Linien veranschaulicht. 
 
-In beiden Diagrammen bewegen sich die Linien bereits vor der Einführung des Verbots tendenziell um Null oder leicht darüber, ohne einen klaren Trend zu erkennen. Ein kontinuierlicher Rückgang der Unfälle ist nicht ersichtlich. Nach Abouk & Adams (2013) sind die Lead- und Lag-Effekte in Abbildung 7.3 signifikant. Dadurch wird die Schlussfolgerung, dass die beobachteten Effekte ausschließlich nach der Einführung des SMS-Verbots auftreten, durch die signifikanten Lead-Effekten infrage gestellt.
+In beiden Diagrammen bewegen sich die Linien bereits vor der Einführung des Verbots tendenziell um null oder leicht darüber, ohne einen klaren Trend zu erkennen. Ein kontinuierlicher Rückgang der Unfälle ist nicht ersichtlich. Nach Abouk & Adams (2013) sind die Lead- und Lag-Effekte in Abbildung 7.3 signifikant. Dadurch wird die Schlussfolgerung, dass die beobachteten Effekte ausschließlich nach der Einführung des SMS-Verbots auftreten, durch die signifikanten Lead-Effekte infrage gestellt.
 
-Nach Einführung des Verbots ist im ersten Monat ein deutlicher relativer Rückgang der Unfallzahlen um 31–32 Prozent zu beobachten, wobei der Tiefpunkt etwa drei Monate nach der Implementierung erreicht wird. Anschließend steigen die Werte leicht an, verbleiben jedoch im negativen Bereich. Diese Ergebnisse legen nahe, dass starke SMS-Verbote in Bundesstaaten mit gleichzeitigen Handyverboten zu einer kurzfristigen Reduktion der Unfallzahlen führen. Nachdem wir eine weitere Abbildung erstellt haben, die dasselbe darstellt, jedoch ohne die Berücksichtigung von Handyverboten, werden werden wir erneut auf Abbildung 7.3 eingehen.
+Nach der Einführung des Verbots ist im ersten Monat ein deutlicher relativer Rückgang der Unfallzahlen um $31$-$32$ % zu beobachten, wobei der Tiefpunkt etwa drei Monate nach der Implementierung erreicht wird. Anschließend steigen die Werte leicht an, verbleiben jedoch im negativen Bereich. Diese Ergebnisse legen nahe, dass starke SMS-Verbote in Bundesstaaten mit gleichzeitigen Handyverboten zu einer kurzfristigen Reduktion der Unfallzahlen führen. Nachdem wir eine weitere Abbildung erstellt haben, die dasselbe darstellt, jedoch ohne die Berücksichtigung von Handyverboten, werden wir erneut auf Abbildung 7.3 eingehen.
 
-Für die Erstellung der letzten Abbildung in diesem Kapitel wird die Bedingung in der `filter()`-Funktion im Gegensatz zur vorherigen Analyse verändert, sodass ausschließlich Bundesstaaten ohne paralleles Handyverbot berücksichtigt werden. Statt nach HHBAN == 1 zu filtern, werden nun ausschließlich Zeilen mit HHBAN == 0 ausgewählt. Die Bedingung treated == 0 bleibt dabei unverändert.
+Für die Erstellung der letzten Abbildung in diesem Kapitel wird die Bedingung in der `filter()`-Funktion im Gegensatz zur vorherigen Analyse verändert, sodass ausschließlich Bundesstaaten ohne paralleles Handyverbot berücksichtigt werden. Statt nach `HHBAN == 1` zu filtern, werden nun ausschließlich Zeilen mit `HHBAN == 0` ausgewählt. Die Bedingung `treated == 0` bleibt dabei unverändert.
 
-<b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter ____ durch den Namen des Datensatzes, den wir für die beiden Regressionsmodelle verwenden möchten.
+<b style="color:navy">Aufgabe:</b> Ersetzen Sie den Platzhalter `____` durch den Namen des Datensatzes, den wir für die beiden Regressionsmodelle verwenden.
 
 ```{r "7_m"}
 #< fill_in
@@ -2905,7 +2890,7 @@ model2b_2 = lm_robust(laccidentsvso2 ~ lead5sb + lead4sb + lead3sb + lead2sb + l
 
 ```
 
-<b style="color:navy">Aufgabe:</b> Drücken Sie auf check, um die Koeffizienten und Standardfehler aus zwei Regressionsmodellen zu den Effekten starker SMS-Verbote zu extrahieren und ein Dataframe zu erstellen.
+<b style="color:navy">Aufgabe:</b> Drücken Sie auf `check`, um die Koeffizienten und Standardfehler aus zwei Regressionsmodellen zu den Effekten starker SMS-Verbote zu extrahieren und einen Dataframe zu erstellen.
 
 ```{r "7_n"}
 #< task_notest
@@ -2984,14 +2969,14 @@ plot2b
 **Herzlichen Glückwunsch!** Sie haben die zentralen Funktionen des `ggplot2`-Pakets wie  `ggplot()`,  `geom_line()`,  `geom_ribbon()`,  `geom_hline()` und  `facet_wrap()` erfolgreich gemeistert.
 #>
 
-Abbildung 7.4 stellt die geschätzten Lead- und Lag-Koeffizienten für starke SMS-Verbote in Staaten dar, in denen kein paralleles Handyverbot gilt. In der oberen Grafik werden keine spezifischen Zeittrends für die einzelnen Staaten berücksichtigt, während die untere Grafik diese Zeittrends einbezieht. Die vertikale Linie markiert den Zeitpunkt der Einführung des Verbots, wobei negative Werte auf der x-Achse die Monate vor der Implementierung (Lead-Effekte) und positive Werte die Monate danach (Lag-Effekte) darstellen. Auf der y-Achse wird die relative Veränderung der Unfallzahlen dargestellt. In der oberen Grafik werden die geschätzten Koeffizienten für starke SMS-Verbote in Orange und in der unteren Grafik in Grün dargestellt. Das 95-%-Konfidenzintervall wird durch schattierte Bereiche und gestrichelte Linien verdeutlicht. 
+Abbildung 7.4 zeigt die geschätzten Lead- und Lag-Koeffizienten für starke SMS-Verbote in Bundesstaaten, in denen kein paralleles Handyverbot besteht. In der oberen Grafik werden keine staatsspezifischen Zeittrends berücksichtigt, während die untere Grafik diese einbezieht. Die vertikale Linie markiert den Zeitpunkt der Einführung des Verbots. Negative Werte auf der x-Achse stehen für die Monate vor der Implementierung (Lead-Effekte), positive Werte für die Monate danach (Lag-Effekte). Die y-Achse zeigt die relative Veränderung der Unfallzahlen. Die geschätzten Koeffizienten für starke SMS-Verbote sind in der oberen Grafik in Orange und in der unteren Grafik in Grün dargestellt. Das 95 %-Konfidenzintervall wird durch schattierte Bereiche und gestrichelte Linien verdeutlicht. 
 
-In beiden Diagrammen ist vor der Einführung des Verbots kein klarer Trend in den Unfallzahlen erkennbar. Der Verlauf des zweiten Diagramms ist ähnlich dem des ersten. Allerdings verläuft die Linie im Vergleich zum ersten Diagramm häufiger im positiven Bereich. 
+In beiden Diagrammen ist vor der Einführung des Verbots kein eindeutiger Trend in den Unfallzahlen erkennbar. Der Verlauf des zweiten Diagramms ähnelt dem des ersten, jedoch verläuft die Linie dort häufiger im positiven Bereich.
 
-Bevor wir die Lag-Effekte der Abbildung 7.4 näher betrachten, starten wir mit einem kurzen Quiz. 
+Bevor wir die Lag-Effekte in Abbildung 7.4 näher betrachten, beginnen wir mit einem kurzen Quiz.
 
 #< quiz "Abbildung 7.4"
-question: Wie hoch ist der relative Rückgang der Unfälle im ersten Monat nach Einführung eines starken Verbots?
+question: Wie hoch ist der relative Rückgang der Unfälle im ersten Monat nach der Einführung eines starken Verbots?
 sc: 
 - 12 %*
 - 38 %
@@ -3002,25 +2987,25 @@ success: Gut gemacht! Ihre Antwort ist richtig!
 failure: Versuchen Sie es noch einmal.
 #>
 
-Unmittelbar nach der Einführung des Verbots ist ein kurzfristiger Rückgang der Unfallzahlen zu beobachten. Besonders im ersten Monat nach Inkrafttreten des Verbots lässt sich eine deutliche Reduktion der relativen Unfallzahlen feststellen. Im zweiten Monat ist jedoch eine deutliche Zunahme der Unfälle zu beobachten, die bis zum dritten Monat anhält. Ab dem dritten Monat bleibt die Linie im unteren Diagramm konstant, während sie im oberen Diagramm leicht fällt (vgl. Abouk & Adams (2013)).
+Unmittelbar nach der Einführung des Verbots ist ein kurzfristiger Rückgang der Unfallzahlen zu beobachten. Besonders im ersten Monat nach Inkrafttreten des Verbots lässt sich eine deutliche Reduktion der relativen Unfallzahlen feststellen. Im zweiten Monat ist jedoch eine deutliche Zunahme der Unfälle zu erkennen, die bis zum dritten Monat anhält. Ab dem dritten Monat bleibt die Linie im unteren Diagramm konstant, während sie im oberen Diagramm leicht abfällt (vgl. Abouk & Adams (2013)).
 
-Der Verlauf ähnelt dem des ersten Diagramms, jedoch zeigt sich eine noch deutlichere Zunahme der Unfälle. In den Folgemonaten schwächt sich die Wirkung des Verbots weiter ab. Die Unfallreduktion bleibt somit nur kurzfristig bestehen. Die geschätzten Lag-Effekte verdeutlichen den Ankündigungseffekt. Während im ersten Monat noch eine deutliche Abnahme der Unfälle zu sehen ist, schwächt sich dieser Effekt bereits im zweiten Monat erheblich ab und verschwindet zwischen dem zweiten und dritten Monat vollständig. Die Annahme, dass ein stärkerer Ankündigungseffekt in den Bundesstaaten zu beobachten ist, in denen kein generelles Handyverbot galt, wird durch die Abbildung 7.3 gestützt. Auch die Ergebnisse aus den Abbildungen 7.3 und 7.4 zeigen, dass es den Strafverfolgungsbehörden schwerfällt, eindeutig zwischen Fahrern zu unterscheiden, die tatsächlich eine SMS schreiben, und solchen, die ihr Handy lediglich in der Hand halten. Dies könnte die Wirksamkeit von SMS-Verboten beeinträchtigen (vgl. Abouk & Adams (2013)).
+Der Verlauf ähnelt dem des ersten Diagramms, jedoch zeigt sich eine noch deutlichere Zunahme der Unfälle. In den Folgemonaten schwächt sich die Wirkung des Verbots weiter ab. Die Unfallreduktion bleibt somit nur kurzfristig bestehen. Die geschätzten Lag-Effekte verdeutlichen den Ankündigungseffekt. Während im ersten Monat noch eine deutliche Abnahme der Unfälle zu erkennen ist, schwächt sich dieser Effekt bereits im zweiten Monat erheblich ab und verschwindet zwischen dem zweiten und dritten Monat vollständig. Die Annahme, dass ein stärkerer Ankündigungseffekt in den Bundesstaaten zu beobachten ist, in denen kein generelles Handyverbot galt, wird durch Abbildung 7.3 gestützt. Auch die Ergebnisse aus den Abbildungen 7.3 und 7.4 zeigen, dass es für die Strafverfolgungsbehörden schwierig ist, eindeutig zwischen Fahrern zu unterscheiden, die tatsächlich eine SMS schreiben, und solchen, die ihr Handy lediglich in der Hand halten. Dies könnte die Wirksamkeit von SMS-Verboten beeinträchtigen (vgl. Abouk & Adams (2013)).
 
-Die Ergebnisse stützen zwar die zweite Erklärung für den Ankündigungseffekt, wonach eine unzureichende Durchsetzung der Verbote die Hauptursache ist. Dennoch kann die erste Erklärung, dass Fahrer Wege zur Umgehung des Verbots finden, nicht ausgeschlossen werden (vgl. Abouk & Adams (2013)). Die Autoren fügen hinzu, dass der Ankündigungseffekt in allen vier Abbildungen robust ist und dass eine verstärkte Durchsetzung der Verbote dazu beitragen könnte, mehr Leben zu retten.  
+Die Ergebnisse stützen zwar die zweite Erklärung für den Ankündigungseffekt, wonach eine unzureichende Durchsetzung der Verbote die Hauptursache ist. Dennoch kann die erste Erklärung, dass Fahrer Wege zur Umgehung des Verbots finden, nicht ausgeschlossen werden (vgl. Abouk & Adams (2013)). Die Autoren fügen hinzu, dass der Ankündigungseffekt in allen vier Abbildungen robust ist und eine verstärkte Durchsetzung der Verbote dazu beitragen könnte, mehr Leben zu retten.
 
 **Zusammenfassung**:  
 
-In dieser Eventstudie untersuchen wir den Einfluss von SMS-Verboten auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen über die Zeit. Zur Veranschaulichung der geschätzten Lead- und Lag-Koeffizienten sowie der 95-Prozent-Konfidenzintervalle extrahierten wir diese aus der mit lm_robust() geschätzten Regressionsgleichung (7.1) und stellten die Ergebnisse in vier Abbildungen mit dem Paket ggplot2 dar. Erstmals in diesem Problem Set verwendeten wir dabei die Funktion *facet_wrap*, um die Diagramme nach Zeitperioden zu unterteilen.
+In dieser Eventstudie untersuchen wir den Einfluss von SMS-Verboten auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen über die Zeit. Zur Veranschaulichung der geschätzten Lead- und Lag-Koeffizienten sowie der 95 %-Konfidenzintervalle extrahierten wir diese aus der mit `lm_robust()` geschätzten Regressionsgleichung (7.1) und stellten die Ergebnisse in vier Abbildungen mit dem Paket `ggplot2` dar. Erstmals in diesem Problemset verwendeten wir dabei die Funktion `facet_wrap()`, um die Diagramme nach Zeitperioden zu unterteilen.
 
-Die Resultate zeigen, dass vor der Einführung des starken SMS-Verbots keine auffälligen Veränderungen in den Unfalltrends zu beobachten sind. Schwache SMS-Verbote zeigen keine konsistente Wirkung auf die Unfallzahlen. Starke SMS-Verbote führen zwar im ersten Monat nach seiner Einführung zu einer deutlichen Reduktion der Unfallzahlen, doch bereits nach wenigen Monaten nähern sich diese wieder dem ursprünglichen Niveau an. Dies lässt darauf schließen, dass solche Maßnahmen kurzfristig Leben retten könnten, langfristig aber an Wirkung verlieren (vgl. Abouk & Adams (2013)). Somit ist der sogenannte Ankündigungseffekt erkennbar. Besonders deutlich zeigt er sich bei starken SMS-Verboten in Staaten ohne ein paralleles Handyverbot.  Nach Abouk & Adams (2013) könnte daher ein generelles Handyverbot die Effektivität der SMS-Verbote erhöhen, würde jedoch zusätzliche Kosten für die Fahrer*innen verursachen. 
+Die Resultate zeigen, dass vor der Einführung des starken SMS-Verbots keine auffälligen Veränderungen in den Unfalltrends zu beobachten sind. Schwache SMS-Verbote zeigen keine konsistente Wirkung auf die Unfallzahlen. Starke SMS-Verbote führen zwar im ersten Monat nach seiner Einführung zu einer deutlichen Reduktion der Unfallzahlen, doch bereits nach wenigen Monaten nähern sich diese wieder dem ursprünglichen Niveau an. Dies lässt darauf schließen, dass solche Maßnahmen kurzfristig Leben retten könnten, langfristig aber an Wirkung verlieren (vgl. Abouk & Adams (2013)). Somit ist der sogenannte Ankündigungseffekt erkennbar. Besonders deutlich zeigt er sich bei starken SMS-Verboten in Staaten ohne ein paralleles Handyverbot. Nach Abouk & Adams (2013) könnte daher ein generelles Handyverbot die Effektivität der SMS-Verbote erhöhen, würde jedoch zusätzliche Kosten für die Fahrer\*innen verursachen.
 
-Insgesamt lässt sich feststellen, dass Fahrer*innen nur kurzfristig auf die Ankündigung der Verbote reagieren und nach einiger Zeit zu ihrem ursprünglichen Verhalten zurückkehren. 
+Insgesamt lässt sich feststellen, dass Fahrer\*innen nur kurzfristig auf die Ankündigung der Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren.
 
 <br/>
 
 ## Exercise 8 -- Schlussfolgerung 
 
-Die Forschungsfragen dieser Bachelorarbeit waren, **ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Falls ja, stellt sich die Frage, ob die Fahrer*innen nur kurzfristig auf die Ankündigung dieser Verbote reagieren und nach einiger Zeit zu ihrem ursprünglichen Verhalten zurückkehren, oder ob sie ihr Verhalten langfristig ändern und das Schreiben sowie Lesen von Nachrichten während der Fahrt dauerhaft vermeiden.** Die Ergebnisse der Hauptanalyse lassen darauf schließen, dass beide Forschungsfragen bejaht werden können. 
+Die Forschungsfragen dieser Bachelorarbeit waren, **ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Falls ja, stellt sich die Frage, ob Fahrer\*innen ihr Verhalten langfristig ändern oder lediglich kurzfristig auf die Ankündigung dieser Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren.** Die Ergebnisse der Hauptanalyse lassen darauf schließen, dass der erste Teil der Forschungsfrage bejaht werden kann. Sie legen zudem nahe, dass Fahrer\*innen nur kurzfristig auf die Ankündigung dieser Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren.
 
 Durch die gezielte Betrachtung von Verkehrsunfällen mit einem einzigen Fahrzeug und  einem Insassen, haben wir jene Unfälle fokussiert, die am wahrscheinlichsten von
 SMS-Verboten beeinflusst werden könnten. Die Ergebnisse zeigen, dass solche Unfälle verringert werden, wenn SMS-Verbote alle Fahrer\*innen betreffen und primär durchgesetzt werden.  Diese Verbote werden als **starke** SMS-Verbote klassifiziert. Im ersten Monat nach Einführung führen starke SMS-Verbote zu einer deutlichen Reduktion der Unfallzahlen, jedoch hält die Wirkung nur kurzfristig an. Nach wenigen Monaten steigen die Zahlen wieder auf das ursprüngliche Niveau. Im Gegensatz dazu haben starke SMS-Verbote kaum Einfluss auf Unfälle mit mehreren Fahrzeugen oder Insassen (vgl. Abouk & Adams (2013)).
