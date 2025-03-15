@@ -6,7 +6,7 @@ user.name = ''
 
 
 
-# SMS-Verbote und tödliche Verkehrsunfälle 
+# SMS-Verbote und tödliche Verkehrsunfälle <br/>- Eine interaktive Analyse mit R
 
 Autorin: Selen Yagci
 
@@ -16,7 +16,7 @@ Autorin: Selen Yagci
 
 ### Herzlich willkommen zu diesem interaktiven R-Tutor-Problemset!
 
-Ablenkung ist ein ständiger Begleiter unseres Alltags, sei es durch Smartphones, soziale Medien oder die Vielzahl moderner Technologien. Im Straßenverkehr kann sie jedoch schwerwiegende Folgen haben. Die Nutzung von Smartphones während der Fahrt ist für viele Menschen zu einer alltäglichen Gewohnheit geworden (vgl. Gehlen (2023)).Seit 2021 erfasst die Polizei Ablenkung als Unfallursache. Die entsprechenden Erhebungen zeichnen ein alarmierendes Bild: Im Jahr 2021 erfasste das Statistische Bundesamt 8233 verletzte Personen aufgrund von Ablenkung im Straßenverkehr. Darüber hinaus wurden 117 tödliche Unfälle verzeichnet, die einen Anteil von fünf Prozent an den insgesamt 2.562 Verkehrstoten des Jahres 2021 entsprachen (vgl. Gehlen (2023)). 
+Ablenkung ist ein ständiger Begleiter unseres Alltags, sei es durch Smartphones, soziale Medien oder die Vielzahl moderner Technologien. Im Straßenverkehr kann sie jedoch schwerwiegende Folgen haben. Die Nutzung von Smartphones während der Fahrt ist für viele Menschen zu einer alltäglichen Gewohnheit geworden (vgl. Gehlen (2023)). Seit 2021 erfasst die Polizei Ablenkung als Unfallursache. Die entsprechenden Erhebungen zeichnen ein alarmierendes Bild: Im Jahr 2021 erfasste das Statistische Bundesamt 8233 verletzte Personen aufgrund von Ablenkung im Straßenverkehr. Darüber hinaus wurden 117 tödliche Unfälle verzeichnet, die einen Anteil von fünf Prozent an den insgesamt 2.562 Verkehrstoten des Jahres 2021 entsprachen (vgl. Gehlen (2023)). 
 
 
 Quiz: Was denken Sie, um wie viel Prozent ist die Zahl der durch Ablenkung verursachten Unfälle in den ersten zehn Monaten des Jahres 2022 im Vergleich zum Vorjahr (2021) gestiegen?
@@ -49,9 +49,7 @@ Das vorliegende Problemset wurde auf den folgenden Webseiten veröffentlicht:
 + **GitHub**: <https://github.com/selenyagci/RTutorSMSVerbot>
 + **ShinyApps**: <https://zcjpyd-selenyagci.shinyapps.io/RTutorSMSVerbot/>
 
-Im Rahmen des Problemsets werden die wesentlichen Ergebnisse der Autoren mithilfe der statistischen Programmiersprache R repliziert. Dabei werde ich auf den Artikel als „Abouk & Adams (2013)“, „die Autoren“ oder „Hauptartikel“ verweisen. Das Problemset wurde in deutscher Sprache verfasst, während dieser Artikel auf Englisch veröffentlicht wurde. Die Variablen der Datensätze sind daher ebenfalls auf Englisch, weshalb die originalen Variablennamen unverändert übernommen wurden. Die Begriffe *(Staggered) Difference-in-Differences* und *Lead-* und *Lag-Effekte* werden in diesem Problemset bewusst in ihrer englischen Form beibehalten, da diese in der wissenschaftlichen Literatur weit verbreitet sind und eine höhere Verständlichkeit bieten. Der Begriff *Fixed Effects* wird hingegen als **Fixeffekte** übersetzt, da diese Bezeichnung näher am englischen Original liegt. 
-
-Das Problemset setzt sich aus 9 Kapiteln zusammen:
+Im Rahmen des Problemsets werden die wesentlichen Ergebnisse der Autoren mithilfe der statistischen Programmiersprache R repliziert. Dabei werde ich auf den Artikel als „Abouk & Adams (2013)“, „die Autoren“ oder „Hauptartikel“ verweisen. Das Problemset wurde in deutscher Sprache verfasst, während dieser Artikel auf Englisch veröffentlicht wurde. Die Variablen der Datensätze sind daher ebenfalls auf Englisch, weshalb die originalen Variablennamen unverändert übernommen wurden. Die Begriffe *(Staggered) Difference-in-Differences* und *Lead-* und *Lag-Effekte* werden in diesem Problemset bewusst in ihrer englischen Form beibehalten, da diese in der wissenschaftlichen Literatur weit verbreitet sind und eine höhere Verständlichkeit bieten. Der Begriff *Fixed Effects* wird hingegen als **Fixeffekte** übersetzt, da diese Bezeichnung näher am englischen Original liegt. Das Problemset setzt sich aus 9 Kapiteln zusammen:
 
 ## Exercise Inhalt  
 
@@ -150,7 +148,7 @@ Da wir ein besseres Verständnis von Dummy-Variablen haben, möchten wir uns die
   + `month:`  Monat, auf den sich die Daten beziehen, numerisch (1 = Januar, 2 = Februar, ..., 12 = Dezember). Diese Variable gibt den Monat als numerische Zahl von 1 bis 12 an.
   + `year: ` Repräsentiert den Beobachtungszeitraum von 2007 bis 2010.
   + `date:`  Datum der Beobachtung im Format `YYYY-MM-TT` (z. B. 2007-12-01).
-  + `treated` : Dummy-Variable, die angibt, ob ein Bundesstaat in der Behandlungsgruppe (mit SMS-Verbot) oder in der Kontrollgruppe (ohne SMS-Verbot) ist.
+  + `treated`: Dummy-Variable, die angibt, ob ein Bundesstaat in der Behandlungsgruppe (mit SMS-Verbot) oder in der Kontrollgruppe (ohne SMS-Verbot) ist.
   + `ban_time`: Gibt an, zu welchem Monat das SMS-Verbot in einem bestimmten Bundesstaat eingeführt wurde. Es handelt sich dabei um eine numerische Variable, die den Monat darstellt, in dem das Verbot in Kraft trat, gemessen ab dem Startmonat (Januar 2007, der als Monat 1 kodiert ist). Beispiel: 34 bedeutet, dass das Verbot im 34. Monat (Oktober 2009) eingeführt wurde.
   + `ban_date`: Datum-Variable, die das Kalenderdatum angibt, an dem das SMS-Verbot in Kraft trat. Das Format ist `YYYY-MM-TT` (Jahr.Monat.Tag).
   + `txmsban`:  Dummy-Variable, die angibt, ob das SMS-Verbot in einem bestimmten Bundesstaat zu einem bestimmten Zeitpunkt in Kraft ist. 
