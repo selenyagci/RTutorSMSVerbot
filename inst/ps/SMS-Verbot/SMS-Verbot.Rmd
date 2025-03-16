@@ -6,7 +6,7 @@ user.name = ''
 
 
 
-# SMS-Verbote und tödliche Verkehrsunfälle <br/>- Eine interaktive Analyse mit R
+# SMS-Verbote und tödliche Verkehrsunfälle -<br/>Eine interaktive Analyse mit R
 
 Autorin: Selen Yagci
 
@@ -93,7 +93,7 @@ Nachfolgend sind die wesentlichen Elemente aufgeführt, die Ihnen im Problemset 
 + `original code`: Zeigt Ihnen den ursprünglichen Code der Aufgabe an, bevor Sie Änderungen vorgenommen haben.
 + ` Go to next exercise…`: Sobald Sie eine Übung abgeschlossen haben, klicken Sie auf `Go to next exercise… `, um zur nächsten Seite zu gelangen.
 + **Code-Chunks:** Abschnitte, in denen Sie den R-Code eingeben, bearbeiten und ausführen können, um die Aufgaben zu lösen. Falls Sie an einem Code-Chunk arbeiten möchten, klicken Sie zuerst `edit`. 
-+ **Info Box:** Liefert Hintergrundinformationen, theoretische Erklärungen und zusätzliche Hinweise zur jeweiligen Aufgabe.
++ **Info-Box:** Liefert Hintergrundinformationen, theoretische Erklärungen und zusätzliche Hinweise zur jeweiligen Aufgabe.
 + **Awards:** Belohnungen, die Sie für das erfolgreiche Abschließen von Aufgaben, Code-Chunks oder Quizfragen im Rahmen des Problemsets erhalten.
 
 #### **Aufgabentypen im Problemset:**
@@ -141,7 +141,7 @@ Hier sehen wir die ersten Zeilen unseres Datensatzes, die uns einen Überblick �
 info("Dummy-Variablen")
 ```
 
-Da wir ein besseres Verständnis von Dummy-Variablen haben, möchten wir uns die Variablen in unserem Datensatz genauer ansehen. Jede Variable hat ihre eigene Bedeutung und trägt zur Gesamtanalyse bei. Die Variablen wie `date`, `ban_time` , `ban_date`  und `group` habe ich erstellt, um die Daten strukturierter und übersichtlicher zu gestalten. Lassen Sie uns die wichtigsten Variablen und deren Eigenschaften näher betrachten:
+Da wir ein besseres Verständnis von Dummy-Variablen haben, möchten wir uns die Variablen in unserem Datensatz genauer ansehen. Jede Variable hat ihre eigene Bedeutung und trägt zur Gesamtanalyse bei. Die Variablen wie `date`, `ban_time`, `ban_date`  und `group` habe ich erstellt, um die Daten strukturierter und übersichtlicher zu gestalten. Lassen Sie uns die wichtigsten Variablen und deren Eigenschaften näher betrachten:
 
   + `state`: US-Bundesstaat, in dem die Daten erhoben wurden. Jede Zahl repräsentiert einen spezifischen Bundesstaat.
   + `time`: Zeitraum in Monaten, in dem die Beobachtungen erfasst wurden. Dieser Zeitraum erstreckt sich über 48 Monate, wobei der 1. Monat dem Januar 2007 entspricht und der 48. Monat dem Dezember 2010.
@@ -152,7 +152,7 @@ Da wir ein besseres Verständnis von Dummy-Variablen haben, möchten wir uns die
   + `ban_time`: Gibt an, zu welchem Monat das SMS-Verbot in einem bestimmten Bundesstaat eingeführt wurde. Es handelt sich dabei um eine numerische Variable, die den Monat darstellt, in dem das Verbot in Kraft trat, gemessen ab dem Startmonat (Januar 2007, der als Monat 1 kodiert ist). Beispiel: 34 bedeutet, dass das Verbot im 34. Monat (Oktober 2009) eingeführt wurde.
   + `ban_date`: Datum-Variable, die das Kalenderdatum angibt, an dem das SMS-Verbot in Kraft trat. Das Format ist `YYYY-MM-TT` (Jahr.Monat.Tag).
   + `txmsban`:  Dummy-Variable, die angibt, ob das SMS-Verbot in einem bestimmten Bundesstaat zu einem bestimmten Zeitpunkt in Kraft ist. 
-  + `accident`: Zeigt die Gesamtanzahl der Verkehrsunfälle in einem Monat und umfasst alle Unfallarten
+  + `accident`: Zeigt die Gesamtanzahl der Verkehrsunfälle in einem Monat und umfasst alle Unfallarten.
   + `accidentsvso`: Anzahl der Verkehrsunfälle, an denen ein einziges Fahrzeug mit nur einem Insassen (Fahrer\*innen) beteiligt ist (engl. *single-vehicle, single-occupant accident*).
   + `group`: Unterteilt die Daten in zwei Hauptgruppen (Behandlungs- und Kontrollgruppe). 
    
@@ -209,7 +209,7 @@ data_st53
 
 Der gefilterte Datensatz enthält eine Vielzahl von Variablen, die spezifisch für den Bundesstaat **Washington** erfasst wurden. Im Folgenden werden wir die Variablen genauer betrachten, um ein tieferes Verständnis der bereitgestellten Informationen zu gewinnen.
 
-In der Spalte **state** sehen wir, dass der Wert konstant bei 53 liegt, welcher dem Bundesstaat Washington zugeordnet ist. Die Variable **time** ist ein fortlaufender Index von 1 bis 48, der die Monate von Januar 2007 (time = 1) bis Dezember 2010 (time = 48) abbildet. Die Spalten **month** und **year** zeigen den jeweiligen Monat und das Jahr der Beobachtungen, während die Spalte **date** ein vollständiges Datum enthält, beispielsweise "2007-01-01" für den 1. Januar 2007. Die Spalte **ban_time** zeigt, dass das SMS-Verbot im Bundesstaat Washington im 13. Monat (Januar 2008) eingeführt wurde. Diese Information wird durch die Spalte **ban_date** (2008-01-01) bestätigt. Besonders interessant ist die Spalte **txmsban**, die ab dem Zeitpunkt der Einführung des Verbots von $0$ auf $1$ wechselt. Für die ersten 12 Monate (Januar 2007 bis Dezember 2007) hat die Variable den Wert $0$. Ab Januar 2008 (time = 13) ändert sich der Wert auf $1$. Im Datensatz geben die Unfallvariablen detaillierte Informationen zu den Unfallzahlen. Die Variable **accident** zeigt die Gesamtanzahl der Verkehrsunfälle in einem Monat und umfasst alle Unfalltypen. Diese Unfälle werden weiter unterteilt in **accidentsvso** (Verkehrsunfälle mit einem einzigen Fahrzeug und nur einem Fahrer), **accidentmv** (Verkehrsunfälle mit mehreren Fahrzeugen oder Insassen) und **accidentother** (alle anderen Arten von Unfällen). Zum Beispiel sehen wir im Januar 2007 (time = 1), dass es insgesamt 40 Verkehrsunfälle gibt. Schließlich zeigt die Variable **group**, dass Washington (state = 53) zur Gruppe der Bundesstaaten gehört, die ein SMS-Verbot einführen (Behandlungsgruppe), mit dem Eintrag **treat**. Welche weiteren Bundesstaaten ebenfalls zur Behandlungsgruppe gehören, wird im nächsten Kapitel ausführlich behandelt.
+In der Spalte `state` sehen wir, dass der Wert konstant bei 53 liegt, welcher dem Bundesstaat Washington zugeordnet ist. Die Variable `time` ist ein fortlaufender Index von 1 bis 48, der die Monate von Januar 2007 (time = 1) bis Dezember 2010 (time = 48) abbildet. Die Spalten `month` und `year` zeigen den jeweiligen Monat und das Jahr der Beobachtungen, während die Spalte `date` ein vollständiges Datum enthält, beispielsweise "2007-01-01" für den 1. Januar 2007. Die Spalte `ban_time` zeigt, dass das SMS-Verbot im Bundesstaat Washington im 13. Monat (Januar 2008) eingeführt wurde. Diese Information wird durch die Spalte `ban_date` (2008-01-01) bestätigt. Besonders interessant ist die Spalte `txmsban`, die ab dem Zeitpunkt der Einführung des Verbots von $0$ auf $1$ wechselt. Für die ersten 12 Monate (Januar 2007 bis Dezember 2007) hat die Variable den Wert $0$. Ab Januar 2008 (time = 13) ändert sich der Wert auf $1$. Im Datensatz geben die Unfallvariablen detaillierte Informationen zu den Unfallzahlen. Die Variable `accident` zeigt die Gesamtanzahl der Verkehrsunfälle in einem Monat und umfasst alle Unfalltypen. Diese Unfälle werden weiter unterteilt in `accidentsvso` (Verkehrsunfälle mit einem einzigen Fahrzeug und nur einem Fahrer), `accidentmv` (Verkehrsunfälle mit mehreren Fahrzeugen oder Insassen) und `accidentother` (alle anderen Arten von Unfällen). Zum Beispiel sehen wir im Januar 2007 (time = 1), dass es insgesamt 40 Verkehrsunfälle gibt. Schließlich zeigt die Variable `group`, dass Washington (state = 53) zur Gruppe der Bundesstaaten gehört, die ein SMS-Verbot einführen (Behandlungsgruppe), mit dem Eintrag `treat`. Welche weiteren Bundesstaaten ebenfalls zur Behandlungsgruppe gehören, wird im nächsten Kapitel ausführlich behandelt.
 
 
 ### Kleiner Einblick in die Datenaufbereitung
@@ -286,7 +286,7 @@ In dieser Übung werden wir eine deskriptive Analyse vornehmen und anschauliche 
 Bevor wir mit der Analyse beginnen, müssen wir die Datensätze `estdata.rds`,  `DataMap.rds` und `USdata.rds` laden.
 
 
-<b style="color:navy">Aufgabe:</b> Drücken Sie auf `check` , um die Datensätze einzulesen.
+<b style="color:navy">Aufgabe:</b> Drücken Sie auf `check`, um die Datensätze einzulesen.
 
 ```{r "3_1"}
 data = readRDS("estdata.rds")
@@ -386,17 +386,17 @@ USdata %>%
 
 Diese Tabelle enthält Informationen zu US-Bundesstaaten, in denen ein SMS-Verbot während des Fahrens gilt. Für jeden aufgeführten Bundesstaat sind das Einführungsdatum des Verbots (Monat und Jahr), die Art der Durchsetzung (primär oder sekundär) sowie Informationen darüber enthalten, ob gleichzeitig ein generelles Handyverbot besteht. In den meisten Bundesstaaten sind die Gesetze, die das Schreiben von Nachrichten am Steuer untersagen, ähnlich formuliert. Auch die Höhe der Strafen unterscheidet sich kaum, da diese zumeist aus niedrigen Bußgeldern bestehen (vgl. Abouk & Adams (2013)).
 
-Die Behandlungsgruppe ist in der Spalte `US-Bundesstaat` aufgelistet. Die Spalte **Monat der Einführung** zeigt, wann das SMS-Verbot in Kraft getreten ist und deckt Zeiträume von Januar 2008 bis Dezember 2010 ab. Die Spalte `Durchsetzung` verwendet eine Einteilung aus dem US-amerikanischen Verkehrsrecht, bei der zwischen primären und sekundären Verkehrsverstößen unterschieden wird. Ein primärer Verstoß oder Hauptverstoß (engl. *primary offense*) ist eine Ordnungswidrigkeit, bei der die Polizei einen Fahrer allein wegen des Schreibens von SMS-Nachrichten während des Fahrens anhalten kann, ohne dass ein weiterer Verstoß vorliegen muss (vgl. Abouk & Adams (2013)). Ein sekundärer Verstoß oder nachrangiger Verstoß (engl. *secondary offense*) hingegen ist eine Ordnungswidrigkeit, bei der das Anhalten nur in Kombination mit einem anderen Verkehrsverstoß erlaubt ist (vgl. Abouk & Adams (2013)). In den Bundesstaaten Indiana und Missouri gilt das SMS-Verbot nur für jüngere Fahrer\*innen. Die letzte Spalte `Gleichzeitiges universelles Handyverbot` gibt an, ob im jeweiligen Bundesstaat neben dem SMS-Verbot auch ein generelles Handyverbot besteht (vgl. Abouk & Adams (2013)). 
+Die Behandlungsgruppe ist in der Spalte `US-Bundesstaat` aufgelistet. Die Spalte `Monat der Einführung` zeigt, wann das SMS-Verbot in Kraft getreten ist und deckt Zeiträume von Januar 2008 bis Dezember 2010 ab. Die Spalte `Durchsetzung` verwendet eine Einteilung aus dem US-amerikanischen Verkehrsrecht, bei der zwischen primären und sekundären Verkehrsverstößen unterschieden wird. Ein primärer Verstoß oder Hauptverstoß (engl. *primary offense*) ist eine Ordnungswidrigkeit, bei der die Polizei einen Fahrer allein wegen des Schreibens von SMS-Nachrichten während des Fahrens anhalten kann, ohne dass ein weiterer Verstoß vorliegen muss (vgl. Abouk & Adams (2013)). Ein sekundärer Verstoß oder nachrangiger Verstoß (engl. *secondary offense*) hingegen ist eine Ordnungswidrigkeit, bei der das Anhalten nur in Kombination mit einem anderen Verkehrsverstoß erlaubt ist (vgl. Abouk & Adams (2013)). In den Bundesstaaten Indiana und Missouri gilt das SMS-Verbot nur für jüngere Fahrer\*innen. Die letzte Spalte `Gleichzeitiges universelles Handyverbot` gibt an, ob im jeweiligen Bundesstaat neben dem SMS-Verbot auch ein generelles Handyverbot besteht (vgl. Abouk & Adams (2013)). 
 
 Die SMS-Verbote lassen sich in **starke** und **schwache** Verbote einteilen. In der Hauptanalyse wird zwischen diesen beiden Verbotsarten unterschieden. 
 
-Nach Abouk & Adams (2013) gelten für die Einstufung eines Verbots als schwach zwei Kriterien:
+Nach Abouk & Adams (2013) gelten für die Einstufung eines Verbots als **schwach** zwei Kriterien:
 
-  + **Begrenzte Anwendbarkeit:** Wenn das SMS-Verbot nicht für alle Fahrer\*innen gilt, sondern nur für eine bestimmte Bevölkerungsgruppe, z. B. junge Fahrer\*innen, wird es als **schwach** eingestuft. In Indiana und Missouri gelten die Verbote während des untersuchten Zeitraums nur für jüngere Fahrer\*innen und nicht für alle Altersgruppen. Diese Beschränkung auf eine Altersgruppe könnte bei einigen Fahrern zu Verwirrung darüber führen, wer genau betroffen ist. Solche begrenzten Verbote könnten weniger wirksam sein (vgl. Abouk & Adams (2013)).
+  + **Begrenzte Anwendbarkeit:** Wenn das SMS-Verbot nicht für alle Fahrer\*innen gilt, sondern nur für eine bestimmte Bevölkerungsgruppe, z. B. junge Fahrer\*innen, wird es als schwach eingestuft. In Indiana und Missouri gelten die Verbote während des untersuchten Zeitraums nur für jüngere Fahrer\*innen und nicht für alle Altersgruppen. Diese Beschränkung auf eine Altersgruppe könnte bei einigen Fahrern zu Verwirrung darüber führen, wer genau betroffen ist. Solche begrenzten Verbote könnten weniger wirksam sein (vgl. Abouk & Adams (2013)).
 
-  + **Sekundärer Verstoß:** Wenn das SMS-Verbot als sekundärer Verstoß gilt, wird dies als **schwach** eingestuft. Das SMS-Verbot wird in einigen Bundesstaaten, wie Nebraska, New York, Virginia und Washington als sekundärer Verkehrsverstoß betrachtet. 
+  + **Sekundärer Verstoß:** Wenn das SMS-Verbot als sekundärer Verstoß gilt, wird dies als schwach eingestuft. Das SMS-Verbot wird in einigen Bundesstaaten, wie Nebraska, New York, Virginia und Washington als sekundärer Verkehrsverstoß betrachtet. 
   
-In den Bundesstaaten Indiana, Missouri, Nebraska, New York, Virginia und Washington wird das SMS-Verbot als **schwach** eingestuft. In den Bundesstaaten, in denen das SMS-Verbot universell angewendet und primär durchgesetzt wird, wird es als **stark** klassifiziert. Somit betreffen starke SMS-Verbote alle Fahrer\*innen und enthalten keine Altersbeschränkung.
+In den Bundesstaaten Indiana, Missouri, Nebraska, New York, Virginia und Washington wird das SMS-Verbot als schwach eingestuft. In den Bundesstaaten, in denen das SMS-Verbot universell angewendet und primär durchgesetzt wird, wird es als **stark** klassifiziert. Somit betreffen starke SMS-Verbote alle Fahrer\*innen und enthalten keine Altersbeschränkung.
 
 
 Quiz: In wie vielen Bundesstaaten wird das SMS-Verbot als "stark" eingestuft?
@@ -776,7 +776,7 @@ Im nächsten Kapitel werden wir den klassischen Difference-in-Differences (DiD)-
 
 In dieser Übung konzentrieren wir uns auf den klassischen Difference-in-Differences-Ansatz (DiD). Dabei greifen wir erneut auf die drei Behandlungsstaaten (Indiana, Tennessee und Virginia) sowie die drei Kontrollstaaten (Alabama, Arizona und West Virginia) zurück, die bereits in der vorherigen Übung verwendet wurden. Ebenso bleibt die Unterteilung in die Vorbehandlungsphase (Januar 2007 bis Juni 2009) und die Experimentalphase (Juli 2009 bis Dezember 2010) unverändert. Während wir den DiD-Schätzer im Kapitel 3 manuell berechnet haben, wird dieser in der aktuellen Übung mithilfe einer linearen Regression hergeleitet. Im Gegensatz zur manuellen Berechnung bietet die Regression den Vorteil, Standardfehler zu schätzen und somit die statistische Signifikanz der Ergebnisse zu bewerten. Zudem können wir nach (vgl Gibbons et al. (2019)) durch die Einbeziehung von Fixeffekten unbeobachtbare Faktoren kontrollieren, da dies in der manuellen Berechnung nicht möglich ist. Auf die Fixeffekte werden wir im weiteren Verlauf dieser Übung näher eingehen. Abschließend wird die Difference-in-Differences-Analyse um cluster-robuste Standardfehler erweitert. 
  
-Im Rahmen der linearen Regression wird die Beziehung zwischen einer abhängigen Variable und einer oder mehreren unabhängigen Variablen  modelliert (vgl. Hackl ((2012), S. 30)). Die Methode der kleinsten Quadrate (OLS) wird verwendet, um die Parameter $β_0$ und $β_1$ zu schätzen, wodurch die Summe der Fehlerquadrate minimiert wird (vgl. Hackl ((2012), S. 34)). Die lineare Regression wird in R mit der Funktion `lm()` durchgeführt, die es ermöglicht, Modelle zu schätzen und die zugehörigen Standardfehler zu berechnen. Sie hat die Form `lm(formula, data, weights = ...)`, wobei `formula` die Modellgleichung angibt (z. B. y ~ x) und `data` den Datensatz bezeichnet, aus dem die Variablen stammen. Mit dem Argument weights können Beobachtungen unterschiedlich gewichtet werden. Ein Beispiel ist `lm(y ~ x, data = datensatz, weights = w)`.
+Im Rahmen der linearen Regression wird die Beziehung zwischen einer abhängigen Variable und einer oder mehreren unabhängigen Variablen  modelliert (vgl. Hackl ((2012), S. 30)). Die Methode der kleinsten Quadrate (OLS) wird verwendet, um die Parameter $β_0$ und $β_1$ zu schätzen, wodurch die Summe der Fehlerquadrate minimiert wird (vgl. Hackl ((2012), S. 34)). Die lineare Regression wird in R mit der Funktion `lm()` durchgeführt, die es ermöglicht, Modelle zu schätzen und die zugehörigen Standardfehler zu berechnen. Sie hat die Form `lm(formula, data, weights = ...)`, wobei `formula` die Modellgleichung angibt (z. B. y ~ x) und `data` den Datensatz bezeichnet, aus dem die Variablen stammen. Mit dem Argument weights können Beobachtungen unterschiedlich gewichtet werden. Ein Beispiel ist `lm(y ~ x, data = Datensatz, weights = w)`.
 Die Ergebnisse des Modells, wie geschätzte Koeffizienten ( $\beta_{0}$ , $\beta_{1}$), Signifikanztests und der $R^2$-Wert, können mithilfe von `summary()` ausgegeben werden. 
 
 
@@ -891,7 +891,7 @@ In der untenstehenden Tabelle finden Sie eine kurze Zusammenfassung der Interpre
 
 ### Fixeffekte
 
-Eine beliebte Methode, um unbeobachtbare Unterschiede zwischen Beobachtungen zu berücksichtigen, ist der Einsatz von **Fixeffekten** (engl.: *fixed effects*) (vgl. Cornelissen (2008)). Diese Methode berücksichtigt Unterschiede, die auf Merkmalen wie Bundesstaaten, Zeiträumen oder Jahren beruhen, und ermöglicht es, konstante und unbeobachtbare Faktoren, die spezifisch für einen Bundesstaat oder eine Zeitperiode sind, in die Analyse einzubeziehen und ihren Einfluss zu kontrollieren (vgl Gibbons et al. (2019)). Dies trägt dazu bei, dass der geschätzte Effekt des SMS-Verbots auf tödliche Verkehrsunfälle nicht durch diese unbeobachtbaren Faktoren verzerrt wird (vgl. Brandler & Roman ((2007), S. 584)). Durch diese Methode werden verlässlichere Schätzungen erzielt (vgl. Brandler & Roman ((2007), S. 584)).
+Eine beliebte Methode, um unbeobachtbare Unterschiede zwischen Beobachtungen zu berücksichtigen, ist der Einsatz von **Fixeffekten** (engl. *fixed effects*) (vgl. Cornelissen (2008)). Diese Methode berücksichtigt Unterschiede, die auf Merkmalen wie Bundesstaaten, Zeiträumen oder Jahren beruhen, und ermöglicht es, konstante und unbeobachtbare Faktoren, die spezifisch für einen Bundesstaat oder eine Zeitperiode sind, in die Analyse einzubeziehen und ihren Einfluss zu kontrollieren (vgl Gibbons et al. (2019)). Dies trägt dazu bei, dass der geschätzte Effekt des SMS-Verbots auf tödliche Verkehrsunfälle nicht durch diese unbeobachtbaren Faktoren verzerrt wird (vgl. Brandler & Roman ((2007), S. 584)). Durch diese Methode werden verlässlichere Schätzungen erzielt (vgl. Brandler & Roman ((2007), S. 584)).
 
 
 Das Regressionsmodell mit Fixeffekten lautet wie folgt:
@@ -975,7 +975,7 @@ Sehr gut erkannt! Der geschätzte DiD-Koeffizient (`treat_exp`) ist in allen dre
 
 Cluster-robuste Standardfehler sind eine statistische Methode, um die Genauigkeit der Schätzungen in einer Regression zu verbessern, wenn die Annahme unabhängiger und identisch verteilter Fehlerterme verletzt ist (vgl. Cameron & Miller (2015)). Dies tritt häufig bei Daten auf, die in Gruppen (z. B. Bundesstaaten) unterteilt sind. Wenn es innerhalb dieser Gruppen (Cluster) Korrelationen gibt, können Standardfehler verzerrt und inkorrekt geschätzt werden. Cluster-robuste Standardfehler berücksichtigen diese Korrelationen innerhalb von Clustern, wodurch die Schätzungen verlässlicher werden (vgl. Cameron & Miller (2015)).
 
-In unserer Analyse repräsentiert jeder Bundesstaat einen Cluster, wobei wir davon ausgehen können, dass die Bundesstaaten unabhängig voneinander sind. Innerhalb eines Bundesstaates jedoch könnten die Beobachtungen, etwa durch gemeinsame regionale oder soziale Einflüsse, miteinander korreliert sein. Diese Korrelationen zwischen den Beobachtungen innerhalb eines Bundesstaates müssen bei der Schätzung der Standardfehler berücksichtigt werden (vgl. Cameron & Miller (2015)). 
+In unserer Analyse repräsentiert jeder Bundesstaat ein Cluster, wobei wir davon ausgehen können, dass die Bundesstaaten unabhängig voneinander sind. Innerhalb eines Bundesstaates jedoch könnten die Beobachtungen, etwa durch gemeinsame regionale oder soziale Einflüsse, miteinander korreliert sein. Diese Korrelationen zwischen den Beobachtungen innerhalb eines Bundesstaates müssen bei der Schätzung der Standardfehler berücksichtigt werden (vgl. Cameron & Miller (2015)). 
 
 Durch die Verwendung der `felm()`-Funktion in R, die die Form `felm(abhängige Variable ~ unabhängige Variablen + Kontrollvariablen | Fixeffekte | 0 | Cluster-robuste Standardfehler, data = Datensatz, weights = ...)` hat, können wir cluster-robuste Standardfehler für Bundesstaaten berechnen. Hierbei geben wir `state` als Argument nach dem `|0|`-Teil der Funktion an, um die Korrelationen innerhalb der Bundesstaaten zu berücksichtigen. 
 
@@ -1053,7 +1053,7 @@ $$ln(acc_{i,m}) = \beta_{0} + \beta_{1}B_{i,m} + \lambda_{i} + \delta_{m} +\math
 * $\lambda_i$: Bundesstaaten-Fixeffekte
 * $\delta_m$: 48-monatige-Fixeffekte 
 * $X_{i,m}$: Matrix der Kontrollvariablen
-* $\gamma$: Vektor der Koeffizienten der Kontrollvariablen.
+* $\gamma$: Vektor der Koeffizienten der Kontrollvariablen
 * $\varepsilon_{i,m}$: Fehlerterm
 
 Kontrollvariablen $X_{i,m}$:
@@ -1061,7 +1061,7 @@ Kontrollvariablen $X_{i,m}$:
 * *lpop*: Logarithmierte Bevölkerung
 * *lunemp*: Logarithmierte Arbeitslosenquote
 * *lrgastax*: Logarithmierte Benzinsteuer
-* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent.
+* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent
 
 In unserer Analyse, die den Effekt von SMS-Verboten auf die Anzahl der Verkehrsunfälle untersucht, ist es entscheidend, potenzielle Störfaktoren zu berücksichtigen, die ebenfalls die Unfallzahlen beeinflussen könnten (vgl. Morin et al. ((2021), S. 309)). Andernfalls könnten die Ergebnisse verzerrt werden (vgl. Stiller, ((2007), S. 72)). Um diese Verzerrung zu reduzieren, werden Kontrollvariablen in die Analyse aufgenommen. Eine Kontrollvariable ist eine Variable, die dazu dient, den Zusammenhang zwischen der unabhängigen und der abhängigen Variable möglichst isoliert zu betrachten und potenzielle Störfaktoren zu berücksichtigen (vgl. Morin et al. ((2021), S. 309)).
 
@@ -1102,7 +1102,7 @@ summary(model1)
 Der Koeffizient der Variable `txmsban` ist nicht mit Sternen gekennzeichnet. Dies deutet darauf hin, dass der geschätzte Effekt statistisch nicht signifikant ist. Sterne dienen zur Kennzeichnung der statistischen Signifikanz von Ergebnissen, wobei eine höhere Anzahl an Sternen eine stärkere Signifikanz anzeigt (vgl. Frost ((2017), S. 23)). Im Folgenden werden wir diesen Koeffizienten näher interpretieren. Dabei ist zu beachten, dass es sich bei unserem Modell um ein **log-lineares Modell** der Form $\hat{\ln(y)} = \hat{\beta_0} + \hat{\beta_1} x$ handelt, bei dem die abhängige Variable logarithmiert wurde. Die Logarithmierung der abhängigen Variablen erleichtert es, die Auswirkungen des SMS-Verbots in Prozent auszudrücken. Dies unterscheidet sich von den bisher betrachteten linearen Regressionsmodellen der Form $\hat{y} = \hat{\beta_0} + \hat{\beta_1}x$, 
 die linear-linear aufgebaut sind und keine logarithmierten Variablen enthalten. Aufgrund der log-linearen Struktur unseres Modells erfolgt die Interpretation der Koeffizienten anders als bei einem linear-linearen Modell. Im log-linearen Modell lautet die allgemeine Interpretation:
 
-**Wenn sich $x$ um eine Einheit erhöht, erhöht sich der vorhergesagte Wert $y$ um etwa $100 \cdot \beta_1$ Prozent** (vgl. Békés & Kézdi ((2023), S.206 )).
+**Wenn sich $x$ um eine Einheit erhöht, erhöht sich der vorhergesagte Wert $y$ um etwa $100 \cdot \beta_1$ Prozent** (vgl. Békés & Kézdi ((2023), S.206)).
 
 
 Quiz: Welche der folgenden Interpretationen des Schätzwerts von $-0,037$ ist korrekt?
@@ -1133,7 +1133,7 @@ $$ln(acc_{i,m}) = \beta_{0} + \beta_{1}SB_{i,m} + \beta_{2}WB_{i,m} + \lambda_{i
 * $\lambda_i$: Bundesstaaten-Fixeffekte 
 * $\delta_m$: Fixeffekte auf Monatsebene (48-monatige Fixeffekte) 
 * $X_{i,m}$: Matrix der Kontrollvariablen
-* $\gamma$: Vektor der Koeffizienten der Kontrollvariablen.
+* $\gamma$: Vektor der Koeffizienten der Kontrollvariablen
 * $\varepsilon_{i,m}$: Fehlerterm
 
 Kontrollvariablen $X_{i,m}$:
@@ -1141,7 +1141,7 @@ Kontrollvariablen $X_{i,m}$:
 * *lpop*: Logarithmierte Bevölkerung
 * *lunemp*: Logarithmierte Arbeitslosenquote
 * *lrgastax*: Logarithmierte Benzinsteuer
-* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent.
+* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent
 * *laccidentmv2*: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit Beteiligung mehrerer Fahrzeuge oder Insassen + $1$ 
 
 Der Term $\beta_{1}B_{i,m}$ wird erweitert, um zwischen starken und schwachen SMS-Verboten zu unterscheiden. Um diese Differenzierung zu berücksichtigen, werden Dummy-Variablen für starke und schwache SMS-Verbote eingeführt und mit $B$ interagiert. Dies führt zu den Termen $\beta_{1}SB_{i,m} + \beta_{2}WB_{i,m}$. Diese Interaktion ersetzt den ursprünglichen Term $\beta_{1}B_{i,m}$ und ermöglicht es, die unterschiedlichen Effekte von starken und schwachen Verbotsarten separat zu schätzen.
@@ -1241,7 +1241,7 @@ In diesem Kapitel haben wir die Unterschiede zwischen dem klassischen und dem St
 
 ## Exercise 6 -- Effekt von starken SMS-Verboten auf Verkehrsunfälle
 
-Im vorherigen Kapitel haben wir festgestellt, dass starke SMS-Verbote zu einer Reduktion von Verkehrsunfällen führen, bei denen ein einzelnes Fahrzeug mit nur einem Insassen beteiligt ist. Daher konzentrieren wir uns in diesem Kapitel auf die **starken SMS-Verbote** und widmen uns der Hauptanalyse der Autoren. Ziel ist es, die Robustheit der Ergebnisse hinsichtlich ihres Einflusses auf Verkehrsunfälle mithilfe des Staggered Difference-in-Differences-Ansatzes zu überprüfen. Wir untersuchen, ob die geschätzten Effekte von starken SMS-Verboten auf Verkehrsunfälle gegenüber der Wahl des Modellansatzes, der abhängigen Variablen und der Berücksichtigung zusätzlicher gesetzlicher Regelungen robust sind. Darüber hinaus überprüfen wir, wie sich die Verbote auf andere Unfallarten auswirken, die weniger wahrscheinlich durch das SMS-Verbot beeinflusst werden. Diese Tests dienen als Falsifikationstest, der die Gültigkeit einer Hypothese überprüft, indem untersucht wird, ob sie durch bestimmte Daten widerlegt oder bestätigt werden kann (vgl.Speckmann et al. ((2024), S. 824)). Insgesamt führen wir 33 Regressionen durch, die auf 11 verschiedenen Modellspezifikationen basieren. Jede Spezifikation wird dabei in drei Varianten (a, b, c) getestet. Die Ergebnisse werden anschließend übersichtlich in einer Tabelle dargestellt und interpretiert. Aufgrund der Vielzahl an Modellen erfolgt die Erstellung der Ergebnisse in mehreren Schritten. 
+Im vorherigen Kapitel haben wir festgestellt, dass starke SMS-Verbote zu einer Reduktion von Verkehrsunfällen führen, bei denen ein einzelnes Fahrzeug mit nur einem Insassen beteiligt ist. Daher konzentrieren wir uns in diesem Kapitel auf die **starken SMS-Verbote** und widmen uns der Hauptanalyse der Autoren. Ziel ist es, die Robustheit der Ergebnisse hinsichtlich ihres Einflusses auf Verkehrsunfälle mithilfe des Staggered Difference-in-Differences-Ansatzes zu überprüfen. Wir untersuchen, ob die geschätzten Effekte von starken SMS-Verboten auf Verkehrsunfälle gegenüber der Wahl des Modellansatzes, der abhängigen Variablen und der Berücksichtigung zusätzlicher gesetzlicher Regelungen robust sind. Darüber hinaus überprüfen wir, wie sich die Verbote auf andere Unfallarten auswirken, die weniger wahrscheinlich durch das SMS-Verbot beeinflusst werden. Diese Tests dienen als Falsifikationstest, der die Gültigkeit einer Hypothese überprüft, indem untersucht wird, ob sie durch bestimmte Daten widerlegt oder bestätigt werden kann (vgl. Speckmann et al. ((2024), S. 824)). Insgesamt führen wir 33 Regressionen durch, die auf 11 verschiedenen Modellspezifikationen basieren. Jede Spezifikation wird dabei in drei Varianten (a, b, c) getestet. Die Ergebnisse werden anschließend übersichtlich in einer Tabelle dargestellt und interpretiert. Aufgrund der Vielzahl an Modellen erfolgt die Erstellung der Ergebnisse in mehreren Schritten. 
 
 In diesem Kapitel greifen wir auf die Regressionsgleichungen (5.1) und (5.2) aus dem vorherigen Kapitel zurück. Bei Bedarf können die Regressionsgleichungen jederzeit in Kapitel 5 nachgelesen werden, sodass eine erneute Aufstellung der Gleichungen nicht erforderlich ist. Es ist wichtig zu erwähnen, dass ab der fünften Modellspezifikation die Kontrollvariablen aus der Regressionsgleichung (5.2) übernommen werden, während in den Modellspezifikationen 1 bis 4 die Kontrollvariablen aus der Regressionsgleichung (5.1) verwendet werden.
 
@@ -1352,13 +1352,13 @@ Dabei gilt:
 * $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle $+ 1$ für den US-Bundesstaat $i$ im Monat $m$.
 * $SB_{i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn im Bundesstaat $i$ im Monat $m$ ein starkes SMS-Verbot in Kraft ist (d. h. es wird universell angewendet und primär durchgesetzt). Andernfalls nimmt die Variable den Wert $0$ an
 * $WB_{i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn im Bundesstaat $i$ im Monat $m$ ein schwaches SMS-Verbot gilt (d. h. es wird entweder nur sekundär durchgesetzt oder gilt nur für bestimmte Bevölkerungsgruppen, z. B. nur für junge Fahrer\*innen) und den Wert $0$, wenn dies nicht zutrifft
-* $SVSO_{i,m}$:Dummy-Variable, die zwischen zwei Unfallarten unterscheidet. Der Wert $1$ kennzeichnet Verkehrsunfälle, bei denen nur ein Fahrzeug mit einem Insassen (dem Fahrer) beteiligt ist, während der Wert $0$ auf Verkehrsunfälle hinweist, bei denen mehrere Fahrzeuge oder Insassen involviert sind
+* $SVSO_{i,m}$: Dummy-Variable, die zwischen zwei Unfallarten unterscheidet. Der Wert $1$ kennzeichnet Verkehrsunfälle, bei denen nur ein Fahrzeug mit einem Insassen (dem Fahrer) beteiligt ist, während der Wert $0$ auf Verkehrsunfälle hinweist, bei denen mehrere Fahrzeuge oder Insassen involviert sind
 * $SVSO_{i,m} \times SB_{i,m}$: Interaktionsterm zwischen den Dummy-Variablen `SVSO` und `SB`.
 * $SVSO_{i,m} \times WB_{i,m}$: Interaktionsterm zwischen den Dummy-Variablen `SVSO` und `WB`.
 * $\lambda_i$: Bundesstaaten-Fixeffekte 
 * $\delta_m$: Monats-Fixeffekte  
 * $X_{i,m}$: Matrix der Kontrollvariablen
-* $\gamma$: Vektor der Koeffizienten der Kontrollvariablen.
+* $\gamma$: Vektor der Koeffizienten der Kontrollvariablen
 * $\varepsilon_{i,m}$: Fehlerterm
 
 Kontrollvariablen $X_{i,m}$:
@@ -1366,7 +1366,7 @@ Kontrollvariablen $X_{i,m}$:
 * *lpop*: Logarithmierte Bevölkerung
 * *lunemp*: Logarithmierte Arbeitslosenquote
 * *lrgastax*: Logarithmierte Benzinsteuer
-* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent.
+* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent
 
 Wir konzentrieren uns hier hauptsächlich auf den Koeffizienten $\beta_4$, der den kausalen Effekt der starken SMS-Verbote auf Verkehrsunfälle misst. Dabei werden die Unterschiede zwischen Verkehrsunfällen berücksichtigt, bei denen nur ein Fahrzeug mit einem Insassen beteiligt ist, und Verkehrsunfällen, bei denen mehrere Fahrzeuge oder Insassen involviert sind.
 
@@ -1625,7 +1625,7 @@ for (i in 1:11) {
   vals_b = extract_values(mod_b, coef_name, clustered)
   vals_c = extract_values(mod_c, coef_name, clustered)
   
-results_list[[i]] = data.frame(Row_Name = c("(1) Modell 3 bis 5 aus Tabelle 5.2", "(2) Gesamtanzahl aller Verkehrsunfälle als abhängige Variable", "(3) Mehrere Fahrzeuge oder Insassen als abhängige Variable", "(4) DDD-Ansatz", "(5)  Gefahrene Fahrzeugmeilen als abhängige Variable", "(6) Verkehrsunfälle pro Million Fahrzeugmeilen ", "(7) Paralleles Handyverbot","(8) Kein Handyverbot","(9) Negative Binomialregression","(10) Jahres-Fixeffekte und Fixeffekte für die Monate in einem Jahr", "(11) Daten bis einschließlich 2009")[i], modela = paste0(vals_a[1], " (", vals_a[2], ")", vals_a[3]), modelb = ifelse(i == 10, "—", paste0(vals_b[1], " (", vals_b[2], ")", vals_b[3])), modelc = paste0(vals_c[1], " (", vals_c[2], ")", vals_c[3]))
+results_list[[i]] = data.frame(Row_Name = c("(1) Modell 3 bis 5 aus Tabelle 5.2", "(2) Gesamtanzahl aller Verkehrsunfälle als abhängige Variable", "(3) Mehrere Fahrzeuge oder Insassen als abhängige Variable", "(4) DDD-Ansatz", "(5)  Gefahrene Fahrzeugmeilen als abhängige Variable", "(6) Verkehrsunfälle pro Million Fahrzeugmeilen ", "(7) Paralleles Handyverbot","(8) Kein Handyverbot","(9) Negative Binomialregression","(10) Fixeffekte für Jahre und für Monate eines Jahres", "(11) Daten bis einschließlich 2009")[i], modela = paste0(vals_a[1], " (", vals_a[2], ")", vals_a[3]), modelb = ifelse(i == 10, "—", paste0(vals_b[1], " (", vals_b[2], ")", vals_b[3])), modelc = paste0(vals_c[1], " (", vals_c[2], ")", vals_c[3]))
 
 }
 
@@ -1634,14 +1634,14 @@ new_rows = data.frame(Row_Name = c("Fixeffekte auf Monatsebene?¹", "Fixeffekte 
 final_table = bind_rows(results_list, new_rows)
 ```
 
-Dieser Code erstellt eine Tabelle, die die Ergebnisse aus verschiedenen Modellen übersichtlich darstellt. In der Info-box wird der Code Schritt für Schritt erläutert.
+Dieser Code erstellt eine Tabelle, die die Ergebnisse aus verschiedenen Modellen übersichtlich darstellt. In der Info-Box wird der Code Schritt für Schritt erläutert.
 
 ```{r eval=FALSE}
 # Run for additional info in the Viewer pane
 info("Erstellung einer Tabelle mit einer for-Schleife")
 ```
 
-Zur übersichtlichen Darstellung der Ergebnisse wird die Funktion `kable()` aus dem Paket **`knitr`** in Kombination mit `kableExtra` verwendet. Die kable()-Funktion erstellt eine ansprechende Tabelle im HTML-Format, wobei wir die Spaltenüberschriften mit 'col.names' und die zentrierte Ausrichtung der Inhalte durch `align = 'c'`  festlegen. Mit der Funktion `add_header_above()` gruppieren wir die letzten drei Spalten unter der Überschrift **Modellvariante**. Zur Verbesserung der Lesbarkeit aktivieren wir mit der Funktion `kable_styling()` die Optionen `striped` (abwechselnde Zeilenfarben), `hover` (Hervorhebung von Zeilen bei Mausüberfahrt) und `condensed` (kompaktere Darstellung). Außerdem setzen wir `full_width = FALSE`, um sicherzustellen, dass die Tabelle nicht die gesamte Breite der Seite einnimmt. Darüber hinaus werden wichtige Elemente wie die Kopfzeile (`row_spec()`) und die erste Spalte (`column_spec()`) durch Fettdruck hervorgehoben. Um die Ergebnisse strukturiert darzustellen, möchten wir diese mit der Funktion `group_rows()` inhaltlich in drei Panels gliedern.
+Zur übersichtlichen Darstellung der Ergebnisse wird die Funktion `kable()` aus dem Paket `knitr` in Kombination mit `kableExtra` verwendet. Die `kable()`-Funktion erstellt eine ansprechende Tabelle im HTML-Format, wobei die Spaltennamen über `col.names` definiert und die Inhalte mit `align = 'l'` linksbündig ausgerichtet werden. Mit der Funktion `add_header_above()` gruppieren wir die letzten drei Spalten unter der Überschrift "Modellvariante". Zur Verbesserung der Lesbarkeit aktivieren wir mit der Funktion `kable_styling()` die Optionen `striped` (abwechselnde Zeilenfarben), `hover` (Hervorhebung von Zeilen bei Mausüberfahrt) und `condensed` (kompaktere Darstellung). Außerdem setzen wir `full_width = FALSE`, um sicherzustellen, dass die Tabelle nicht die gesamte Breite der Seite einnimmt. Darüber hinaus werden wichtige Elemente durch `row_spec(0, bold = TRUE)` und `column_spec(1, bold = TRUE, extra_css = "text-align: left; padding: 0 !important;")` hervorgehoben. Die Kopfzeile erscheint in Fettdruck, ebenso die erste Spalte, die zusätzlich linksbündig ausgerichtet und ohne zusätzlichen Innenabstand formatiert wird. Um die Ergebnisse strukturiert darzustellen, möchten wir diese mit der Funktion `group_rows()` inhaltlich in drei Panels gliedern.
 
 <b style="color:navy">Aufgabe:</b> Um die Tabelle zu erstellen, klicken Sie auf `check`. 
 
@@ -1650,15 +1650,17 @@ library("knitr")
 library("kableExtra")
       
 final_table %>%
-  kable("html", caption = "Tabelle 6.1: Effekt von starken SMS-Verboten auf Verkehrsunfälle", col.names = c("", "Modell a", "Modell b", "Modell c"), align = 'c') %>%
+  kable("html", caption = "Tabelle 6.1: Effekt von starken SMS-Verboten auf Verkehrsunfälle", col.names = c("", "Modell a", "Modell b", "Modell c"), align = 'l') %>%
   kable_styling(full_width = F, bootstrap_options = c("striped", "hover", "condensed")) %>%
   add_header_above(c(" " = 1, "Modellvariante" = 3)) %>%
-  row_spec(0, bold = T) %>%
-  column_spec(1, bold = TRUE) %>%
+  row_spec(0, bold = TRUE) %>%
+  column_spec(1, bold = TRUE, extra_css = "text-align: left; padding: 0 !important;") %>%
   group_rows("Panel A: Alternative abhängige Variablen und Falsifikationstest", 2, 6) %>%
   group_rows("Panel B: Alternative Gesetzgebung", 7, 8) %>%
   group_rows("Panel C: Alternative Modellansätze", 9, 11) %>%
-  footnote(general = "* p ≤ 0,05 (signifikant), ** p ≤ 0,01 (sehr signifikant), *** p ≤ 0,001 (hochsignifikant) (vgl. Frost ((2017), S. 23)). \n¹Diese Zeile gilt für die Modellspezifikation 10 nicht, da es sich hier um Fixeffekte für die 48 Monate handelt. \nQuelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S.189)", general_title = "Anmerkung")
+  footnote(general = "* p ≤ 0,05 (signifikant), ** p ≤ 0,01 (sehr signifikant), *** p ≤ 0,001 (hochsignifikant) (vgl. Frost (2017), S. 23). \n¹Diese Zeile gilt für die Modellspezifikation 10 nicht, da es sich hier um Fixeffekte für die 48 Monate handelt. \nQuelle: Eigene Darstellung in Anlehnung an Abouk & Adams (2013), S. 189)", 
+           general_title = "Anmerkung")
+
 ```
 
 Die Tabelle zeigt die geschätzten Koeffizienten der Variable `strongban` aus verschiedenen Regressionsmodellen, die jeweils unterschiedliche Spezifikationen verwenden. Die zugehörigen Standardfehler sind in Klammern angegeben. Jede Zelle der Tabelle stellt das Ergebnis einer separaten Regression dar. Ziel der Tabelle ist es, die Robustheit der Ergebnisse zu überprüfen und die Effekte starker SMS-Verbote auf Verkehrsunfälle zu analysieren. Die Modelle werden in drei Spalten dargestellt, die die Modellvarianten unterscheiden: **Modell a** (Fixeffekte auf Bundesstaaten- und Monatsebene), **Modell b** (Bundesstaaten-Fixeffekte und staatsspezifische Zeittrends) sowie **Modell c** (Monats-Fixeffekte, Bundesstaaten-Fixeffekte und staatsspezifische Zeittrends).
@@ -1667,7 +1669,7 @@ Die **Modelle 1a, 1b und 1c** entsprechen den Modellen 3 bis 5 in Tabelle 5.2 de
 
 In **Modellspezifikation 2** dient die Gesamtanzahl aller Verkehrsunfälle als abhängige Variable. Auch hier weisen die Koeffizienten in allen Modellen negative Werte auf, wodurch die Wirksamkeit starker SMS-Verbote auf die Verringerung der Gesamtzahl der Verkehrsunfälle unterstrichen wird. Allerdings fallen die Koeffizienten in den **Modellen 2a**, **2b** und **2c** im Vergleich zu den entsprechenden Werten der Modellspezifikation 1 geringer aus. Dies deutet darauf hin, dass die Wirkung der Verbote weniger ausgeprägt ist, wenn alle Arten von Verkehrsunfällen berücksichtigt werden.
 
-**Modellspezifikation 3** anaylsiert den Effekt starker SMS-Verbote auf Verkehrsunfälle mit mehreren Fahrzeugen oder mehreren Insassen. Dabei wird ein Falsifikationstest durchgeführt. Die Autoren nehmen an, dass diese Unfallart tatsächlich am wenigsten von SMS-Verboten beeinflusst wird. Diese Annahme wird hier bestätigt, da die Ergebnisse durchgehend keinen erkennbaren Effekt zeigen. In allen Modellvarianten sind die geschätzten Effekte gering und statistisch nicht signifikant (vgl. Abouk & Adams (2013)).
+**Modellspezifikation 3** analysiert den Effekt starker SMS-Verbote auf Verkehrsunfälle mit mehreren Fahrzeugen oder mehreren Insassen. Dabei wird ein Falsifikationstest durchgeführt. Die Autoren nehmen an, dass diese Unfallart tatsächlich am wenigsten von SMS-Verboten beeinflusst wird. Diese Annahme wird hier bestätigt, da die Ergebnisse durchgehend keinen erkennbaren Effekt zeigen. In allen Modellvarianten sind die geschätzten Effekte gering und statistisch nicht signifikant (vgl. Abouk & Adams (2013)).
 
 In **Modellspezifikation 4** wenden wir den Difference-in-Difference-in-Differences (DDD)-Ansatz an, um den kausalen Effekt verschiedener Arten von SMS-Verboten (starke und schwache Verbote) auf Verkehrsunfälle zu analysieren. In dieser Spezifikation werden die Koeffizienten der Variable `svso_sban` dargestellt, die sich aus der Interaktion der Dummy-Variablen `SVSO` und `SB` ergibt. Die Ergebnisse zeigen in allen Modellvarianten einen signifikanten und deutlichen Rückgang bei Verkehrsunfällen, die ein einzelnes Fahrzeug mit nur einem Insassen betreffen (vgl. Abouk & Adams (2013)).
 
@@ -1750,8 +1752,8 @@ Kontrollvariablen $X_{i,m}$:
 * *lpop*: Logarithmierte Bevölkerung
 * *lunemp*: Logarithmierte Arbeitslosenquote
 * *lrgastax*: Logarithmierte Benzinsteuer
-* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent.
-* *laccidentmv2* : Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit Beteiligung mehrerer Fahrzeuge oder Insassen $+ 1$ 
+* *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent
+* *laccidentmv2*: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit Beteiligung mehrerer Fahrzeuge oder Insassen $+ 1$ 
 
 Die Hauptanalyse verwendet eine Reihe von Dummy-Variablen, welche die Summation der **Lead- und Lag-Effekte** der SMS-Verbote darstellen. Dabei werden die Zeiträume vor der Behandlung ("Leads“) und die Zeiträume nach der Behandlung ("Lags") durch die Summationen in der obigen Regressionsgleichung erfasst (vgl. Baker et al. (2022)). Die Dummy-Variablen $SB_{-5}$ und $WB_{-5}$ nehmen den Wert eins an, wenn ein Bundesstaat in fünf Monaten ein starkes (**SB**) bzw. schwaches (**WB**) SMS-Verbot einführt, und andernfalls den Wert null. Dieser Ansatz wird für alle Monate vor der Einführung des Verbots fortgesetzt ($SB_{-4}$ bis $SB_{-1}$ und $WB_{-4}$ bis $WB_{-1}$).
 
@@ -1859,9 +1861,7 @@ model1a = lm_robust(_________ ~ lead5sb + lead4sb + lead3sb + lead2sb + lead1sb 
 
 ```
 
-Im nächsten Schritt möchten wir die geschätzten Koeffizienten und deren Standardfehler aus dem Modell `model1a` extrahieren und die Daten für eine grafische Darstellung der Lead- und Lag-Effekte aufbereiten.
-
-Dazu werden zunächst zwei Vektoren (`var_SB` und `var_WB`) definiert, die die relevanten Variablen für die Lead- und Lag-Effekte eines starken (`SB`) und eines schwachen (`WB`) SMS-Verbots enthalten. Anschließend werden aus der  Modellzusammenfassung (`summary(model1)$coefficients`) die geschätzten Koeffizienten (`estimates_SB` und `estimates_WB`) sowie deren Standardfehler (`se_SB` und `se_WB`) extrahiert.
+Im nächsten Schritt möchten wir die geschätzten Koeffizienten und deren Standardfehler aus dem Modell `model1a` extrahieren und die Daten für eine grafische Darstellung der Lead- und Lag-Effekte aufbereiten. Dazu werden zunächst zwei Vektoren (`var_SB` und `var_WB`) definiert, die die relevanten Variablen für die Lead- und Lag-Effekte eines starken (`SB`) und eines schwachen (`WB`) SMS-Verbots enthalten. Anschließend werden aus der  Modellzusammenfassung (`summary(model1)$coefficients`) die geschätzten Koeffizienten (`estimates_SB` und `estimates_WB`) sowie deren Standardfehler (`se_SB` und `se_WB`) extrahiert.
 
 Basierend auf diesen Werten wird ein Dataframe (`data_mod1a`) erstellt, der die geschätzten Koeffizienten (`Estimate_SB` und `Estimate_WB`) sowie die entsprechenden Zeitpunkte (`Monat`) umfasst. Die Zeitpunkte reichen von $-5$ bis $-1$ für die Monate vor der Einführung des Verbots (**Lead-Effekte**) und von $1$ bis $5$ für die Monate danach (**Lag-Effekte**). Zudem enthält der Dataframe die unteren und oberen Grenzen des 95 %-Konfidenzintervalls. Obwohl die Funktion  `lm_robust()` diese Grenzen bereits berechnet, führen wir die Berechnung manuell durch. Die Berechnung des 95 %-Konfidenzintervalls erfolgt gemäß der Formel nach Frings ((2010), S. 282):
 
@@ -1901,14 +1901,10 @@ data_mod1a = data.frame(
 
 Mit dem Paket `ggplot2` werden schließlich zwei Liniendiagramme erstellt, die die geschätzten Lead- und Lag-Koeffizienten für starke und schwache SMS-Verbote zeigen. Das 95 %-Konfidenzintervall visualisieren wir mit einer schattierten Fläche (`geom_ribbon()`) und gestrichelten Linien (`geom_line(linetype = "dashed")`). Die Funktion `geom_ribbon()` erzeugt den schattierten Bereich zwischen den definierten unteren (`ymin`) und oberen (`ymax`) Grenzen. Zusätzlich fügen wir mit `geom_hline()` eine horizontale Linie ein und legen den Wertebereich der y-Achse mit `ylim(min, max)` fest.
 
-Zur besseren Vergleichbarkeit teilen wir die beiden Diagramme mit `facet_wrap(~Zeit, scales = "free_x")` nach Zeitperioden auf. Mithilfe der Funktion `mutate()` aus dem Paket `dplyr` erstellen wir eine neue Spalte `Zeit`, die angibt, ob ein Monat vor oder nach der Einführung des Verbots liegt. Die `ifelse()`-Funktion klassifiziert Werte kleiner als null als „Vor Einführung des Verbots“ und Werte größer als null als „Nach Einführung des Verbots“. Mit `factor()` sorgen wir dafür, dass die Zeitperioden in der gewünschten Reihenfolge angezeigt werden.
-
-Das Design der Grafiken passen wir mit der Funktion `theme()` an, indem wir unter anderem die Schriftgröße, die Abstände zwischen den Panels und die Hintergrundfarbe der Facetten verändern.
-
-Abschließend ordnen wir die beiden Diagramme mit dem `patchwork`-Paket untereinander an. Die Kombination erfolgt mit `/`. Den Titel und die Quelle fügen wir mit `plot_annotation()` hinzu.
+Zur besseren Vergleichbarkeit teilen wir die beiden Diagramme mit `facet_wrap(~Zeit, scales = "free_x")` nach Zeitperioden auf. Mithilfe der Funktion `mutate()` aus dem Paket `dplyr` erstellen wir eine neue Spalte `Zeit`, die angibt, ob ein Monat vor oder nach der Einführung des Verbots liegt. Die `ifelse()`-Funktion klassifiziert Werte kleiner als null als „Vor Einführung des Verbots“ und Werte größer als null als „Nach Einführung des Verbots“. Mit `factor()` sorgen wir dafür, dass die Zeitperioden in der gewünschten Reihenfolge angezeigt werden. Das Design der Grafiken passen wir mit der Funktion `theme()` an, indem wir unter anderem die Schriftgröße, die Abstände zwischen den Panels und die Hintergrundfarbe der Facetten verändern. Abschließend ordnen wir die beiden Diagramme mit dem `patchwork`-Paket untereinander an. Die Kombination erfolgt mit `/`. Den Titel und die Quelle fügen wir mit `plot_annotation()` hinzu.
 
 
-<b style="color:navy">Aufgabe:</b> Drücken Sie auf `check` , um die Diagramme zu erstellen.
+<b style="color:navy">Aufgabe:</b> Drücken Sie auf `check`, um die Diagramme zu erstellen.
 ```{r "8_6",fig.height=8, fig.width=6}
 library("ggplot2")
 library("patchwork")
@@ -1962,7 +1958,6 @@ Wir werden die nächste Abbildung auf die gleiche Weise wie die vorherige erstel
 
 ```{r "8_7"}
 library("estimatr")
-
 model1b = ________(laccidentsvso2 ~ lead5sb + lead4sb + lead3sb + lead2sb + lead1sb + lag1sb + lag2sb + lag3sb + lag4sb + lag5psb + lead5wb + lead4wb + lead3wb + lead2wb + lead1wb + lag1wb + lag2wb + lag3wb + lag4wb + lag5pwb + lpop + lunemp + permale2 + lrgastax + laccidentmv2 + stb1 + stb2 + stb3 + stb4 + stb5 + stb6 + stb7 + stb8 + stb9 + stb10 + stb11 + stb12 + stb13 + stb14 + stb15 + stb16 + stb17 + stb18 + stb19 + stb20 + stb21 + stb22 + stb23 + stb24 + stb25 + stb26 + stb27 + stb28 + stb29 + stb30 + stb31 + stb32 + stb33 + stb34 + stb35 + stb36 + stb37 + stb38 + stb39 + stb40 + stb41 + stb42 + stb43 + stb44 + stb45 + stb46 + stb47 + stb48 + stb49 + stb50 + stb51 + time + stt1 + stt2 + stt3 + stt4 + stt5 + stt6 + stt7 + stt8 + stt9 + stt10 + stt11 + stt12 + stt13 + stt14 + stt15 + stt16 + stt17 + stt18 + stt19 + stt20 + stt21 + stt22 + stt23 + stt24 + stt25 + stt26 + stt27 + stt28 + stt29 + stt30 + stt31 + stt32 + stt33 + stt34 + stt35 + stt36 + stt37 + stt38 + stt39 + stt40 + stt41 + stt42 + stt43 + stt44 + stt45 + stt46 + stt47 + stt48 + stt49 + stt50, data = data, weights = pop, fixed_effects = ~ state + time, clusters = state, se_type = "stata")
 
 ```
@@ -1986,7 +1981,6 @@ se_SB =  coefs[var_SB, 2]
 estimates_WB =  coefs[var_WB, 1]
 se_WB =  coefs[var_WB, 2]
 
-# Dataframe erstellen
 data_mod1b = data.frame(
   Monat = c(-5:-1, 1:5),
   Estimate_SB = estimates_SB,
@@ -1994,8 +1988,7 @@ data_mod1b = data.frame(
   CI_Upper_SB = estimates_SB + 1.96 * se_SB,
   Estimate_WB = estimates_WB,
   CI_Lower_WB = estimates_WB - 1.96 * se_WB,
-  CI_Upper_WB = estimates_WB + 1.96 * se_WB
-)
+  CI_Upper_WB = estimates_WB + 1.96 * se_WB)
 ```
 
 <b style="color:navy">Aufgabe:</b> Um die Abbildung 7.2 zu erstellen, klicken Sie auf `check`.
@@ -2037,7 +2030,6 @@ plot1b_2 = ggplot(data_mod1b , aes(Monat, Estimate_WB)) +
 
 plot1b = (plot1b_1/ plot1b_2) + 
   plot_annotation(title = "Abbildung 7.2: Ankündigungseffekt mit staatsspezische Zeittrends", caption = "Quelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S.195)")
-
 plot1b
 ```
 
@@ -2052,7 +2044,7 @@ Im Gegensatz dazu zeigen schwache SMS-Verbote keinen kontinuierlichen Rückgang 
 Für den sogenannten Ankündigungseffekt gibt es **zwei** mögliche Erklärungen. Die **erste** Erklärung ist, dass viele Fahrer\*innen nach der Ankündigung des SMS-Verbots zunächst ihr Verhalten ändern und auf das Schreiben von Nachrichten verzichten, aber mit der Zeit Methoden finden, um einer Kontrolle zu entgehen. Zum Beispiel, indem sie ihr Handy verstecken oder außerhalb des Sichtfelds der Polizei Nachrichten verfassen. HLDI (2010) führt diese Erklärung an, um den überraschenden Anstieg der Verkehrsunfälle trotz der Verbote zu erklären. Die **zweite**, aus Sicht der Autoren wahrscheinlichere Erklärung ist, dass die Durchsetzung der Verbote nicht konsequent genug erfolgt. Abbildungen 7.1 und 7.2 veranschaulichen dies anhand der Lag-Effekte von Verboten, die entweder nur für bestimmte Bevölkerungsgruppen gelten, wie beispielsweise junge Fahrer\*innen, oder lediglich sekundär durchgesetzt werden. Im Monat nach der Einführung des Verbots ist zwar ein leichter Rückgang der Unfallzahlen zu beobachten, aber die Fahrer kehren offenbar schnell zu ihrem früheren Verhalten zurück und schreiben wieder genauso häufig SMS während der Fahrt wie vorher. In Bundesstaaten mit primärer Durchsetzung hält die Wirkung länger an, während in Regionen mit schwacher Durchsetzung die Rückkehr zum alten Verhalten deutlich schneller erfolgt (vgl. Abouk & Adams (2013)). 
 
 Um die zweite Erklärung weiter zu untermauern, führen wir eine zusätzliche Analyse durch. 
-Strafverfolgungsbehörden berichten von Herausforderungen bei der Umsetzung der Gesetze und kritisieren insbesondere, dass es schwierig sei, eindeutig zwischen Fahrern zu unterscheiden, die tatsächlich eine SMS schreiben, und solchen, die ihr Handy lediglich in der Hand halten (vgl. Abouk & Adams (2013)).Daher gehen die Autoren davon aus, dass der Ankündigungseffekt in Bundesstaaten ohne paralleles Handyverbot stärker ausfallen könnte. Für diese Analyse möchten wir zwei Abbildungen erstellen, die zwischen Bundesstaaten mit bestehendem Handyverbot und solchen ohne Handyverbot unterscheiden. Zudem konzentrieren wir uns ausschließlich auf die geschätzten Effekte der starken SMS-Verbote. 
+Strafverfolgungsbehörden berichten von Herausforderungen bei der Umsetzung der Gesetze und kritisieren insbesondere, dass es schwierig sei, eindeutig zwischen Fahrern zu unterscheiden, die tatsächlich eine SMS schreiben, und solchen, die ihr Handy lediglich in der Hand halten (vgl. Abouk & Adams (2013)). Daher gehen die Autoren davon aus, dass der Ankündigungseffekt in Bundesstaaten ohne paralleles Handyverbot stärker ausfallen könnte. Für diese Analyse möchten wir zwei Abbildungen erstellen, die zwischen Bundesstaaten mit bestehendem Handyverbot und solchen ohne Handyverbot unterscheiden. Zudem konzentrieren wir uns ausschließlich auf die geschätzten Effekte der starken SMS-Verbote. 
 
 Zunächst erstellen wir die Abbildung für ein paralleles Handyverbot. Dabei gehen wir genauso vor wie bei den vorherigen Abbildungen und verwenden die gleiche Regressionsgleichung (7.1), jedoch mit einem neuen Datensatz. Zuerst filtern wir den ursprünglichen Datensatz `data`, sodass nur Beobachtungen enthalten sind, bei denen entweder `HHBAN` den Wert $1$ annimmt (d. h. in diesen Bundesstaaten `st5`, `st31`, `st33` und `st7` gilt ein Handyverbot) oder `treated` den Wert $0$ hat (d. h. die Kontrollgruppe). Wir verwenden dabei die `filter()`-Funktion aus dem `dplyr`-Paket. Im oberen Diagramm werden die geschätzten Lead- und Lag-Koeffizienten ohne die Berücksichtigung staatsspezifischer Zeittrends dargestellt, während das untere Diagramm diese Zeittrends einbezieht. Die Erstellung der Abbildung erfolgt analog zu den vorherigen, sodass wir die einzelnen Schritte an dieser Stelle nicht erneut im Detail erläutern.
 
@@ -2086,7 +2078,6 @@ se_SB2a_1 =  coefs_2a_1[var_SB, 2]
 estimates_SB2a_2 =  coefs_2a_2[var_SB, 1]
 se_SB2a_2 =  coefs_2a_2[var_SB, 2]
 
-# Dataframe erstellen
 data_mod2a = data.frame(
   Monat = c(-5:-1, 1:5),
   Estimate_SB_1 = estimates_SB2a_1,
@@ -2094,8 +2085,7 @@ data_mod2a = data.frame(
   CI_Upper_SB_1 = estimates_SB2a_1 + 1.96 * se_SB2a_1,
   Estimate_SB_2 = estimates_SB2a_2,
   CI_Lower_SB_2 = estimates_SB2a_2 - 1.96 * se_SB2a_2,
-  CI_Upper_SB_2 = estimates_SB2a_2 + 1.96 * se_SB2a_2
-)
+  CI_Upper_SB_2 = estimates_SB2a_2 + 1.96 * se_SB2a_2)
 ```
 
 <b style="color:navy">Aufgabe:</b> Führen Sie den folgenden Chunk aus, in dem Sie einfach auf `check` drücken. 
@@ -2103,7 +2093,6 @@ data_mod2a = data.frame(
 ```{r "8_12",fig.height=8, fig.width=6}
 library("ggplot2")
 library("patchwork")
-
 data_mod2a  =  data_mod2a  %>%
   mutate(Zeit = factor(ifelse(Monat < 0, "Vor Einführung des Verbots", "Nach Einführung des Verbots"),levels = c("Vor Einführung des Verbots", "Nach Einführung des Verbots")))
 
@@ -2137,7 +2126,6 @@ plot2a_2 = ggplot(data_mod2a , aes(Monat, Estimate_SB_2)) +
 
 plot2a = (plot2a_1/ plot2a_2) + 
   plot_annotation(title = "Abbildung 7.3: Ankündigungseffekt mit paralleles Handyverbot", caption = "Quelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S.196)")
-
 plot2a
 ```
 
