@@ -16,7 +16,7 @@ Autorin: Selen Yagci
 
 ### Herzlich willkommen zu diesem interaktiven R-Tutor-Problemset!
 
-Ablenkung ist ein ständiger Begleiter unseres Alltags, sei es durch Smartphones, soziale Medien oder die Vielzahl moderner Technologien. Im Straßenverkehr kann sie jedoch schwerwiegende Folgen haben. Die Nutzung von Smartphones während der Fahrt ist für viele Menschen zu einer alltäglichen Gewohnheit geworden (vgl. Gehlen (2023)). Seit 2021 erfasst die Polizei Ablenkung als Unfallursache. Die entsprechenden Erhebungen zeichnen ein alarmierendes Bild: Im Jahr 2021 erfasste das Statistische Bundesamt 8233 verletzte Personen aufgrund von Ablenkung im Straßenverkehr. Darüber hinaus wurden 117 tödliche Unfälle verzeichnet, die einen Anteil von fünf Prozent an den insgesamt 2.562 Verkehrstoten des Jahres 2021 entsprachen (vgl. Gehlen (2023)). 
+Ablenkung ist ein ständiger Begleiter unseres Alltags, sei es durch Smartphones, soziale Medien oder die Vielzahl moderner Technologien. Im Straßenverkehr kann sie jedoch schwerwiegende Folgen haben. Die Nutzung von Smartphones während der Fahrt ist für viele Menschen zu einer alltäglichen Gewohnheit geworden (vgl. Gehlen (2023)). Seit 2021 erfasst die Polizei Ablenkung als Unfallursache. Die entsprechenden Erhebungen zeichnen ein alarmierendes Bild: Im Jahr 2021 erfasste das Statistische Bundesamt 8233 verletzte Personen aufgrund von Ablenkung im Straßenverkehr. Darüber hinaus wurden 117 tödliche Unfälle verzeichnet, die einen Anteil von fünf Prozent an den insgesamt 2562 Verkehrstoten des Jahres 2021 entsprachen (vgl. Gehlen (2023)). 
 
 
 Quiz: Was denken Sie, um wie viel Prozent ist die Zahl der durch Ablenkung verursachten Unfälle in den ersten zehn Monaten des Jahres 2022 im Vergleich zum Vorjahr (2021) gestiegen?
@@ -42,7 +42,7 @@ Eine häufig eingesetzte Maßnahme ist die Einführung gesetzlicher Verbote für
 
 Allerdings bleibt unklar, **ob SMS-Verbote während des Fahrens zu einer Reduktion der tödlichen Verkehrsunfälle führen. Falls ja, stellt sich die Frage, ob Fahrer\*innen ihr Verhalten langfristig ändern oder lediglich kurzfristig auf die Ankündigung dieser Verbote reagieren und anschließend zu ihrem ursprünglichen Verhalten zurückkehren.** 
 
-Diese zentralen Fragestellungen werden in diesem interaktiven R-Tutor-Problemset untersucht, das Teil meiner Bachelorarbeit an der Universität Ulm ist. Es basiert auf dem Artikel von Rahi Abouk und Scott Adams (2013) mit dem Titel ["Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans?"](https://www.aeaweb.org/articles?id=10.1257/app.5.2.179). Ziel dieses Problemsets ist es, den Effekt von SMS-Verboten auf tödliche Verkehrsunfälle mithilfe der  **Difference-in-Differences-Methode** zu analysieren. Wir konzentrieren uns dabei auf Verkehrsunfälle, bei denen nur ein Fahrzeug und der Fahrer als einziger Insasse beteiligt sind, da diese Unfälle am wahrscheinlichsten durch abgelenkte Fahrer verursacht werden, die während der Fahrt Nachrichten versenden.
+Diese zentralen Fragestellungen werden in diesem interaktiven R-Tutor-Problemset untersucht, das Teil meiner Bachelorarbeit an der Universität Ulm ist. Es basiert auf dem Artikel von Rahi Abouk & Scott Adams (2013) mit dem Titel ["Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans?"](https://www.aeaweb.org/articles?id=10.1257/app.5.2.179). Ziel dieses Problemsets ist es, den Effekt von SMS-Verboten auf tödliche Verkehrsunfälle mithilfe der  **Difference-in-Differences-Methode** zu analysieren. Wir konzentrieren uns dabei auf Verkehrsunfälle, bei denen nur ein Fahrzeug und der Fahrer als einziger Insasse beteiligt sind, da diese Unfälle am wahrscheinlichsten durch abgelenkte Fahrer verursacht werden, die während der Fahrt Nachrichten versenden.
 
 Das vorliegende Problemset wurde auf den folgenden Webseiten veröffentlicht:
 
@@ -228,7 +228,7 @@ Alternativ kann die Anzahl der Zeilen und Spalten auch separat mit den Funktione
 # Enter your code here.
 ```
 
-Der Datensatz umfasst 2.441 Beobachtungen (Zeilen) und über 200 Variablen (Spalten). Er enthält monatliche Daten zu tödlichen Verkehrsunfällen aus dem Zeitraum 2007 bis 2010, da alle SMS-Verbote erst nach 2007 eingeführt wurden und die zuletzt verfügbaren Daten aus dem Jahr 2010 stammen. Die Autoren verwenden in dieser Studie Unfalldaten aus dem Fatality Analysis Reporting System (FARS) der NHTSA, das alle tödlichen Verkehrsunfälle in den USA erfasst. Die Stichprobe umfasst die US-Bundesstaaten über einen Beobachtungszeitraum von insgesamt 48 Monaten. 
+Der Datensatz umfasst 2441 Beobachtungen (Zeilen) und über 200 Variablen (Spalten). Er enthält monatliche Daten zu tödlichen Verkehrsunfällen aus dem Zeitraum 2007 bis 2010, da alle SMS-Verbote erst nach 2007 eingeführt wurden und die zuletzt verfügbaren Daten aus dem Jahr 2010 stammen. Die Autoren verwenden in dieser Studie Unfalldaten aus dem Fatality Analysis Reporting System (FARS) der NHTSA, das alle tödlichen Verkehrsunfälle in den USA erfasst. Die Stichprobe umfasst die US-Bundesstaaten über einen Beobachtungszeitraum von insgesamt 48 Monaten. 
 
 Zunächst möchten wir prüfen, ob im Datensatz fehlende Werte vorhanden sind. Fehlende Werte werden im Datensatz als `NA` (auf Englisch: *Not Available*) gekennzeichnet. Um zu ermitteln, ob im Datensatz solche NAs vorhanden sind, verwenden wir die Funktion `any(is.na())`. Diese Funktion überprüft, ob im Datensatz fehlende Werte vorhanden sind und hat die Form `any(is.na(dataname))`. Sie gibt `TRUE` zurück, wenn mindestens ein fehlender Wert existiert, und `FALSE`, falls alle Werte im Datensatz vorhanden sind.
 
@@ -266,13 +266,13 @@ answer.quiz("Anteil Beobachtungen ohne NAs an Gesamten")
 ```
 
 Richtig berechnet! Dieser hohe Prozentsatz deutet auf eine insgesamt sehr gute Datenqualität hin, da die meisten Beobachtungen vollständige Informationen enthalten.
-Wie bereits erwähnt, sind die wenigen fehlenden Daten hauptsächlich auf Alaska zurückzuführen, weshalb dieser Bundesstaat aus der Analyse ausgeschlossen wurde. Durch diesen Ausschluss wird die Konsistenz des Datensatzes sichergestellt. 
+Wie bereits erwähnt, sind die wenigen fehlenden Daten hauptsächlich auf Alaska zurückzuführen, weshalb dieser Bundesstaat aus der Analyse ausgeschlossen wurde.
 
 
 
 **Zusammenfassung** 
 
-Im ersten Kapitel haben wir uns mit dem Datensatz `estdata.rds` vertraut gemacht und grundlegende R-Befehle kennengelernt. Zunächst haben wir den Datensatz eingelesen und die ersten Zeilen des Datensatzes betrachtet, um uns einen strukturierten Überblick über die Variablen zu verschaffen. Anschließend haben wir die Anzahl der Beobachtungen sowie der Variablen ermittelt. Der Datensatz umfasst 2.441 Beobachtungen und mehr als 200 Variablen. Darüber hinaus wurde die Datenqualität überprüft, indem fehlende Werte identifiziert und der Anteil vollständig beobachteter Fälle berechnet wurde.
+Im ersten Kapitel haben wir uns mit dem Datensatz `estdata.rds` vertraut gemacht und grundlegende R-Befehle kennengelernt. Zunächst haben wir den Datensatz eingelesen und die ersten Zeilen des Datensatzes betrachtet, um uns einen strukturierten Überblick über die Variablen zu verschaffen. Anschließend haben wir die Anzahl der Beobachtungen sowie der Variablen ermittelt. Der Datensatz umfasst 2441 Beobachtungen und mehr als 200 Variablen. Darüber hinaus wurde die Datenqualität überprüft, indem fehlende Werte identifiziert und der Anteil vollständig beobachteter Fälle berechnet wurde.
 
 Beim Überblick über die Variablen zeigt sich, dass Washington zur Behandlungsgruppe gehört. Dies wirft die Frage auf, welche weiteren Bundesstaaten der Behandlungs- und welche der Kontrollgruppe zugeordnet sind. Im nächsten Kapitel gehen wir dieser Frage nach und führen eine deskriptive Analyse durch. 
 
@@ -301,7 +301,9 @@ Die US-Bundesstaaten wurden in zwei Gruppen unterteilt:
 
 
 Um die `Behandlungsgruppe` und die `Kontrollgruppe` näher kennenzulernen,  werden wir eine Karte der Vereinigten Staaten erstellen, auf der diese Gruppen visuell dargestellt sind.  
-Bevor wir diese Karte erstellen, betrachten wir zunächst den Datensatz DataMap, der hierfür erforderlich ist. Dazu verwenden wir die Funktion `head()`, um die ersten sechs Zeilen des Datensatzes `DataMap` anzuzeigen. 
+Bevor wir diese Karte erstellen, betrachten wir zunächst den Datensatz DataMap, der hierfür erforderlich ist. Dieser Datensatz wurde durch die Kombination der Pakete `maps`, `ggplot2` und `dplyr` erstellt. Mithilfe der Funktion `head()` lassen wir uns die ersten sechs Zeilen von `DataMap` anzeigen.
+
+**Anmerkung:** Um Missverständnisse zu vermeiden, weise ich vorab darauf hin, dass in diesem Problemset das Komma als Dezimaltrennzeichen verwendet wird. In Tabellen und Ergebnisausgaben, die mit R-Paketen wie `knitr`, `kableExtra`, `stargazer`, `modelsummary` und `estimatr` erstellt wurden, bleibt jedoch die englische Formatierung mit Punkt als Dezimaltrennzeichen bestehen.
 
 <b style="color:navy">Aufgabe:</b>  Geben Sie den Befehl `head(dataname)` in den folgenden Code-Chunk ein, um die ersten sechs Zeilen von `DataMap` auszugeben.
 
@@ -309,7 +311,7 @@ Bevor wir diese Karte erstellen, betrachten wir zunächst den Datensatz DataMap,
 # Enter your code here.
 ```
 
-Der Datensatz enthält geografische Informationen zu 49 US-Bundesstaaten. Aufgrund fehlender Daten wurde Alaska aus der Stichprobe ausgeschlossen. Die Spalten `Long` und `Lat` geben die Längen- und Breitengrade an und dienen zur Darstellung der US-Karte. Die Variable `Group` stellt sicher, dass zusammenhängende Gebiete eines Bundesstaates korrekt gekennzeichnet werden. `State_Name` enthält den Namen des Bundesstaates, während `Groups` angibt, ob der Bundesstaat zur Behandlungs- oder Kontrollgruppe gehört. Die Spalte `Abbreviation` enthält die Abkürzung des Bundesstaates. Um die Darstellung der Bundesstaaten auf der Karte leserlicher und verständlicher zu gestalten, habe ich eine Spalte für die Abkürzungen eingefügt. Dadurch wird vermieden, dass die vollständigen Namen der Bundesstaaten zu Unübersichtlichkeit führen. Diese Abkürzungen tragen dazu bei, die Identifizierung der einzelnen Bundesstaaten zu erleichtern, ohne die Übersichtlichkeit zu beeinträchtigen. Die Spalten `Long_center` und `Lat_center` enthalten die zentralen Koordinaten der Bundesstaaten, die für die Visualisierung verwendet werden.
+Der Datensatz enthält geografische Informationen zu 49 US-Bundesstaaten. Aufgrund fehlender Daten wurde Alaska aus der Stichprobe ausgeschlossen. Die Spalten `Long` und `Lat` geben die Längen- und Breitengrade an und dienen zur Darstellung der US-Karte. Die Variable `Group` stellt sicher, dass zusammenhängende Gebiete eines Bundesstaates korrekt gekennzeichnet werden. `State_Name` enthält den Namen des Bundesstaates, während die Variable `Groups` angibt, ob der Bundesstaat zur Behandlungs- oder Kontrollgruppe gehört. Die Spalte `Abbreviation` enthält die Abkürzung des Bundesstaates. Um die Darstellung der Bundesstaaten auf der Karte leserlicher und verständlicher zu gestalten, habe ich eine Spalte für die Abkürzungen eingefügt. Dadurch wird vermieden, dass die vollständigen Namen der Bundesstaaten zu Unübersichtlichkeit führen. Diese Abkürzungen tragen dazu bei, die Identifizierung der einzelnen Bundesstaaten zu erleichtern, ohne die Übersichtlichkeit zu beeinträchtigen. Die Spalten `Long_center` und `Lat_center` enthalten die zentralen Koordinaten der Bundesstaaten, die für die Visualisierung verwendet werden.
 
 Nachdem wir einen Blick auf den Datensatz geworfen haben, können wir nun die Karte der Vereinigten Staaten erstellen, um die Behandlungs- und Kontrollgruppe visuell darzustellen. Dafür nutzen wir das Paket `ggplot2`, mit dem wir die Karte anschaulich generieren.
 
@@ -368,11 +370,9 @@ answer.quiz("Behandlungs- und Kontrollgruppe der US-Bundesstaaten")
 
 In der folgenden Visualisierung sehen Sie eine Karte der Vereinigten Staaten von Amerika, auf welcher die Bundesstaaten in **Behandlungs-** und **Kontrollgruppen** unterteilt sind. Diese Unterteilung hilft uns, die Auswirkungen von SMS-Verboten besser zu verstehen und zu analysieren, ob die Einführung solcher Gesetze tatsächlich zu einem Rückgang der tödlichen Verkehrsunfälle geführt hat oder ob die Fahrer\*innen lediglich auf die Ankündigungen reagieren. Die Karte nutzt unterschiedliche Farben, um die Gruppen zu kennzeichnen. Die **Behandlungsgruppe** wird in Orange dargestellt, während die **Kontrollgruppe** in Blau hervorgehoben ist. Mit dieser klaren Unterscheidung können wir auf einen Blick die Unterschiede zwischen den Bundesstaaten erkennen und eine Basis für weitere Analysen schaffen.
 
-Bitte beachten Sie, dass Hawaii auf der vorliegenden Karte nicht dargestellt ist. Dies ist darauf zurückzuführen, dass das verwendete R-Paket `maps` keine Kartendaten für Hawaii enthält. Da wir die Kartendaten direkt aus diesem Paket beziehen, fehlen im Datensatz die Koordinaten für Hawaii, sodass dieser Bundesstaat in der Visualisierung nicht erscheint, auch wenn er Teil der Analyse ist. Wie bereits erwähnt, wurde Alaska aufgrund fehlender Daten aus der Analyse ausgeschlossen und ist daher auch nicht in der Karte enthalten. 
+Bitte beachten Sie, dass Hawaii in der vorliegenden Karte nicht dargestellt wird. Dies liegt daran, dass das verwendete R-Paket `maps` Hawaii in der Standarddarstellung von `map_data("state")` bei der Erstellung des Datensatzes nicht automatisch einbezieht. Da die Visualisierung direkt auf diesen Daten basiert, fehlen die entsprechenden Koordinaten, sodass dieser Bundesstaat in der Visualisierung nicht erscheint, auch wenn er Teil der Analyse ist. Wie bereits erwähnt, wurde Alaska aufgrund fehlender Daten aus der Analyse ausgeschlossen und ist daher auch nicht in der Karte enthalten. 
 
 Nun verwenden wir den Datensatz `USdata.rds`, der detaillierte Informationen zur Behandlungsgruppe enthält, und stellen ihn mithilfe der Pakete `knitr` und `kableExtra` als Tabelle dar. Dafür nutzen wir die Funktion `kable()` aus dem `knitr`-Paket in Kombination mit `kableExtra`, um eine ansprechende HTML-Tabelle zu erzeugen. Die Parameter `caption`, `col.names`, `align` und `booktabs` optimieren die Ausgabe durch eine Überschrift, Spaltennamen, Textausrichtung und Formatierung. Zur Verbesserung der Lesbarkeit aktivieren wir mit der Funktion `kable_styling()` die Optionen `striped` und `hover`. Zudem setzen wir `full_width = FALSE`, sodass die Tabelle nicht die gesamte Seitenbreite einnimmt.
-
-**Anmerkung:** Um Missverständnisse zu vermeiden, weise ich vorab darauf hin, dass in diesem Problemset das Komma als Dezimaltrennzeichen verwendet wird. In Tabellen und Ergebnisausgaben, die mit R-Paketen wie `knitr`, `kableExtra`, `stargazer`, `modelsummary` und `estimatr` erstellt wurden, bleibt jedoch die englische Formatierung mit Punkt als Dezimaltrennzeichen bestehen.
 
 <b style="color:navy">Aufgabe:</b> Drücken Sie auf `check`.
 
@@ -564,7 +564,7 @@ Werfen wir nun einen Blick auf die Variablen in der Tabelle:
 
 + **Anzahl der tödlichen Verkehrsunfälle mit einem einzigen Fahrzeug und einem einzelnen Insassen (monatlich)**: Die durchschnittliche Anzahl solcher Unfälle beträgt in der Kontrollgruppe $16,84$, während sie in der Behandlungsgruppe über alle Monate hinweg bei $16,13$ liegt. In den Monaten vor dem Verbot liegt sie bei $16,12$ und in den Monaten nach dem Verbot bei $16,16$. Über alle Zeiträume hinweg ist keine wesentliche Veränderung der Unfallzahlen in der Behandlungsgruppe zu beobachten. Diese Variable ist die Hauptvariable in unserer Analyse (vgl. Abouk & Adams (2013)).
 
-+ **Bevölkerung (jährlich)**: Die durchschnittliche Bevölkerung in der Kontrollgruppe beträgt $5.157.694$. In der Behandlungsgruppe liegt sie über alle Monate hinweg bei $7.064.738$, vor dem Verbot bei $6.614.487$ und ist nach dem SMS-Verbot deutlich auf $8.066.044$ angestiegen.
++ **Bevölkerung (jährlich)**: Die durchschnittliche Bevölkerung in der Kontrollgruppe beträgt $5$ $157$ $694$. In der Behandlungsgruppe liegt sie über alle Monate hinweg bei $7$ $064$ $738$, vor dem Verbot bei $6$ $614$ $487$ und ist nach dem SMS-Verbot deutlich auf $8$ $066$ $044$ angestiegen.
 
 + **Arbeitslosenquote (monatlich)**: Die Arbeitslosenquote in der Kontrollgruppe liegt bei durchschnittlich $6,51$ %. In der Behandlungsgruppe beträgt die Quote über alle Monate hinweg $6,83$ %, während sie vor dem Verbot bei $6,01$ % und nach dem Verbot bei $8,63$ % liegt.
 
@@ -572,7 +572,7 @@ Werfen wir nun einen Blick auf die Variablen in der Tabelle:
 
 + **Reale Benzinsteuer in Cent von 1983 (monatlich)**: In der Kontrollgruppe beträgt die durchschnittliche Benzinsteuer $19,94$ Cent. In der Behandlungsgruppe liegt die Steuer über alle Monate hinweg bei $20,57$ Cent, vor dem Verbot bei $20,50$ Cent und nach dem Verbot bei $20,73$ Cent.
 
-+ **Stichprobengröße**: In der Kontrollgruppe umfasst die Stichprobe $1.056$ Beobachtungen. In der Behandlungsgruppe gibt es insgesamt $1.296$ Beobachtungen, aufgeteilt in $894$ vor dem Verbot und $402$ nach dem Verbot.
++ **Stichprobengröße**: In der Kontrollgruppe umfasst die Stichprobe $1056$ Beobachtungen. In der Behandlungsgruppe gibt es insgesamt $1296$ Beobachtungen, aufgeteilt in $894$ vor dem Verbot und $402$ nach dem Verbot.
 
 Die Variablen `Arbeitslosenquote`, `Männeranteil` und `Benzinsteuer` zeigen, dass keine wesentlichen Unterschiede zwischen der Behandlungs- und der Kontrollgruppe bestehen. Im Untersuchungszeitraum steigt die Arbeitslosenquote in allen Bundesstaaten an. Dadurch weisen die Monate nach der Einführung des SMS-Verbots höhere Arbeitslosenquoten auf. Ein Zusammenhang zwischen Arbeitslosigkeit und Verkehrsunfällen könnte bestehen, weshalb es sinnvoll ist, die Arbeitslosenquote in die Hauptanalyse einzubeziehen. Allerdings ist die Berücksichtigung der Arbeitslosenquote nur dann von Bedeutung, wenn angenommen wird, dass SMS-Verbote gezielt in Staaten mit besonders guter oder schlechter wirtschaftlicher Lage eingeführt werden (vgl. Abouk & Adams (2013)). Diese Annahme halten die Autoren jedoch für unwahrscheinlich. 
 
@@ -592,7 +592,7 @@ In diesem Kapitel wenden wir den **Difference-in-Differences (DiD)-Ansatz** an, 
 
 Der Difference-in-Difference-Ansatz ist eine statistische Methode, die vergleicht, wie sich die Differenz in den Ergebnissen zwischen einer Behandlungs- und einer Kontrollgruppe in der Experimentalphase im Vergleich zur Vorbehandlungsphase verändert hat, um den kausalen Effekt einer Maßnahme zu schätzen (vgl. Khandker et al. ((2010), S. 189)).
 
-Der klassische DiD-Ansatz basiert auf einer einzelnen Intervention mit zwei Zeitperioden (vor und nach der Intervention) und zwei Gruppen (Behandlungs- und Kontrollgruppe) (vgl. Baker et al. (2022)). Im klassischen DiD-Ansatz werden für beide Gruppen die gleichen Zeiträume verwendet (vgl. Smith ((2011), S. xxxvi)). Im Gegensatz dazu geht der Staggered DiD-Ansatz davon aus, dass eine Intervention, wie beispielsweise hier ein SMS-Verbot, in verschiedenen Einheiten zu unterschiedlichen Zeitpunkten eingeführt wird (vgl. Nagengast & Yotov (2025); Callaway & Sant’Anna (2021)). Für dieses Kapitel werde ich jedoch ausschließlich den klassischen DiD-Ansatz anwenden. Dies erfordert die Auswahl von Bundesstaaten, die das **SMS-Verbot zum gleichen Zeitpunkt einführen.** Daher wähle ich als Behandlungsgruppe die Bundesstaaten Indiana, Tennessee und Virginia, die das SMS-Verbot im Juli 2009 einführen und als Kontrollgruppe Alabama, Arizona und West Virginia. 
+Der klassische DiD-Ansatz basiert auf einer einzelnen Intervention mit zwei Zeitperioden (vor und nach der Intervention) und zwei Gruppen (Behandlungs- und Kontrollgruppe) (vgl. Baker et al. (2022)). Im klassischen DiD-Ansatz werden für beide Gruppen die gleichen Zeiträume verwendet (vgl. Smith ((2011), S. xxxvi)). Im Gegensatz dazu geht der Staggered DiD-Ansatz davon aus, dass eine Intervention, wie beispielsweise hier ein SMS-Verbot, in verschiedenen Einheiten zu unterschiedlichen Zeitpunkten eingeführt wird (vgl. Callaway & Sant’Anna (2021); Nagengast & Yotov (2025)). Für dieses Kapitel werde ich jedoch ausschließlich den klassischen DiD-Ansatz anwenden. Dies erfordert die Auswahl von Bundesstaaten, die das **SMS-Verbot zum gleichen Zeitpunkt einführen.** Daher wähle ich als Behandlungsgruppe die Bundesstaaten Indiana, Tennessee und Virginia, die das SMS-Verbot im Juli 2009 einführen und als Kontrollgruppe Alabama, Arizona und West Virginia. 
 
 Ein zentraler Bestandteil meiner Analyse besteht darin, die Datenaufbereitung der Autoren zu erweitern. In der Hauptanalyse der Autoren wird für die Kontrollgruppe weder eine Experimentalphase definiert noch eine Einteilung in Vorbehandlungs- und Experimentalphase vorgenommen, sondern ausschließlich für die Behandlungsgruppe. Um die Difference-in-Differences (DiD)-Methode dennoch anwenden zu können, die eine Vergleichsstruktur zwischen Behandlungs- und Kontrollgruppe erfordert, werden wir für die Kontrollgruppe eine **synthetische Experimentalphase** erstellen. Diese fiktive Experimentalphase orientiert sich zeitlich an der Experimentalphase der Behandlungsgruppe, die im Juli 2009 beginnt, und stellt sicher, dass die Kontrollgruppe eine vergleichbare Zeitspanne nachstellt. Die Phasen der Kontrollgruppe werden entsprechend analog zur Behandlungsgruppe eingeteilt. 
 
@@ -723,7 +723,7 @@ Der positive Difference-in-Differences (DiD)-Schätzer deutet darauf hin, dass d
 
 In der Hauptanalyse werden wir prüfen, ob die Autoren zu demselben Ergebnis wie wir gelangen. Dabei wird das Ergebnis der Autoren ausschlaggebend sein, da es auf einer umfassenderen Datengrundlage basiert. Während unsere Analyse lediglich sechs Bundesstaaten umfasst, berücksichtigen die Autoren in ihrer Hauptanalyse die 49 Bundesstaaten und weitere relevante Faktoren. Eine fundierte Antwort auf die Forschungsfragen kann erst gegeben werden, nachdem die Hauptanalyse in den folgenden Kapiteln durchgeführt wurde. 
 
-Nachdem wir den Difference-in-Differences (DiD)-Schätzer interpretiert haben, möchten wir die **Annahme paralleler Trends** kennenlernen, die der DiD-Ansatz voraussetzt. Diese Annahme besagt, dass die Trends der Behandlungsgruppe (US-Bundesstaaten, die ein SMS-Verbot eingeführt haben) und der Kontrollgruppe (US-Bundesstaaten ohne SMS-Verbot) in der Vorbehandlungsphase (Januar 2007 bis Juni 2009) parallel verlaufen (vgl. Feng & Bilinski (2024)). Ohne das Vorliegen einer Intervention (wie dem SMS-Verbot) sollte der Unterschied in der durchschnittlichen Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen zwischen der Behandlungs- und Kontrollgruppe über die Zeit konstant bleiben (vgl.Lee & Lee ((2020), S. 4261)).
+Nachdem wir den Difference-in-Differences (DiD)-Schätzer interpretiert haben, möchten wir die **Annahme paralleler Trends** kennenlernen, die der DiD-Ansatz voraussetzt. Diese Annahme besagt, dass die Trends der Behandlungsgruppe (US-Bundesstaaten, die ein SMS-Verbot eingeführt haben) und der Kontrollgruppe (US-Bundesstaaten ohne SMS-Verbot) in der Vorbehandlungsphase (Januar 2007 bis Juni 2009) parallel verlaufen (vgl. Feng & Bilinski (2024)). Ohne das Vorliegen einer Intervention (wie dem SMS-Verbot) sollte der Unterschied in der durchschnittlichen Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen zwischen der Behandlungs- und Kontrollgruppe über die Zeit konstant bleiben (vgl. Lee & Lee ((2020), S. 4261)).
 
 Wir möchten diese Annahme überprüfen, indem wir sie grafisch darstellen. Allerdings kann eine solche visuelle Überprüfung von der eigenen Wahrnehmung abhängen und daher subjektiv sein (vgl. Riveros-Gavilanes (2023)). Zunächst müssen wir jedoch die Daten nach Datum und Gruppe gruppieren, um die durchschnittliche Anzahl der Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen für jede Gruppe und für jeden Monat zu berechnen. Dies ist ein wichtiger Schritt, bevor wir das Diagramm erstellen, das uns dabei hilft, die Annahme in den beiden Gruppen visuell zu überprüfen. 
 
@@ -776,7 +776,7 @@ Im nächsten Kapitel werden wir den klassischen Difference-in-Differences (DiD)-
 
 ## Exercise 4 -- Anwendung des DiD-Ansatzes durch Regressionsanalyse
 
-In diesem Kapitel konzentrieren wir uns auf den klassischen Difference-in-Differences-Ansatz (DiD). Dabei greifen wir erneut auf die drei Behandlungsstaaten (Indiana, Tennessee und Virginia) sowie die drei Kontrollstaaten (Alabama, Arizona und West Virginia) zurück, die bereits im vorherigen Kapitel verwendet wurden. Ebenso bleibt die Unterteilung in die Vorbehandlungsphase (Januar 2007 bis Juni 2009) und die Experimentalphase (Juli 2009 bis Dezember 2010) unverändert. Während wir den DiD-Schätzer im Kapitel 3 manuell berechnet haben, wird dieser im aktuellen Kapitel mithilfe einer linearen Regression hergeleitet. Im Gegensatz zur manuellen Berechnung bietet die Regression den Vorteil, Standardfehler zu schätzen und somit die statistische Signifikanz der Ergebnisse zu bewerten. Zudem können wir nach (vgl Gibbons et al. (2019)) durch die Einbeziehung von Fixeffekten unbeobachtbare Faktoren kontrollieren, da dies in der manuellen Berechnung nicht möglich ist. Auf die Fixeffekte werden wir im weiteren Verlauf dieses Kapitels näher eingehen. Abschließend wird die Difference-in-Differences-Analyse um cluster-robuste Standardfehler erweitert. 
+In diesem Kapitel konzentrieren wir uns auf den klassischen Difference-in-Differences-Ansatz (DiD). Dabei greifen wir erneut auf die drei Behandlungsstaaten (Indiana, Tennessee und Virginia) sowie die drei Kontrollstaaten (Alabama, Arizona und West Virginia) zurück, die bereits im vorherigen Kapitel verwendet wurden. Ebenso bleibt die Unterteilung in die Vorbehandlungsphase (Januar 2007 bis Juni 2009) und die Experimentalphase (Juli 2009 bis Dezember 2010) unverändert. Während wir den DiD-Schätzer im Kapitel 3 manuell berechnet haben, wird dieser im aktuellen Kapitel mithilfe einer linearen Regression hergeleitet. Im Gegensatz zur manuellen Berechnung bietet die Regression den Vorteil, Standardfehler zu schätzen und somit die statistische Signifikanz der Ergebnisse zu bewerten. Zudem können wir nach Gibbons et al. (2019) durch die Einbeziehung von Fixeffekten unbeobachtbare Faktoren kontrollieren, da dies in der manuellen Berechnung nicht möglich ist. Auf die Fixeffekte werden wir im weiteren Verlauf dieses Kapitels näher eingehen. Abschließend wird die Difference-in-Differences-Analyse um cluster-robuste Standardfehler erweitert. 
  
 Im Rahmen der linearen Regression wird die Beziehung zwischen einer abhängigen Variable und einer oder mehreren unabhängigen Variablen  modelliert (vgl. Hackl ((2012), S. 30)). Die Methode der kleinsten Quadrate (OLS) wird verwendet, um die Parameter $β_0$ und $β_1$ zu schätzen, wodurch die Summe der Fehlerquadrate minimiert wird (vgl. Hackl ((2012), S. 34)). Die lineare Regression wird in R mit der Funktion `lm()` durchgeführt, die es ermöglicht, Modelle zu schätzen und die zugehörigen Standardfehler zu berechnen. Sie hat die Form `lm(formula, data, weights = ...)`, wobei `formula` die Modellgleichung angibt, beispielsweise `y ~ x`, und `data` den Datensatz bezeichnet, aus dem die Variablen stammen. Mit dem Argument weights können Beobachtungen unterschiedlich gewichtet werden. Ein Beispiel ist `lm(y ~ x, data = Datensatz, weights = w)`.
 Die Ergebnisse des Modells, wie geschätzte Koeffizienten ( $\beta_{0}$ , $\beta_{1}$), Signifikanztests und der $R^2$-Wert, können mithilfe von `summary()` ausgegeben werden. 
@@ -785,10 +785,10 @@ Die Ergebnisse des Modells, wie geschätzte Koeffizienten ( $\beta_{0}$ , $\beta
 In einer linearen Regression wird der DiD-Schätzer als Koeffizient in einem Regressionsmodell geschätzt. Das Modell im vorliegenden Kapitel lautet wie folgt:
  
 
-$$\text{acc_svso}_{i,m}  = ß _{0} +ß_1exp_m + ß_2treat_i  + ß_3(treat_i \times exp_m) + \varepsilon_{i,m} \quad \text{(4.1)}$$
+$$acc\_svso_{i,m}  = ß _{0} +ß_1exp_m + ß_2treat_i  + ß_3(treat_i \times exp_m) + \varepsilon_{i,m} \quad \text{(4.1)}$$
 * $i$ bezeichnet den Bundesstaat
 * $m$ bezeichnet den Monat
-* $\text{acc_svso}_{i,m}$ : Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen im Bundesstaat $i$ und Monat $m$
+* $acc\_svso_{i,m}$ : Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen im Bundesstaat $i$ und Monat $m$
 * $\beta_{0}$: Intercept (konstanter Term) der Regression
 * $exp_m$: Dummy-Variable, die $1$ ist, wenn Monat $m$ nach der Einführung des SMS-Verbots liegt, und $0$ sonst
 * $treat_i$: Dummy-Variable, die $1$ ist, wenn Bundesstaat $i$ zur Behandlungsgruppe gehört (Bundesstaat mit SMS-Verbot), und $0$ sonst
@@ -862,7 +862,7 @@ Quiz: Wofür könnte der konstante Term $ß_0$ = $18,011$ in unserem Regressions
 answer.quiz("Koeffizient ß_0")
 ```
 
-Der konstante Term $ß_0 = 18,011$ gibt den geschätzten Wert der abhängigen Variablen für die Kontrollgruppe während der Vorbehandlungsphase an, wenn alle anderen Variablen auf Null gesetzt sind (vgl. Villa (2016)).  
+Der konstante Term $ß_0 = 18,011$ gibt den geschätzten Wert der abhängigen Variablen für die Kontrollgruppe während der Vorbehandlungsphase an, wenn alle anderen Variablen auf null gesetzt sind (vgl. Villa (2016)).  
 
 
 Quiz: Wofür könnte der Koeffizient $ß_2$ = $6,611$ in unserem Regressionsmodell stehen?
@@ -893,14 +893,14 @@ In der untenstehenden Tabelle finden Sie eine kurze Zusammenfassung der Interpre
 
 ### Fixeffekte
 
-Eine beliebte Methode, um unbeobachtbare Unterschiede zwischen Beobachtungen zu berücksichtigen, ist der Einsatz von **Fixeffekten** (auf Englisch: *fixed effects*) (vgl. Cornelissen (2008)). Diese Methode berücksichtigt Unterschiede, die auf Merkmalen wie Bundesstaaten, Zeiträumen oder Jahren beruhen, und ermöglicht es, konstante und unbeobachtbare Faktoren, die spezifisch für einen Bundesstaat oder eine Zeitperiode sind, in die Analyse einzubeziehen und ihren Einfluss zu kontrollieren (vgl Gibbons et al. (2019)). Dies trägt dazu bei, dass der geschätzte Effekt des SMS-Verbots auf tödliche Verkehrsunfälle nicht durch diese unbeobachtbaren Faktoren verzerrt wird (vgl. Brandler & Roman ((2007), S. 584)). Durch diese Methode werden verlässlichere Schätzungen erzielt (vgl. Brandler & Roman ((2007), S. 584)).
+Eine beliebte Methode, um unbeobachtbare Unterschiede zwischen Beobachtungen zu berücksichtigen, ist der Einsatz von **Fixeffekten** (auf Englisch: *fixed effects*) (vgl. Cornelissen (2008)). Diese Methode berücksichtigt Unterschiede, die auf Merkmalen wie Bundesstaaten, Zeiträumen oder Jahren beruhen, und ermöglicht es, konstante und unbeobachtbare Faktoren, die spezifisch für einen Bundesstaat oder eine Zeitperiode sind, in die Analyse einzubeziehen und ihren Einfluss zu kontrollieren (vgl. Gibbons et al. (2019)). Dies trägt dazu bei, dass der geschätzte Effekt des SMS-Verbots auf tödliche Verkehrsunfälle nicht durch diese unbeobachtbaren Faktoren verzerrt wird (vgl. Brandler & Roman ((2007), S. 584)). Durch diese Methode werden verlässlichere Schätzungen erzielt (vgl. Brandler & Roman ((2007), S. 584)).
 
 
 Das Regressionsmodell mit Fixeffekten lautet wie folgt:
-$$\text{acc_svso}_{i,m} = ß _{0} + ß_1(treat_i \times exp_m) + \lambda_{i} + \delta_{m} + \varepsilon_{i,m} \quad \text{(4.2)}$$
+$$acc\_svso_{i,m} = ß _{0} + ß_1(treat_i \times exp_m) + \lambda_{i} + \delta_{m} + \varepsilon_{i,m} \quad \text{(4.2)}$$
 Dabei gilt:
 
-* $\text{acc_svso}_{i,m}$ : Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen im Bundesstaat $i$ und Monat $m$
+* $acc\_svso_{i,m}$ : Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen im Bundesstaat $i$ und Monat $m$
 * $\beta_{0}$: Intercept (konstanter Term) der Regression
 * $\beta_{1}$: DiD-Koeffizient, der den kausalen Effekt der Intervention angibt
 * $treat_i \times exp_m$: Interaktionsterm, der $1$ ist, wenn der Bundesstaat sowohl zur Behandlungsgruppe gehört als auch der Monat in der Experimentalphase liegt, und $0$ sonst
@@ -908,7 +908,7 @@ Dabei gilt:
 * $\delta_{m}$: Fixeffekte auf Monatsebene (48-monatige Fixeffekte)
 * $\varepsilon_{i,m}$: Fehlerterm
 
-Zur robusteren Schätzung der Effekte des Difference-in-Differences-Ansatzes werden sowohl zeit- als auch bundesstaatenspezifische Einflüsse berücksichtigt (vgl. Brandler & Roman ((2007), S. 584)). Dies erfolgt durch die Aufnahme von Fixeffekten für jeden Bundesstaat und jede Zeitperiode, wobei entsprechende Dummy-Variablen in das Modell integriert werden. Dadurch können unbeobachtete Unterschiede zwischen den Bundesstaaten sowie zeitabhängige Trends kontrolliert werden (vgl Gibbons et al. (2019)).
+Zur robusteren Schätzung der Effekte des Difference-in-Differences-Ansatzes werden sowohl zeit- als auch bundesstaatenspezifische Einflüsse berücksichtigt (vgl. Brandler & Roman ((2007), S. 584)). Dies erfolgt durch die Aufnahme von Fixeffekten für jeden Bundesstaat und jede Zeitperiode, wobei entsprechende Dummy-Variablen in das Modell integriert werden. Dadurch können unbeobachtete Unterschiede zwischen den Bundesstaaten sowie zeitabhängige Trends kontrolliert werden (vgl. Gibbons et al. (2019)).
 
 
 
@@ -970,8 +970,7 @@ Quiz: Betrachten Sie die Ergebnisse der drei Regressionen. Wie verändert sich d
 answer.quiz("Vergleich der Regressionen")
 ```
 
-Sehr gut erkannt! Der geschätzte DiD-Koeffizient (`treat_exp`) ist in allen drei Regressionen identisch, da wir hier einen balancierten Datensatz verwenden (vgl. Lechner et al. (2015)). Dies bedeutet, dass keine Beobachtungen fehlen und für jede Einheit über alle relevanten Zeiträumen hinweg vollständige Daten vorliegen (vgl. Teichmann ((2007), S. 276)). Gleichzeitig zeigt sich, dass die Hinzufügung von Fixeffekte den Standardfehler des DiD-Schätzers verringern kann. Allerdings ist es nicht immer der Fall, dass der Standardfehler durch Fixeffekte kleiner wird.
-
+Sehr gut erkannt! Der geschätzte DiD-Koeffizient (`treat_exp`) ist in allen drei Regressionen identisch, da wir hier einen balancierten Datensatz verwenden (vgl. Lechner et al. (2015)). Dies bedeutet, dass keine Beobachtungen fehlen und für jede Einheit über alle relevanten Zeiträumen hinweg vollständige Daten vorliegen (vgl. Teichmann ((2007), S. 276)). Gleichzeitig zeigt sich, dass die Hinzufügung von Fixeffekte den Standardfehler des DiD-Schätzers verringern kann. Allerdings ist es nicht immer der Fall, dass der Standardfehler durch Fixeffekte kleiner wird (vgl. Allison ((2005), S. 23)).
  
 ### Cluster-robuste Standardfehler
 
@@ -1048,7 +1047,7 @@ Die Regressionsgleichung der Autoren sieht wie folgt aus:
 
 $$ln(acc_{i,m}) = \beta_{0} + \beta_{1}B_{i,m} + \lambda_{i} + \delta_{m} +\mathbf{X}_{i,m} \gamma + \varepsilon_{i,m} \quad \text{(5.1)}$$
 
-* $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Unfälle + $1$ für US-Bundesstaat $i$ im Monat $m$ 
+* $ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Unfälle + $1$ für US-Bundesstaat $i$ im Monat $m$ 
 * $\beta_{0}$: Intercept (konstanter Term) der Regression
 * $B_{i,m}$: Dummy-Variable, die anzeigt, ob in einem bestimmten Monat $m$ für den Bundesstaat $i$ ein SMS-Verbot besteht (Variable: txsmban)
 * $\beta_{1}$: DiD-Koeffizient, der den kausalen Effekt der Intervention angibt
@@ -1065,7 +1064,7 @@ Kontrollvariablen $X_{i,m}$:
 * *lrgastax*: Logarithmierte Benzinsteuer
 * *permale2*: Anteil der männlichen Personen in einem Bundesstaat in Prozent
 
-In unserer Analyse, die den Effekt von SMS-Verboten auf die Anzahl der Verkehrsunfälle untersucht, ist es entscheidend, potenzielle Störfaktoren zu berücksichtigen, die ebenfalls die Unfallzahlen beeinflussen könnten (vgl. Morin et al. ((2021), S. 309)). Andernfalls könnten die Ergebnisse verzerrt werden (vgl. Stiller, ((2007), S. 72)). Um diese Verzerrung zu reduzieren, werden Kontrollvariablen in die Analyse aufgenommen. Eine Kontrollvariable ist eine Variable, die dazu dient, den Zusammenhang zwischen der unabhängigen und der abhängigen Variable möglichst isoliert zu betrachten und potenzielle Störfaktoren zu berücksichtigen (vgl. Morin et al. ((2021), S. 309)).
+In unserer Analyse, die den Effekt von SMS-Verboten auf die Anzahl der Verkehrsunfälle untersucht, ist es entscheidend, potenzielle Störfaktoren zu berücksichtigen, die ebenfalls die Unfallzahlen beeinflussen könnten (vgl. Morin et al. ((2021), S. 309)). Andernfalls könnten die Ergebnisse verzerrt werden (vgl. Stiller ((2007), S. 72)). Um diese Verzerrung zu reduzieren, werden Kontrollvariablen in die Analyse aufgenommen. Eine Kontrollvariable ist eine Variable, die dazu dient, den Zusammenhang zwischen der unabhängigen und der abhängigen Variable möglichst isoliert zu betrachten und potenzielle Störfaktoren zu berücksichtigen (vgl. Morin et al. ((2021), S. 309)).
 
 Eine dieser Kontrollvariablen ist die **logarithmierte Bevölkerung** (`lpop`). die in dieser Analyse berücksichtigt wird, da die Bevölkerungsgröße eines Bundesstaates einen direkten Einfluss auf die Anzahl der Verkehrsunfälle haben kann. Eine höhere Bevölkerungszahl könnte zu mehr Verkehr führen, wodurch das Unfallrisiko steigen könnte (vgl. Abouk & Adams (2013)). Insbesondere bei der Berücksichtigung von Bundesstaaten-Fixeffekte erwarten die Autoren, dass die Bevölkerungszahl in einem engen Zusammenhang mit der Bevölkerungsdichte und den Verkehrsstaus steht und folglich das Unfallrisiko erhöht. Sie gehen davon aus, dass ein Anstieg der Bevölkerungsdichte voraussichtlich eher Verkehrsunfälle im Allgemeinen beeinflussen würde, nicht nur solche, bei denen nur ein Fahrzeug und eine Person beteiligt sind (vgl. Abouk & Adams (2013)).
 
@@ -1104,7 +1103,7 @@ summary(model1)
 Der Koeffizient der Variable `txmsban` ist nicht mit Sternen gekennzeichnet. Dies deutet darauf hin, dass der geschätzte Effekt statistisch nicht signifikant ist. Sterne dienen zur Kennzeichnung der statistischen Signifikanz von Ergebnissen, wobei eine höhere Anzahl an Sternen eine stärkere Signifikanz anzeigt (vgl. Frost ((2017), S. 23)). Im Folgenden werden wir diesen Koeffizienten näher interpretieren. Dabei ist zu beachten, dass es sich bei unserem Modell um ein **log-lineares Modell** der Form $\hat{\ln(y)} = \hat{\beta_0} + \hat{\beta_1} x$ handelt, bei dem die abhängige Variable logarithmiert wurde. Die Logarithmierung der abhängigen Variablen erleichtert es, die Auswirkungen des SMS-Verbots in Prozent auszudrücken. Dies unterscheidet sich von den bisher betrachteten linearen Regressionsmodellen der Form $\hat{y} = \hat{\beta_0} + \hat{\beta_1}x$, 
 die linear-linear aufgebaut sind und keine logarithmierten Variablen enthalten. Aufgrund der log-linearen Struktur unseres Modells erfolgt die Interpretation der Koeffizienten anders als bei einem linear-linearen Modell. Im log-linearen Modell lautet die allgemeine Interpretation:
 
-**Wenn sich $x$ um eine Einheit erhöht, erhöht sich der vorhergesagte Wert $y$ um etwa $100 \cdot \beta_1$ Prozent** (vgl. Békés & Kézdi ((2023), S.206)).
+**Wenn sich $x$ um eine Einheit erhöht, erhöht sich der vorhergesagte Wert $y$ um etwa $100 \cdot \beta_1$ Prozent** (vgl. Békés & Kézdi ((2021), S. 206)).
 
 
 Quiz: Welche der folgenden Interpretationen des Schätzwerts von $-0,037$ ist korrekt?
@@ -1129,7 +1128,7 @@ $$ln(acc_{i,m}) = \beta_{0} + \beta_{1}SB_{i,m} + \beta_{2}WB_{i,m} + \lambda_{i
 * $\beta_{0}$: Intercept (konstanter Term) der Regression
 * $\beta_{1}$: Misst den Effekt eines starken SMS-Verbots ($SB_{i,m}$)
 * $\beta_{2}$: Misst den Effekt eines schwachen SMS-Verbots ($WB_{i,m}$)
-* $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle + $1$ für den US-Bundesstaat $i$ im Monat $m$ 
+* $ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle + $1$ für den US-Bundesstaat $i$ im Monat $m$ 
 * $SB_{i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn im Bundesstaat $i$ im Monat $m$ ein starkes SMS-Verbot in Kraft ist (dies bedeutet, es wird universell angewendet und primär durchgesetzt). Andernfalls nimmt die Variable den Wert $0$ an
 * $WB_{i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn im Bundesstaat $i$ im Monat $m$ ein schwaches SMS-Verbot gilt (dies bedeutet, es wird entweder nur sekundär durchgesetzt oder gilt nur für bestimmte Bevölkerungsgruppen, beispielsweise ausschließlich für junge Fahrer\*innen) und den Wert $0$, wenn dies nicht zutrifft
 * $\lambda_i$: Bundesstaaten-Fixeffekte 
@@ -1201,7 +1200,7 @@ model4 = lm_robust(laccidentsvso2 ~ strongban + weakban + lpop + lunemp + permal
 model5 = lm_robust(laccidentsvso2 ~ strongban + weakban + lpop + lunemp + permale2 + lrgastax + laccidentmv2 + time + stt1 + stt2 + stt3 + stt4 + stt5 + stt6 + stt7 + stt8 + stt9 + stt10 + stt11 + stt12 + stt13 + stt14 + stt15 + stt16 + stt17 + stt18 + stt19 + stt20 + stt21 + stt22 + stt23 + stt24 + stt25 + stt26 + stt27 + stt28 + stt29 + stt30 + stt31 + stt32 + stt33 + stt34 + stt35 + stt36 + stt37 + stt38 + stt39 + stt40 + stt41 + stt42 + stt43 + stt44 + stt45 + stt46 + stt47 + stt48 + stt49 + stt50, data = data, weights = pop, fixed_effects = ~ state + time, clusters = state , se_type = "stata")
   
 
-modelsummary(list("Modell 1" = model1, "Modell 2" = model2,"Modell 3" = model3,"Modell 4" = model4 , "Modell 5" = model5), output = "kableExtra", gof_map = NA, stars = c('*' = .1, '**' = 0.05 ,'***' = .01), coef_omit = "time|stt[1-9]|stt[1-4][0-9]|stt50", coef_map = c("txmsban" = "SMS-Verbot","strongban" = "Starkes Verbot", "weakban" = "Schwaches Verbot","lpop" = "Log Bevölkerung","lunemp" = "Log Arbeitslosenquote","permale2" = "Männeranteil %","lrgastax" = "Log Benzinsteuer","laccidentmv2" = "Log andere Verkehrsunfälle"),escape = FALSE, estimate = "{estimate}{stars}",  notes = "* p ≤ 0,05 (signifikant), ** p ≤ 0,01 (sehr signifikant), *** p ≤ 0,001 (hochsignifikant)<br><center>Quelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S.189)</center>", add_rows = data.frame( Term = c("Fixeffekte auf Monatsebene?", "Fixeffekte auf Bundesstaatsebene?", "Staatsspezifische Zeittrends?"), `Modell 1` = c("✓", "✓", "x"), `Modell 2` = c("✓", "✓", "x"),`Model 3` = c("✓", "✓","x"),`Model l4` = c("x", "✓","✓"), `Modell 5` = c("✓", "✓", "✓"))) %>%
+modelsummary(list("Modell 1" = model1, "Modell 2" = model2,"Modell 3" = model3,"Modell 4" = model4 , "Modell 5" = model5), output = "kableExtra", gof_map = NA, stars = c('*' = .1, '**' = 0.05 ,'***' = .01), coef_omit = "time|stt[1-9]|stt[1-4][0-9]|stt50", coef_map = c("txmsban" = "SMS-Verbot","strongban" = "Starkes Verbot", "weakban" = "Schwaches Verbot","lpop" = "Log Bevölkerung","lunemp" = "Log Arbeitslosenquote","permale2" = "Männeranteil %","lrgastax" = "Log Benzinsteuer","laccidentmv2" = "Log andere Verkehrsunfälle"),escape = FALSE, estimate = "{estimate}{stars}",  notes = "* p ≤ 0,05 (signifikant), ** p ≤ 0,01 (sehr signifikant), *** p ≤ 0,001 (hochsignifikant) (vgl. Frost ((2017), S. 23)) <br><center>Quelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S.189)</center>", add_rows = data.frame( Term = c("Fixeffekte auf Monatsebene?", "Fixeffekte auf Bundesstaatsebene?", "Staatsspezifische Zeittrends?"), `Modell 1` = c("✓", "✓", "x"), `Modell 2` = c("✓", "✓", "x"),`Model 3` = c("✓", "✓","x"),`Model l4` = c("x", "✓","✓"), `Modell 5` = c("✓", "✓", "✓"))) %>%
   kable_styling(full_width = FALSE, bootstrap_options = c("striped", "hover")) %>%
   add_header_above(c("Tabelle 5.2: Effekt des SMS-Verbots auf tödliche Verkehrsunfälle mit einem Fahrzeug & einem Insassen" = 6))
 ```
@@ -1351,7 +1350,7 @@ $$ln(acc_{i,m}) = \beta_{0} + \beta_{1}SB_{i,m} + \beta_{2}WB_{i,m} + \beta_{3}(
 
 Dabei gilt:
 
-* $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle $+ 1$ für den US-Bundesstaat $i$ im Monat $m$.
+* $ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle $+ 1$ für den US-Bundesstaat $i$ im Monat $m$.
 * $SB_{i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn im Bundesstaat $i$ im Monat $m$ ein starkes SMS-Verbot in Kraft ist (dies bedeutet, es wird universell angewendet und primär durchgesetzt). Andernfalls nimmt die Variable den Wert $0$ an
 * $WB_{i,m}$: Dummy-Variable, die den Wert $1$ annimmt, wenn im Bundesstaat $i$ im Monat $m$ ein schwaches SMS-Verbot gilt (dies bedeutet, es wird entweder nur sekundär durchgesetzt oder gilt nur für bestimmte Bevölkerungsgruppen, beispielsweise ausschließlich für junge Fahrer\*innen) und den Wert $0$, wenn dies nicht zutrifft
 * $SVSO_{i,m}$: Dummy-Variable, die zwischen zwei Unfallarten unterscheidet. Der Wert $1$ kennzeichnet Verkehrsunfälle, bei denen nur ein Fahrzeug mit einem Insassen (dem Fahrer) beteiligt ist, während der Wert $0$ auf Verkehrsunfälle hinweist, bei denen mehrere Fahrzeuge oder Insassen involviert sind
@@ -1594,7 +1593,6 @@ extract_values = function(model, coef_name, clustered) {
     p = coeffs[coef_name, "Pr(>|t|)"]
   }
   
-  # Signifikanzsterne
   stars = if (p < 0.01) "***" else if (p < 0.05) "**" else if (p < 0.1) "*" else ""
   return(c(round(est, 4), round(se, 4), stars))
 }
@@ -1660,8 +1658,7 @@ final_table %>%
   group_rows("Panel A: Alternative abhängige Variablen und Falsifikationstest", 2, 6) %>%
   group_rows("Panel B: Alternative Gesetzgebung", 7, 8) %>%
   group_rows("Panel C: Alternative Modellansätze", 9, 11) %>%
-  footnote(general = "* p ≤ 0,05 (signifikant), ** p ≤ 0,01 (sehr signifikant), *** p ≤ 0,001 (hochsignifikant) (vgl. Frost (2017), S. 23). \n¹Diese Zeile gilt für die Modellspezifikation 10 nicht, da es sich hier um Fixeffekte für die 48 Monate handelt. \nQuelle: Eigene Darstellung in Anlehnung an Abouk & Adams (2013), S. 189)", 
-           general_title = "Anmerkung")
+  footnote(general = "* p ≤ 0,05 (signifikant), ** p ≤ 0,01 (sehr signifikant), *** p ≤ 0,001 (hochsignifikant) (vgl. Frost ((2017), S. 23)) \n¹Diese Zeile gilt für die Modellspezifikation 10 nicht, da es sich hier um Fixeffekte für die 48 Monate handelt. \nQuelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S. 189)", general_title = "Anmerkung")
 
 ```
 
@@ -1732,8 +1729,7 @@ $$ln(acc_{i,m}) = \beta_0 + \beta_1 \mathbf{B}_{i,m} \times \lambda_{i} + \sum_{
 \quad \text{(7.1)}$$
 
 
-
-* $\ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit einem einzigen Fahrzeug und einem einzelnen Insassen (`laccidentsvso2`) $+ 1$ für den US-Bundesstaat $i$ im Monat $m$ 
+* $ln(acc_{i,m})$: Logarithmierter Wert der Anzahl der tödlichen Verkehrsunfälle mit einem einzigen Fahrzeug und einem einzelnen Insassen (`laccidentsvso2`) $+ 1$ für den US-Bundesstaat $i$ im Monat $m$ 
 * $\beta_{0}$: Intercept (konstanter Term) der Regression
 * $B_{i,m}$: Dummy-Variable, die anzeigt, ob in einem bestimmten Monat m für den Bundesstaat i ein SMS-Verbot besteht (Variable: `txsmban`)
 * $\mathbf{B}_{im} \times \lambda_{i}$: Interaktionsterm zwischen der Variable `txsmban` und den Bundesstaaten-Fixeffekten. Er wird eingeführt, um differenzierte Behandlungseffekte für jeden Bundesstaat zu berücksichtigen (Variablen: `stb1`, `stb2`, … , `stb51`)
@@ -1867,9 +1863,11 @@ Im nächsten Schritt möchten wir die geschätzten Koeffizienten und deren Stand
 
 Basierend auf diesen Werten wird ein Dataframe (`data_mod1a`) erstellt, der die geschätzten Koeffizienten (`Estimate_SB` und `Estimate_WB`) sowie die entsprechenden Zeitpunkte (`Monat`) umfasst. Die Zeitpunkte reichen von $-5$ bis $-1$ für die Monate vor der Einführung des Verbots (**Lead-Effekte**) und von $1$ bis $5$ für die Monate danach (**Lag-Effekte**). Zudem enthält der Dataframe die unteren und oberen Grenzen des 95 %-Konfidenzintervalls. Obwohl die Funktion  `lm_robust()` diese Grenzen bereits berechnet, führen wir die Berechnung manuell durch. Die Berechnung des 95 %-Konfidenzintervalls erfolgt gemäß der Formel nach Frings ((2010), S. 282):
 
-$$\left[\hat{\beta}_k - 1,96 \cdot \text{se}(\hat{\beta}_k), \hat{\beta}_k + 1,96 \cdot \text{se}(\hat{\beta}_k)\right]$$
+$$
+\left[\hat{\beta}_k - 1,96 \cdot se(\hat{\beta}_k), \hat{\beta}_k + 1,96 \cdot se(\hat{\beta}_k)\right]
+$$
 
-Dabei ist $\hat{\beta}_k $ der geschätzte Koeffizient und $\text{se}(\hat{\beta}_k)$ der Standardfehler des Koeffizienten. 
+Dabei ist $\hat{\beta}_k$ der geschätzte Koeffizient und $se(\hat{\beta}_k)$ der Standardfehler des Koeffizienten. 
 
 <b style="color:navy">Aufgabe:</b> Führen Sie den folgenden Chunk aus, in dem Sie auf `check` drücken. 
 
@@ -1944,7 +1942,6 @@ plot1a_2 = ggplot(data_mod1a  , aes(Monat, Estimate_WB)) +
 plot1a = (plot1a_1/ plot1a_2) + 
   plot_annotation(title = "Abbildung 7.1: Ankündigungseffekt ohne staatsspezifische Zeittrends", caption = "Quelle: Eigene Darstellung in Anlehnung an Abouk & Adams ((2013), S.194)")
 
-# Ausgabe
 plot1a
 ```
 
@@ -2281,7 +2278,7 @@ In Kapitel 5 wurde die Hauptanalyse der Autoren untersucht und der Staggered Dif
 
 In Kapitel 6 lag der Fokus auf den starken SMS-Verboten und der Überprüfung der Robustheit der Ergebnisse hinsichtlich dieser Verbote. Dabei analysierten wir, ob die geschätzten Effekte auf Verkehrsunfälle unabhängig von der Modellwahl, der abhängigen Variablen und der Einbeziehung weiterer gesetzlicher Regelungen robust sind. Die Resultate zeigen, dass diese Verbote die Gesamtzahl der Verkehrsunfälle sowie die Verkehrsunfälle mit einem einzelnen Fahrzeug und einem Insassen verringern, jedoch kaum Einfluss auf Verkehrsunfälle mit mehreren Fahrzeugen oder Insassen, gefahrene Fahrzeugmeilen oder Verkehrsunfälle pro Million gefahrene Fahrzeugmeilen haben. Ergänzend wendeten wir den Difference-in-Difference-in-Differences-Ansatz an, um neben zeitlichen Unterschieden und Unterschieden zwischen den Staaten auch Unterschiede zwischen verschiedenen Unfallarten zu berücksichtigen. Die Analyse zeigt dabei eine signifikante Reduktion der Verkehrsunfälle mit einem einzelnen Fahrzeug und einem Insassen um $14,43$ %. Sowohl die Beschränkung der Daten auf den Zeitraum bis 2009 als auch die Berücksichtigung von Fixeffekten für die Jahre 2007 bis 2010 sowie für einzelne Monate bestätigen diesen Rückgang. Zudem ist die Abnahme in Bundesstaaten mit zusätzlichem Handyverbot stärker ausgeprägt als in Bundesstaaten ohne eine solche Regelung. Negative binomiale Regressionen hingegen liefern schwächere und unsignifikante Effekte.
 
-In Kapitel 7 vertieften wir die Hauptanalyse der Autoren und analysierten die Auswirkungen der SMS-Verbote auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen über die Zeit mithilfe einer Eventstudie. Die Hauptanalyse zeigt, dass schwache SMS-Verbote keine konsistente Wirkung auf die Unfallzahlen haben. Vor der Einführung eines starken Verbots sind keine auffälligen Veränderungen in den Unfalltrends erkennbar. Im ersten Monat nach Inkrafttreten eines starken Verbots lässt sich jedoch in den Abbildungen 7.1 und 7.2 eine relative Reduktion der Verkehrsunfälle um $17$ - $18$ % beobachten. Diese Wirkung nimmt in den darauffolgenden Monaten jedoch rasch ab. Bereits im zweiten Monat schwächt sich der Effekt ab, und bis zum vierten Monat ist er vollständig verschwunden. In der Eventstudie zeigt sich ein klares Muster: Nach der Einführung  eines starken Verbots kommt es im ersten Monat zwar zu einer deutlichen Reduktion der Unfallzahlen, doch bereits nach wenigen Monaten kehren diese auf ihr ursprüngliches Niveau zurück. Dies deutet darauf hin, dass der Effekt nicht langfristig anhält. Insgesamt zeigen starke SMS-Verbote eine kurzfristige Reduktion der Unfallzahlen und könnten dadurch Leben retten, doch ihre Wirkung lässt schnell nach. Somit ist der sogenannte Ankündigungseffekt erkennbar. Besonders ausgeprägt ist der Ankündigungseffekt in Bundesstaaten, in denen kein gleichzeitiges Handyverbot besteht. Für diesen Effekt gibt es zwei mögliche Erklärungen. Die erste ist, dass Fahrer Wege zur Umgehung des Verbots finden. Die zweite ist, dass eine unzureichende Durchsetzung der Verbote die Hauptursache darstellt. Die Ergebnisse stützen zwar die zweite Erklärung, dennoch kann die erste nicht ausgeschlossen werden. Die Autoren kommen zu dem Schluss, dass durch eine verstärkte Durchsetzung der Verbote mehr Menschenleben gerettet werden könnten. Zudem würde ein generelles Handyverbot die Effektivität der SMS-Verbote steigern, aber zusätzliche Kosten für die Fahrer\*innen verursachen. (vgl. Abouk & Adams (2013)). 
+In Kapitel 7 vertieften wir die Hauptanalyse der Autoren und analysierten die Auswirkungen der SMS-Verbote auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen über die Zeit mithilfe einer Eventstudie. Die Hauptanalyse zeigt, dass schwache SMS-Verbote keine konsistente Wirkung auf die Unfallzahlen haben. Vor der Einführung eines starken Verbots sind keine auffälligen Veränderungen in den Unfalltrends erkennbar. Im ersten Monat nach Inkrafttreten eines starken Verbots lässt sich jedoch in den Abbildungen 7.1 und 7.2 eine relative Reduktion der Verkehrsunfälle um $17$ - $18$ % beobachten. Diese Wirkung nimmt in den darauffolgenden Monaten jedoch rasch ab. Bereits im zweiten Monat schwächt sich der Effekt ab, und bis zum vierten Monat ist er vollständig verschwunden. In der Eventstudie zeigt sich ein klares Muster: Nach der Einführung  eines starken Verbots kommt es im ersten Monat zwar zu einer deutlichen Reduktion der Unfallzahlen, doch bereits nach wenigen Monaten kehren diese auf ihr ursprüngliches Niveau zurück. Dies deutet darauf hin, dass der Effekt nicht langfristig anhält. Insgesamt zeigen starke SMS-Verbote eine kurzfristige Reduktion der Unfallzahlen und könnten dadurch Leben retten, doch ihre Wirkung lässt schnell nach. Somit ist der sogenannte Ankündigungseffekt erkennbar. Besonders ausgeprägt ist der Ankündigungseffekt in Bundesstaaten, in denen kein gleichzeitiges Handyverbot besteht. Für diesen Effekt gibt es zwei mögliche Erklärungen. Die erste ist, dass Fahrer Wege zur Umgehung des Verbots finden. Die zweite ist, dass eine unzureichende Durchsetzung der Verbote die Hauptursache darstellt. Die Ergebnisse stützen zwar die zweite Erklärung, dennoch kann die erste nicht ausgeschlossen werden. Die Autoren kommen zu dem Schluss, dass durch eine verstärkte Durchsetzung der Verbote mehr Menschenleben gerettet werden könnten. Zudem würde ein generelles Handyverbot die Effektivität der SMS-Verbote steigern, aber zusätzliche Kosten für die Fahrer\*innen verursachen (vgl. Abouk & Adams (2013)). 
 
 In der Hauptanalyse, die den Zeitraum von 2007 bis 2010 umfasst, haben nur wenige Bundesstaaten neben SMS-Verboten auch gleichzeitig ein Handyverbot eingeführt. Daher sollte die zukünftige Forschung eine Erweiterung vornehmen, um weitere Bundesstaaten zu berücksichtigen, die nach 2010 ein solches Verbot eingeführt haben, da sich die gesetzlichen Regelungen in den USA seither verändert haben und inzwischen deutlich mehr Bundesstaaten ein generelles Handyverbot eingeführt haben (vgl. National Highway Traffic Safety Administration (2024)). Zukünftige Studien sollten untersuchen, ob die Ergebnisse in diesen Bundesstaaten repliziert werden können. Des Weiteren sind die Bußgelder in den meisten Bundesstaaten für Verstöße gegen SMS-Verbote relativ niedrig. Zukünftige Forschungen könnten untersuchen, ob höhere Strafen das Verhalten der Fahrer stärker beeinflussen und langfristige Veränderungen bewirken. Zudem beschränkt sich die Hauptanalyse auf die USA, daher könnten zukünftige Studien untersuchen, ob ähnliche oder abweichende Effekte in anderen Ländern auftreten und inwieweit kulturelle Unterschiede sowie verschiedene Durchsetzungsstrategien die Wirksamkeit von SMS-Verboten beeinflussen.
 
