@@ -2290,9 +2290,88 @@ Hiermit sind wir am Ende dieses Problemsets angelangt. Ich hoffe, dass Sie viel 
 
 ### Wissenschaftliche Artikel, Bücher und Berichte
 
-Abouk, R., & Adams, S. (2013). Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans? *American Economic Journal: Applied Economics*, *5*(2), 179–199.
+Abouk, R., & Adams, S. (2013). Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans? *American Economic Journal: Applied Economics*, *5*(2), S. 179–199.
 
-...
+Allison, P. D. (2005). *Fixed effects regression methods for longitudinal data using SAS*. 1. Auflage, Cary, N.C: SAS Institute.
+
+Baker, A. C., Larcker, D. F., & Wang, C. C. Y. (2022). How much should we trust staggered difference-in-differences estimates? *Journal of Financial Economics*, *144*(2), S. 370–395.
+
+Békés, G., & Kézdi, G. (2021). *Data Analysis for Business, Economics, and Policy*. 1. Auflage, Cambridge: Cambridge University Press.
+
+Brandler, S., & Roman, C. P. (2007). *Handbook of Research Methods in Public Administration*. In G. J. Miller & K. Yang (Hrsg.), 2. Auflage, Boca Raton: CRC Press. https://doi.org/10.1201/9781420013276.
+
+Callaway, B., & Sant’Anna, P. H. C. (2021). Difference-in-Differences with multiple time periods. *Themed Issue: Treatment Effect 1*, *225*(2), S. 200–230.
+
+Cameron, A. C., & Miller, D. L. (2015). A Practitioner’s Guide to Cluster-Robust Inference. *Journal of Human Resources*, *50*(2), S. 317–372.
+
+Conley, T. G., & Taber, C. R. (2011). Inference with “Difference in Differences” with a Small Number of Policy Changes. *The Review of Economics and Statistics*, *93*(1), S. 113–125.
+
+Cornelissen, T. (2008). The Stata Command Felsdvreg to Fit a Linear Model with Two High-Dimensional Fixed Effects. The Stata *Journal: Promoting Communications on Statistics and Stata*, *8*(2), S. 170–189.
+
+Cotti, C., & Tefft, N. (2011). Decomposing the Relationship between Macroeconomic Conditions and Fatal Car Crashes during the Great Recession: Alcohol- and Non-Alcohol-Related Accidents. *The B.E. Journal of Economic Analysis & Policy*, S. *11*(1).
+
+Feng, S., & Bilinski, A. (2024). Parallel Trends in an Unparalleled Pandemic Difference-in-differences for infectious disease policy evaluation. Medrixv. https://doi.org/10.1101/2024.04.08.24305335.
+
+Frings, C. (2010). *Soziales Vertrauen: Eine Integration der soziologischen und der ökonomischen Vertrauenstheorie*. 1. Auflage, Wiesbaden: VS Verlag für Sozialwissenschaften.
+
+Frost, I. (2017). *Statistische Testverfahren, Signifikanz und p-Werte: Allgemeine Prinzipien verstehen und Ergebnisse angemessen interpretieren*. 1. Auflage, Wiesbaden: Springer VS.
+
+Gerbing, D. (2020). *R Visualizations: Derive Meaning from Data*. 1. Auflage, New York: Chapman and Hall/CRC Press.
+
+Gertler, P. J., Martinez, S., Premand, P., Rawlings, L., & Vermeersch, C. (2016). *Impact Evaluation in Practice: Second Edition*. 2. Auflage, Washington, DC: Inter-American Development Bank and World Bank.
+
+Gërxhani, K., de Graaf, N. D., & Raub, W. (2022). *Handbook of Sociological Science: Contributions to Rigorous Sociology*. (Research Handbooks in Sociology Series). Cheltenham, UK & Northampton, MA, USA: Edward Elgar Publishing. https://doi.org/10.4337/9781789909432.
+
+Gibbons, C. E., Suárez Serrato, J. C., & Urbancic, M. B. (2019). Broken or Fixed Effects? *Journal of Econometric Methods*, *8*(1), S. 20170002.
+
+Hackl, P. (2012). *Einführung in die Ökonometrie*. 2., aktualisierte Auflage, München: Pearson Studium.
+
+Heckert, M., & Mennis, J. (2012). The Economic Impact of Greening Urban Vacant Land: A Spatial Difference-In-Differences Analysis. *Environment and Planning A: Economy and Space*, *44*(12), S. 3010–3027.
+
+Highway Loss Data Institute. (2010). *Texting Laws and Collision Claim Frequencies*. Highway Loss Data Institute (HLDI) Bulletin 27 (11). Arlington, September. https://www.iihs.org/media/fc495300-6f8c-419d-84d7-c3b94d178e5a/enPLrA/HLDI%20Research/Bulletins/hldi_bulletin_27.11.pdf. 
+
+Hoyt, R., & Muenchen, R. (Hrsg.). (2019). *Introduction to Biomedical Data Science*.* Lulu.com. https://www.lulu.com/shop/robert-muenchen-and-robert-hoyt/introduction-to-biomedical-data-science/paperback/product-1y55vqep.html.
+
+Khandker, S. R., Koolwal, G., & Samad, H. A. (2010). *Handbook on Impact Evaluation: Quantitative Methods and Practices (English)*. Washington, D.C: World Bank. http://documents.worldbank.org/curated/en/650951468335456749.
+
+Kumar, S., Mahadevan, A., & Gunasekaran, S. (2012). Market Reaction to Dividend An-nouncement: An Empirical Study Using Event Study Technique. *Prestige International Journal of Management & IT - Sanchayan*, *1*(1), S. 141–153.
+
+Lechner, M., Rodriguez-Planas, N., & Fernández Kranz, D. (2015). Difference-in-difference estimation by FE and OLS when there is panel non-response. *Journal of Applied Statistics*, *43*(11), S. 2044–2052.
+
+Lee, C. F., & Lee, J. C. (2020). *Handbook of Financial Econometrics, Mathematics, Statistics, and Machine Learning: (In 4 Volumes)*. 4. Auflage, Singapore: World Scientific.
+
+Morin, J.-F., Olsson, C., & Atikcan, E. Ö. (Hrsg.). (2021). *Research Methods in the Social Sciences: An A-Z of key concepts*. 1. Auflage, Oxford: Oxford University Press.
+
+Nagengast, A. J., & Yotov, Y. V. (2025). Staggered Difference-in-Differences in Gravity Settings: Revisiting the Effects of Trade Agreements. *American Economic Journal: Applied Economics*, *17*(1), S. 271–296.
+
+Naghawi, H. (2018). Negative Binomial Regression Model for Road Crash Severity Prediction. *Modern Applied Science*, *12*(4), S. 38.
+
+National Highway Traffic Safety Administration. (2024). *Driver Electronic Device Use in 2022*. DOT HS 813 531. National Highway Traffic Safety Administration (NHTSA). Washington, DC, Januar. https://crashstats.nhtsa.dot.gov/Api/Public/ViewPublication/813531. 
+
+Obszelka, D., & Baierl, A. (2020). *Statistisches Programmieren mit R: Eine ausführliche, übersichtliche, spannende und praxiserprobte Einführung*. 1. Auflage 2020, Wiesbaden: Springer Vieweg.
+
+Olden, A., & Møen, J. (2022). The triple difference estimator. *The Econometrics Journal*, *25*(3), S. 531–553.
+
+Riveros-Gavilanes, J. M. (2023). A simple test of parallel pre-trends for Differences-in-Differences.
+
+Schneider, H. (2007). *Nachweis und Behandlung von Multikollinearität*. In S. Albers, D. Klapper, U. Konradt, A. Walter, & J. Wolf (Hrsg.), Methodik der empirischen Forschung. 2. Auflage, (S. 183–198). Wiesbaden: Gabler.
+
+Smith, R. B. (2011). *Multilevel Modeling of Social Problems: A Causal Perspective*.* 2011. Auflage, Dordrecht: Springer.
+
+Speckmann, E.-J., Hescheler, J., & Köhling, R. (Hrsg.). (2024). *Physiologie: Das Lehrbuch*. 8. Auflage, München: Urban & Fischer Verlag/Elsevier.
+
+Stiller, P. (2007). *Gründe für Desinvestitionen: Eine Event-History-Analyse unter besonderer Beruecksichtigung des Entscheidungsverhaltens des Managements*. 1. Auflage, Wiesbaden: Deutscher Universitätsverlag.
+
+Teichmann, K. (2007). *Strategie und Erfolg von Fußballunternehmen*. 2007. Auflage, Wiesbaden: Deutscher Universitätsverlag.
+
+Urban, D., & Mayerl, J. (2018). *Angewandte Regressionsanalyse: Theorie, Technik und Praxis*. 5., überarbeitete Auflage, Wiesbaden: Springer VS.
+
+Villa, J. M. (2016). Diff: Simplifying the Estimation of Difference-in-differences Treatment Effects. *The Stata Journal: Promoting Communications on Statistics and Stata*, *16*(1), S. 52–71.
+
+Yu, H., Peng, F., Yuan, T., Li, D., & Shi, D. (2023). The effect of low-carbon pilot policy on low-carbon technological innovation in China: Reexamining the porter hypothesis using difference-in-difference-in-differences strategy. *Journal of Innovation & Knowledge*, *8*(3), S. 100392.
+
+Zhang, T. (2020). Integrating geographic information system technique with Google Trends data to analyse COVID-19 severity and public interest. *Public Health*, *189*, S. 3–4.
+
 
 ### Webseiten und Zeitungsartikel
 
@@ -2300,9 +2379,10 @@ Appelbaum, B. (2011). As U.S. Agencies Put More Value on a Life, Businesses Fret
 
 Gehlen, R. (2023). So gefährlich ist eine Kurznachricht am Steuer. *Süddeutsche Zeitung*. 02. März 2023. https://www.sueddeutsche.de/wirtschaft/sms-am-steuer-unfall-gefahr-versicherung-1.5761242.
 
-International Association for the Wireless Telecommunications Industry (CTIA) (2012). Wireless Quick Facts. http:// www.ctia.org/advocacy/research/index.cfm/AID/10323. Abgerufen am 16. Oktober 2024.
+International Association for the Wireless Telecommunications Industry. 2012. “Wireless Quick Facts.” International Association for the Wireless Telecommunications Industry (CTIA). http://www.ctia.org/advocacy/research/index.cfm/AID/10323. Abgerufen am 16. Oktober 2024.
 
 Riepl, W. (2019). R-Programmierung: Was ist %>%? Dplyr vs. Base R. https://statistik-dresden.de/r-programmierung-was-ist-dplyr-vs-base-r/. Abgerufen am 27. Februar 2025.
+
 
 
 ### R und R-Pakete 
