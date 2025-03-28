@@ -736,7 +736,7 @@ Die Variablen `Arbeitslosenquote`, `Männeranteil` und `Benzinsteuer` zeigen, da
 
 Die Autoren nehmen an, dass bei einer konstanten Bevölkerungszahl von 6 Millionen sowohl vor als auch nach der Einführung von SMS-Verboten beim Fahren zu einem Rückgang der tödlichen Verkehrsunfälle von durchschnittlich 2,5 Fällen pro Monat führt. Da jedoch landesweit ein allgemeiner Rückgang tödlicher Verkehrsunfälle zu beobachten ist, auch in Bundesstaaten ohne ein solches Verbot, wenden wir in den folgenden Kapiteln die **Difference-in-Differences-Methode** an, um den spezifischen Effekt des Verbots herauszuarbeiten (vgl. Abouk & Adams, 2013). Zudem vermuten die Autoren, dass der Rückgang der Verkehrsunfälle insbesondere in den ersten Monaten nach der Einführung des Verbots auftritt und dies auf eine mögliche kurzfristige Verhaltensänderung hinweisen könnte. Diese Annahme wird in den nächsten Kapiteln näher untersucht. 
 
-**Zusammenfassung**:
+**Zusammenfassung**
 
 In diesem Kapitel wurden deskriptive Analysen durchgeführt. Dabei wurde eine Karte erstellt, die zeigt, welche US-Bundesstaaten zur Behandlungsgruppe und welche zur Kontrollgruppe gehören. Die Behandlungsgruppe besteht aus den Bundesstaaten mit einem Verbot von SMS während der Fahrt , während die Kontrollgruppe aus Bundesstaaten ohne dieses Verbot besteht. Zusätzlich untersuchten wir den Datensatz `USdata.rds`, um detaillierte Informationen über die Behandlungsgruppe zu erhalten. Wir visualisierten die Bundesstaaten, die gleichzeitig ein universelles Handyverbot erlassen, mithilfe eines Balkendiagramms. Abschließend berechneten wir für beide Gruppen vor und nach der Einführung des SMS-Verbots statistische Kennzahlen wie Unfallzahlen, Bevölkerung und Arbeitslosenquote. 
 
@@ -1494,7 +1494,7 @@ Die Ergebnisse der **fünften Regression** zeigen, dass starke Verbote die Verke
 
 Insgesamt lässt sich feststellen, dass SMS-Verbote während der Fahrt dazu beitragen können, tödliche Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen zu reduzieren, insbesondere wenn es sich um starke SMS-Verbote handelt.
 
-**Zusammenfassung:**
+**Zusammenfassung**
 
 In diesem Kapitel haben wir die Unterschiede zwischen dem klassischen und dem Staggered-DiD-Ansatz erläutert und die Hauptanalyse der Autoren durchgeführt. Mithilfe der Funktion `lm_robust()` schätzten wir ein Regressionsmodell, um den Effekt des SMS-Verbots auf die Anzahl der tödlichen Verkehrsunfälle mit einem einzelnen Fahrzeug und einem Insassen zu untersuchen. Dabei ließ sich feststellen, dass das SMS-Verbot in den Behandlungsstaaten im Vergleich zur Kontrollgruppe zu einer Reduktion solcher Verkehrsunfälle um $3,7$ % führt. Anschließend differenzierten wir zwischen starken und schwachen Verboten und schätzten vier weitere Regressionsmodelle. Die Ergebnisse wurden mithilfe der Funktion `modelsummary()` aus dem gleichnamigen Paket in einer Tabelle dargestellt. Zusammengefasst zeigen die Ergebnisse, dass starke SMS-Verbote tödliche Verkehrsunfälle mit einem einzelnen Fahrzeug und einem einzelnen Insassen reduzieren, während schwache Verbote keinen solchen Effekt haben. 
 
@@ -2781,7 +2781,7 @@ Der Verlauf ähnelt dem des ersten Diagramms, jedoch zeigt sich eine noch deutli
 
 Die Ergebnisse stützen zwar die zweite Erklärung für den Ankündigungseffekt, wonach eine unzureichende Durchsetzung der Verbote die Hauptursache ist. Dennoch kann die erste Erklärung, dass Fahrer\*innen Wege zur Umgehung des Verbots finden, nicht ausgeschlossen werden (vgl. Abouk & Adams, 2013). Die Autoren fügen hinzu, dass der Ankündigungseffekt in allen vier Abbildungen robust ist und eine verstärkte Durchsetzung der Verbote dazu beitragen könnte, mehr Leben zu retten.
 
-**Zusammenfassung**:  
+**Zusammenfassung**  
 
 In dieser Eventstudie wurde der Einfluss von SMS-Verboten auf Verkehrsunfälle mit einem Fahrzeug und einem Insassen über die Zeit untersucht. Zur Veranschaulichung der geschätzten Lead- und Lag-Koeffizienten sowie der 95 %-Konfidenzintervalle extrahierten wir diese aus der mit `lm_robust()` geschätzten Regressionsgleichung (7.1) und stellten die Ergebnisse in vier Abbildungen mit dem Paket `ggplot2` dar. Erstmals in diesem Problem Set verwendeten wir dabei die Funktion `facet_wrap()`, um die Diagramme nach Zeitperioden zu unterteilen.
 
