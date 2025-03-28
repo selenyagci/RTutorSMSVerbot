@@ -1616,7 +1616,7 @@ for (i in 1:11) {
   vals_b = extract_values(mod_b, coef_name, clustered)
   vals_c = extract_values(mod_c, coef_name, clustered)
   
-results_list[[i]] = data.frame(Row_Name = c("(1) Modell 3 bis 5 aus Tabelle 5.2", "(2) Gesamtanzahl aller Verkehrsunfälle als abhängige Variable", "(3) Mehrere Fahrzeuge oder Insassen als abhängige Variable", "(4) DDD-Ansatz", "(5)  Gefahrene Fahrzeugmeilen als abhängige Variable", "(6) Verkehrsunfälle pro Million Fahrzeugmeilen ", "(7) Paralleles Handyverbot","(8) Kein Handyverbot","(9) Negative binomiale Regression","(10) Fixeffekte für Jahre und für Monate eines Jahres", "(11) Daten bis einschließlich 2009")[i], modela = paste0(vals_a[1], " (", vals_a[2], ")", vals_a[3]), modelb = ifelse(i == 10, "—", paste0(vals_b[1], " (", vals_b[2], ")", vals_b[3])), modelc = paste0(vals_c[1], " (", vals_c[2], ")", vals_c[3]))
+results_list[[i]] = data.frame(Row_Name = c("(1) Modelle 3 bis 5 aus Tabelle 5.2", "(2) Gesamtanzahl aller Verkehrsunfälle als abhängige Variable", "(3) Mehrere Fahrzeuge oder Insassen als abhängige Variable", "(4) DDD-Ansatz", "(5)  Gefahrene Fahrzeugmeilen als abhängige Variable", "(6) Verkehrsunfälle pro Million Fahrzeugmeilen ", "(7) Paralleles Handyverbot","(8) Kein Handyverbot","(9) Negative binomiale Regression","(10) Fixeffekte für Jahre und für Monate eines Jahres", "(11) Daten bis einschließlich 2009")[i], modela = paste0(vals_a[1], " (", vals_a[2], ")", vals_a[3]), modelb = ifelse(i == 10, "—", paste0(vals_b[1], " (", vals_b[2], ")", vals_b[3])), modelc = paste0(vals_c[1], " (", vals_c[2], ")", vals_c[3]))
 
 }
 
