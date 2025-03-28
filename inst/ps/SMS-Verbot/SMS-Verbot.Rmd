@@ -560,7 +560,7 @@ Werfen wir nun einen Blick auf die Variablen in der Tabelle:
 
 + **Anzahl der tödlichen Verkehrsunfälle mit einem einzigen Fahrzeug und einem einzelnen Insassen (monatlich)**: Die durchschnittliche Anzahl solcher Unfälle beträgt in der Kontrollgruppe $16,84$, während sie in der Behandlungsgruppe über alle Monate hinweg bei $16,13$ liegt. In den Monaten vor dem Verbot liegt sie bei $16,12$ und in den Monaten nach dem Verbot bei $16,16$. Über alle Zeiträume hinweg ist keine wesentliche Veränderung der Unfallzahlen in der Behandlungsgruppe zu beobachten. Diese Variable ist die Hauptvariable in unserer Analyse (vgl. Abouk & Adams, 2013).
 
-+ **Bevölkerung (jährlich)**: Die durchschnittliche Bevölkerung in der Kontrollgruppe beträgt $5$ $157$ $694$. In der Behandlungsgruppe liegt sie über alle Monate hinweg bei $7$ $064$ $738$, vor dem Verbot bei $6$ $614$ $487$ und ist nach dem SMS-Verbot deutlich auf $8$ $066$ $044$ angestiegen.
++ **Bevölkerung (jährlich)**: Die durchschnittliche Bevölkerung in der Kontrollgruppe beträgt $5$ $157$ $694$. In der Behandlungsgruppe liegt sie über alle Monate hinweg bei $7$ $064$ $738$.
 
 + **Arbeitslosenquote (monatlich)**: Die Arbeitslosenquote in der Kontrollgruppe liegt bei durchschnittlich $6,51$ %. In der Behandlungsgruppe beträgt die Quote über alle Monate hinweg $6,83$ %, während sie vor dem Verbot bei $6,01$ % und nach dem Verbot bei $8,63$ % liegt.
 
