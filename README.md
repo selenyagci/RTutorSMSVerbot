@@ -1,6 +1,6 @@
-Dieses Paket beinhaltet ein interaktives R Problemset, welches auf dem Paket RTutor basiert (https://github.com/skranz/RTutor). 
+Dieses Paket beinhaltet ein interaktives R Problem Set, welches auf dem Paket RTutor basiert (https://github.com/skranz/RTutor). 
 
-Das Problemset beschäftigt sich mit dem Artikel "Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans?" von Abouk und Adams (2013). Ziel ist es, den Effekt von SMS-Verboten auf tödliche Verkehrsunfälle mithilfe des Difference-in-Differences-Ansatzes zu untersuchen. Dazu werden sowohl deskriptive Analysen als auch Regressionsanalysen durchgeführt und die Ergebnisse der Autoren repliziert. Den vollständigen Artikel finden Sie unter folgendem Link:
+Das Problem Set beschäftigt sich mit dem Artikel "Texting Bans and Fatal Accidents on Roadways: Do They Work? Or Do Drivers Just React to Announcements of Bans?" von Abouk und Adams (2013). Ziel ist es, den Effekt von SMS-Verboten auf tödliche Verkehrsunfälle mithilfe des Difference-in-Differences-Ansatzes zu untersuchen. Dazu werden sowohl deskriptive Analysen als auch Regressionsanalysen durchgeführt und die Ergebnisse der Autoren repliziert. Den vollständigen Artikel finden Sie unter folgendem Link:
 https://www.aeaweb.org/articles?id=10.1257/app.5.2.179.
 
 
@@ -16,8 +16,8 @@ if (!require(devtools))
 devtools::install_github("selenyagci/RTutorSMSVerbot")
 ```
 
-## 2. Anzeigen und Bearbeiten des Problemsets
-Um mit dem Problemset zu starten, erstellen Sie zunächst ein Arbeitsverzeichnis, in dem Dateien wie Datensätze und Ihre Lösung gespeichert werden. Passen Sie anschließend den folgenden Code an und führen ihn aus.
+## 2. Anzeigen und Bearbeiten des Problem Sets
+Um mit dem Problem Set zu starten, erstellen Sie zunächst ein Arbeitsverzeichnis, in dem Dateien wie Datensätze und Ihre Lösung gespeichert werden. Passen Sie anschließend den folgenden Code an und führen ihn aus.
 ```s
 library(RTutorSMSVerbot)
 
@@ -27,4 +27,4 @@ setwd("C:/problemsets/RTutorSMSVerbot")
 run.ps(user.name="Jon Doe", package="RTutorSMSVerbot",
        auto.save.code=TRUE, clear.user=FALSE)
 ```
-Wenn alles gut funktioniert, sollte sich ein Browserfenster öffnen. Sie können nun mit der Bearbeitung des Problemsets starten.
+Wenn alles gut funktioniert, sollte sich ein Browserfenster öffnen. Sie können nun mit der Bearbeitung des Problem Sets starten.
